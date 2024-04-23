@@ -1,0 +1,128 @@
+html {
+  transition: all 0.2s;
+}
+.target {
+  transition: none !important;
+}
+.app {
+  text-align: center;
+}
+
+.design-list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.design-item {
+  cursor: pointer;
+}
+
+.tshirt-preview img {
+  max-width: 100%;
+}
+.react-draggable {
+  border: #2e2e2e dashed 1px;
+}
+body {
+  background-image: url(../src/Assets/images/background.jpg);
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: var(--colorText);
+}
+:root {
+  /* --font-size: 1.5vw; */
+
+  --mainColor: #5b8f9a;
+  --colorBtn: #fafafa;
+  --colorText: #2e2e2e;
+  --redColor: #d33535;
+  --borderColor: #8e8e8e;
+  --inputBgColor: #f3f3f3;
+}
+.borderColor {
+  color: var(--borderColor);
+}
+.colorText {
+  color: var(--colorText);
+}
+.redColor {
+  color: var(--redColor);
+}
+.colorBtn {
+  color: var(--colorBtn);
+}
+.mainColor {
+  color: var(--mainColor);
+}
+.mainBg {
+  background-color: var(--mainColor);
+}
+.form {
+  border-radius: 32px;
+  border: 6px solid #fcfcfc;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.line {
+  height: 1px;
+  width: 45%;
+  background: var(--borderColor);
+}
+.or {
+  color: var(--borderColor);
+  width: 10%;
+  text-align: center;
+}
+.btnn {
+  background-color: var(--mainColor);
+  color: var(--colorBtn);
+  padding: 6px 5px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+}
+.btnnn {
+  background-color: #e5e5e5;
+  color: var(--colorText);
+  padding: 6px 5px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.active {
+  color: var(--mainColor) !important;
+}
+.cursor {
+  cursor: pointer;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+.show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s linear 0s, opacity 0.5s linear;
+  position: relative;
+}
+.show::after{
+  content: "x";
+  color: #d33535;
+  position: absolute;
+  top: -14px;
+  left: -2px;
+  font-weight: 700;
+  cursor: pointer;
+}

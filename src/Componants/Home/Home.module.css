@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+.body {
+  background-image: url(../../Assets/images/homeground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.head {
+  font-size: 59px;
+  font-weight: 700;
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: #2e2e2e;
+}
+.head2 {
+  font-size: 55px;
+  font-weight: 700;
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: #2e2e2e;
+}
+.content {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.span {
+  background: linear-gradient(
+    180deg,
+    #addeff 34.97%,
+    #ffbaa0,
+    #ffd892,
+    #ceff8d
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section {
+  background: #FAFAFA80;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.footer {
+  border: 6px solid #fcfcfc;
+}
+.contFooter {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+@media (max-width: 1200px) {
+  .head ,.head2{
+    font-size: 50px;
+  }
+  .head2 {
+    font-size: 41px;
+  }
+  .sec2 h2{
+    font-size: 47px ;
+    margin-top: 20px;
+  }
+}
+/* md */
+@media (max-width: 992px) {
+  .head {
+    font-size: 40px;
+  }
+  .sec2 h2{
+    font-size: 37px ;
+    margin-top: 20px;
+  }
+}
+/* sm */
+@media (max-width: 768px) {
+  .head ,.head2{
+    font-size: 48px ;
+    margin-top: 30px;
+  }
+
+}
+/* <sm */
+@media (max-width: 576px) {
+  .head ,.head2{
+    font-size: 40px ;}
+    .content {
+      font-size: 20px;}
+}

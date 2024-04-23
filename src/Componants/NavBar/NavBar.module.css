@@ -1,0 +1,21 @@
+.navbg {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 6px solid #fcfcfc;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 500;
+  font-size: 18px;
+  min-height: 85px;
+}
+
+.image {
+  width: 25px;
+  margin-right: 5px;
+}
+.input {
+  background-color: #F3F3F3;
+}

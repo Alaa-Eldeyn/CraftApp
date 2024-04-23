@@ -1,0 +1,48 @@
+.tapActive {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  border-radius: 10px 0 0 10px;
+}
+.box{
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0px -10 10px rgba(0, 0, 0, 0.5);
+  border-right: 6px solid #fcfcfc;
+  border-bottom: 6px solid #fcfcfc;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.layers{
+  width: 170px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0px -10 10px rgba(0, 0, 0, 0.5);
+  border-left: 6px solid #fcfcfc;
+  border-bottom: 6px solid #fcfcfc;
+  border-right: transparent solid 6px;
+
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.responsive{
+  height: 90vh;
+  max-width: 550px;
+  min-width: 130px;
+}
+.responsive2{
+  height: 90vh;
+  max-width: 130px;
+  min-width: 130px;
+}
+@media (max-width: 768px) {
+  .responsive {
+  max-width: 100%;
+
+  }
+  
+}
