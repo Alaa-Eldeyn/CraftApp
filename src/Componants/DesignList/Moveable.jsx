@@ -1,16 +1,23 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
 
 const Moveablee = () => {
   let { textContent } = useContext(ViewContext);
+  const [textState, setTextState] = useState(textContent);
+
+  
+  useEffect(() => {
+    setTextState(textContent);
+  }, [textState, textContent]);
+  
 
   return (
-    <div style={{ overflow: "hidden" }}>
-      {textContent.map((item, index) => {
+    <>
+      {textState.map((item, index) => {
         return (
-          <div key={index}>
+          <Fragment key={item.id}>
             <div
               className={`m-0 target ${item.textAlign} ${item.font}
         ${
@@ -44,7 +51,8 @@ const Moveablee = () => {
               {item.textAreaCont}
             </div>
             <Moveable
-              target={`.target:nth-child(${index + 1})`}
+              onClick={() => console.log(item.id)}
+              target={`.target`}
               draggable={true}
               resizable={true}
               edgeDraggable={true}
@@ -75,13 +83,13 @@ const Moveablee = () => {
               }}
               onScaleStart={(e) => {
                 e.setMinScaleSize([10, 10]);
-                e.setMaxScaleSize([30, 30]);
+                e.setMaxScaleSize([300, 300]);
               }}
             />
-          </div>
+          </Fragment>
         );
       })}
-    </div>
+    </>
   );
 };
 

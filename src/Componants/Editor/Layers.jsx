@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../DesignList/Resize'
 import style from './Editor.module.css'
 import style2 from './tools/Ai.module.css'
@@ -8,12 +8,22 @@ import img2 from '../../Assets/images/save.png'
 import { ViewContext } from '../../Context/ViewContext';
 const Layers = () => {
     let { textContent, iconContent,images ,shapeContent} = useContext(ViewContext);
-    const { click , setClick} = useContext(ViewContext)
+    const { click, setClick } = useContext(ViewContext)
+    const [textState, setTextState] = useState(textContent);
+    useEffect(() => { 
+        setTextState(textContent);
+    }, [textState, textContent]);
+    
 
     function clicked(){
         setClick(!click)
     }
 
+    const deleteHandler = (removeId) => {
+        textContent = textContent.filter((item) => item.id !== removeId);
+        console.log(textContent);
+        return textContent;
+    };
     const styles = {
         SvgColor: {
             svg: {
@@ -37,10 +47,10 @@ return (
                     <p className='p-0 m-0 ' style={{fontSize:'14px'}}>Click</p>
                 </div>
 
-                {textContent.map((item, index) => {
-                return (
-                    <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
-                    style={{width:'72px' , border:'1px solid #000' , height:'50px'} }>
+                {textState.map((item, index) => {
+                    return (
+                        <div key={index} className={`${click ? "rounded-2 my-1 py-2 show" : "rounded-2 my-1 py-2 hide"} `}
+                            style={{ width: '72px', border: '1px solid #000', height: '50px' }} onClick={() => { console.log(item.id); deleteHandler(item.id)}}>
                 
                     <pre
                         className={`m-0  ${item.font} 

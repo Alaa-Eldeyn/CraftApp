@@ -76,7 +76,8 @@ function App() {
       
         <ViewContextProvider>
           
-        <RouterProvider router={routers}></RouterProvider>
+          <RouterProvider router={routers}></RouterProvider>
+          
         </ViewContextProvider>
       
     </UserTokenProvider>

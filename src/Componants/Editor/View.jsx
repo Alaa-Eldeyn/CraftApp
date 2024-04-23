@@ -8,8 +8,7 @@ const View = ({ mainImg ,hoodibg ,hoodiback, hoodiB,hoodiF,setMainImg}) => {
       <div className="d-flex flex-column  gap-5 justify-content-center align-items-center">
         <div style={{ maxWidth: "400px", maxHeight: "450px" , position:'relative' }}>
           <img className="w-100 "  src={mainImg} alt="Main img" />
-          <Container>
-          </Container>
+          <Container/>
         </div>
 
         <div className="  d-flex justify-content-center align-items-center ">
@@ -18,7 +17,7 @@ const View = ({ mainImg ,hoodibg ,hoodiback, hoodiB,hoodiF,setMainImg}) => {
             className=" cursor p-0 d-flex justify-content-center align-items-center"
             style={{ width: "70%", height: "70%" }}
           >
-            <img className='m-2' style={mainImg===hoodiback ?  {width : '50px'} :{width : '70px'}}   src={hoodiF} alt="Main img" />
+            <img className='m-2' style={mainImg===hoodiback ?  {width : '50px'} :{width : '70px'}} src={hoodiF} alt="Main img" />
 
           </div>
           <div
