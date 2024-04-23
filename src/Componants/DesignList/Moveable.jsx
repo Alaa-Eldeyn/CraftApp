@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useState } from "react";
-import { Rnd } from "react-rnd";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
@@ -11,7 +10,7 @@ const Moveablee = () => {
     <div style={{ overflow: "hidden" }}>
       {textContent.map((item, index) => {
         return (
-          <>
+          <div key={index}>
             <div
               className={`m-0 target ${item.textAlign} ${item.font}
         ${
@@ -44,7 +43,6 @@ const Moveablee = () => {
             >
               {item.textAreaCont}
             </div>
-
             <Moveable
               target={`.target:nth-child(${index + 1})`}
               draggable={true}
@@ -80,7 +78,7 @@ const Moveablee = () => {
                 e.setMaxScaleSize([30, 30]);
               }}
             />
-          </>
+          </div>
         );
       })}
     </div>
