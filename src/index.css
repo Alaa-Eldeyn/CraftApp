@@ -115,14 +115,29 @@ body {
   visibility: visible;
   opacity: 1;
   transition: visibility 0.5s linear 0s, opacity 0.5s linear;
-  position: relative;
+  /* position: relative; */
 }
-.show::after{
+.del::after{
   content: "x";
   color: #d33535;
   position: absolute;
-  top: -14px;
-  left: -2px;
+  top: -21px;
+  left: -3px;
   font-weight: 700;
   cursor: pointer;
+}
+.del{
+  position: relative;
+}
+.del2::after{
+  content: "x";
+  color: #d33535;
+  position: absolute;
+  top: -38px;
+  left: -3px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.del2{
+  position: relative;
 }

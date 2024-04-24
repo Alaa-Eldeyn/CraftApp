@@ -4,16 +4,17 @@ import { ViewContext } from "../../../Context/ViewContext";
 
 const Shapes = () => {
   let { colorShapes , setColorShapes ,shapeContent ,svgShapes
-    ,setIdShapes , setSVGShapes  } = useContext(ViewContext)
+    ,setIdShapes , setSVGShapes  ,setShapeContent} = useContext(ViewContext)
 
     const addNote = () => {
       let note = {
         colorShapes: colorShapes,
         svgShapes:svgShapes
       };
-      shapeContent.push(note);
+      const newshapeContent = shapeContent.concat(note);
+      setShapeContent(newshapeContent);
     };
-    console.log(shapeContent);
+    
   const handleIconClick = (itemId, itemSvg) => {
     setIdShapes(itemId);
     setSVGShapes(itemSvg);

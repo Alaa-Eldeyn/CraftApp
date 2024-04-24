@@ -4,14 +4,15 @@ import { ViewContext } from "../../../Context/ViewContext";
 
 const Icons = () => {
   let { svg,  colorBtn , setColorBtn
-    , setId  , setSVG , iconContent } = useContext(ViewContext)
+    , setId  , setSVG , iconContent ,setIconContent} = useContext(ViewContext)
 
   const addNote = () => {
     let note = {
       colorBtn: colorBtn,
       svg:svg
-    };
-    iconContent.push(note);
+    }; 
+    const newIconContent = iconContent.concat(note);
+    setIconContent(newIconContent);
   };
   
   const handleIconClick = (itemId, itemSvg) => {

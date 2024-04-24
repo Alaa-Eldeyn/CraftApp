@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
@@ -17,9 +17,9 @@ const Moveablee = () => {
     <>
       {textState.map((item, index) => {
         return (
-          <Fragment key={item.id}>
+          <>
             <div
-              className={`m-0 target ${item.textAlign} ${item.font}
+              className={`m-0 position-absolute target ${item.textAlign} ${item.font}
         ${
           item.font === "Vibes"
             ? style.vibes
@@ -46,12 +46,13 @@ const Moveablee = () => {
                 transform: item.transform,
                 width: `${item.width}px`,
                 height: `${item.height}px`,
+                fontWeight:'900'
               }}
             >
               {item.textAreaCont}
             </div>
+
             <Moveable
-              onClick={() => console.log(item.id)}
               target={`.target`}
               draggable={true}
               resizable={true}
@@ -86,7 +87,7 @@ const Moveablee = () => {
                 e.setMaxScaleSize([300, 300]);
               }}
             />
-          </Fragment>
+          </>
         );
       })}
     </>
