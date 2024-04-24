@@ -102,29 +102,6 @@ return (
                     );
                 })}
 
-                {iconContent.map((icon, index) => {
-                const newSvg = icon.svg.replace(
-                    /fill=".*?"/g,
-                    `fill="${icon.colorBtn}"`,
-                    
-                );
-                return (
-                    <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
-                    style={{width:'72px' , border:'1px solid #000' , height:'50px'}} >
-                            <div className="del" onClick={() => { deleteHandler2(index)}}></div>
-                        <div
-                        style={{
-                        width: "100%",
-                        height: "100%",
-                        ...styles,
-                        }}
-                        
-                        dangerouslySetInnerHTML={{ __html: newSvg.replace(/<svg/g, `<svg width="30" height="30"` ) || "" }}
-                        ></div>
-                    </div>
-                );
-                })}
-
                 {shapeContent.map((icon, index) => {
                         const newSvgg = icon.svgShapes.replace(
                         /fill=".*?"/g,
@@ -149,7 +126,28 @@ return (
                             
                         );
                 })}
-
+                {iconContent.map((icon, index) => {
+                const newSvg = icon.svg.replace(
+                    /fill=".*?"/g,
+                    `fill="${icon.colorBtn}"`,
+                    
+                );
+                return (
+                    <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
+                    style={{width:'72px' , border:'1px solid #000' , height:'50px'}} >
+                            <div className="del" onClick={() => { deleteHandler2(index)}}></div>
+                        <div
+                        style={{
+                        width: "100%",
+                        height: "100%",
+                        ...styles,
+                        }}
+                        
+                        dangerouslySetInnerHTML={{ __html: newSvg.replace(/<svg/g, `<svg width="30" height="30"` ) || "" }}
+                        ></div>
+                    </div>
+                );
+                })}
                 {images.map((image, index) => {
                 return (
                     <div key={index} className={`${click ? "rounded-2 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 my-1 d-flex justify-content-center align-items-center hide"} `}

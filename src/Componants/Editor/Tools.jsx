@@ -10,10 +10,10 @@ const Tools = ({ content }) => {
       return <Color />;
     case "Shapes":
       return <Shapes />;
+      case "Icons":
+      return <Icons />;
     case "Photos":
       return <Photos />;
-    case "Icons":
-      return <Icons />;
     case "My Designs":
       return <Designs />;
     default:

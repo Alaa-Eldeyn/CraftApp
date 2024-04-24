@@ -57,14 +57,15 @@ const SideTaps = ({
     },
     {
       id: 5,
-      name: "Photos",
-      icon: Photos,
-    },
-    {
-      id: 6,
       name: "Icons",
       icon: Icons,
     },
+    {
+      id: 6,
+      name: "Photos",
+      icon: Photos,
+    },
+
     {
       id: 7,
       name: "My Designs",
