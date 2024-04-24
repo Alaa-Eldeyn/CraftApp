@@ -123,7 +123,7 @@ const SideTaps = ({
       isTapOpenArrow &&
       isTapOpenPhotos===false && 
       isTapOpenShapes ===false
-         ? `${style.responsive}position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
          isTapOpenAi===false && 
       isTapOpenColor===false && 
       isTapOpenText ===false&& 
@@ -250,7 +250,7 @@ const SideTaps = ({
       </ul>
       
       <div
-        className={`${style.box} w-100 flex-grow-1 rounded-end p-4 overflow-hidden`}
+        className={`${style.box} w-100  rounded-end p-4 overflow-hidden`}
         
       >
 

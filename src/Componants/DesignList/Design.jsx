@@ -179,6 +179,7 @@ const Design = () => {
           </Rnd>
         );
       })}
+      
       <div className="w-50 h-25">
         {images.map((image, index) => {
           return (
