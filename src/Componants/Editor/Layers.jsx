@@ -8,14 +8,8 @@ import img2 from '../../Assets/images/save.png'
 import { ViewContext } from '../../Context/ViewContext';
 const Layers = () => {
     let { textContent, iconContent,images ,shapeContent ,click, setClick , 
-        hide1,
-        setHide1,
-        hide2,
-        setHide2,
-        hide3,
-        setHide3,
-        hide4,
-        setHide4,
+        mutation1,
+        setMutation1,
     } = useContext(ViewContext);
 
     function clicked(){
@@ -24,23 +18,23 @@ const Layers = () => {
 
     const deleteHandler1 = (index) => {
         textContent = textContent.splice(index,1);
-        setHide1(!hide1); 
+        setMutation1(!mutation1); 
         return (textContent);
     };
 
     const deleteHandler2 = (index) => {
         iconContent = iconContent.splice(index,1);
-        setHide2(!hide2); 
+        setMutation1(!mutation1); 
         return (iconContent);
     };
     const deleteHandler3 = (index) => {
         shapeContent = shapeContent.splice(index,1);
-        setHide3(!hide3); 
+        setMutation1(!mutation1); 
         return (shapeContent);
     };
     const deleteHandler4 = (index) => {
         images = images.splice(index,1);
-        setHide4(!hide4); 
+        setMutation1(!mutation1); 
         return (images);
     };
 

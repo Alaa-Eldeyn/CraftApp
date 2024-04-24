@@ -12,10 +12,7 @@ export default function ViewContextProvider(props) {
   const [shapeContent, setShapeContent] = useState([]);
 
   const [ click , setClick] = useState(true)
-  const [ hide1 , setHide1] = useState (true)
-  const [ hide2 , setHide2] = useState (true)
-  const [ hide3 , setHide3] = useState (true)
-  const [ hide4 , setHide4] = useState (true)
+  const [ mutation1 , setMutation1] = useState (true)
 
 
   const [colorBtn, setColorBtn] = useState("#5B8F9A");
@@ -34,14 +31,8 @@ export default function ViewContextProvider(props) {
   return (
     <ViewContext.Provider
       value={{
-        hide1,
-        setHide1,
-        hide2,
-        setHide2,
-        hide3,
-        setHide3,
-        hide4,
-        setHide4,
+        mutation1,
+        setMutation1,
 
         setTextContent,
         setIconContent,
