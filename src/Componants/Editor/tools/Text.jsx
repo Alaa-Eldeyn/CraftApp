@@ -12,11 +12,10 @@ const Text = () => {
     color,
     setColor,
     textContent,
-    setTextContent
+    setTextContent,
   } = useContext(ViewContext);
 
   const [textAreaCont, setTextAreaCont] = useState("");
-  
 
   const handleChange = (e) => {
     setColor(e.target.value);
@@ -35,7 +34,8 @@ const Text = () => {
       textAreaCont: textAreaCont,
     };
     const newTextContent = textContent.concat(note);
-    setTextContent(newTextContent);}
+    setTextContent(newTextContent);
+  };
   return (
     <>
       <p className={style.text}>Add New Text</p>

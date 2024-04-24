@@ -12,12 +12,7 @@ export default function Container(){
         <div
           style={{
             position: "absolute",
-            top: "20%",
-            left: "25%",
-            bottom: "20%",
-            right: "20%",
-            width: "50%",
-            height: "70%",
+            inset: "55px 80px 80px 80px",
           }}
         >
           <Moveablee
@@ -25,11 +20,10 @@ export default function Container(){
             color={textContent.color}
             textAlign={textContent.textAlign}
             resize={textContent.textAreaCont}
-            colorBtn={iconContent.colorBtn} 
+            colorBtn={iconContent.colorBtn}
             svg={iconContent.svg}
             colorShapes={shapeContent.colorShapes}
             svgShapes={shapeContent.svgShapes}
-
             images={images}
           />
         </div>
