@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import '../DesignList/Resize'
 import style from './Editor.module.css'
 import style2 from './tools/Ai.module.css'
@@ -7,17 +7,41 @@ import img2 from '../../Assets/images/save.png'
 
 import { ViewContext } from '../../Context/ViewContext';
 const Layers = () => {
-    let { textContent, iconContent,images ,shapeContent ,click, setClick , setHide , hide} = useContext(ViewContext);
+    let { textContent, iconContent,images ,shapeContent ,click, setClick , 
+        hide1,
+        setHide1,
+        hide2,
+        setHide2,
+        hide3,
+        setHide3,
+        hide4,
+        setHide4,
+    } = useContext(ViewContext);
 
     function clicked(){
         setClick(!click)
     }
 
-    const deleteHandler = (index) => {
+    const deleteHandler1 = (index) => {
         textContent = textContent.splice(index,1);
+        setHide1(!hide1); 
+        return (textContent);
+    };
 
-        setHide(!hide); // Add this line to trigger the mutation observer
-        return (textContent , iconContent);
+    const deleteHandler2 = (index) => {
+        iconContent = iconContent.splice(index,1);
+        setHide2(!hide2); 
+        return (iconContent);
+    };
+    const deleteHandler3 = (index) => {
+        shapeContent = shapeContent.splice(index,1);
+        setHide3(!hide3); 
+        return (shapeContent);
+    };
+    const deleteHandler4 = (index) => {
+        images = images.splice(index,1);
+        setHide4(!hide4); 
+        return (images);
     };
 
     const styles = {
@@ -47,8 +71,8 @@ return (
                     return (
                         <>
                         <div key={index} className={`${click ? "rounded-2 my-1 py-2 show" : "rounded-2 my-1 py-2 hide"} `}
-                            style={{ width: '72px', border: '1px solid #000', height: '50px' }} onClick={() => { deleteHandler(index)}}>
-                            <div className="del"></div>
+                            style={{ width: '72px', border: '1px solid #000', height: '50px' }} >
+                            <div className="del" onClick={() => { deleteHandler1(index)}}></div>
                         <pre
                             className={`m-0  ${item.font} 
                             ${
@@ -92,8 +116,8 @@ return (
                 );
                 return (
                     <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
-                    style={{width:'72px' , border:'1px solid #000' , height:'50px'}}>
-                            <div className="del"></div>
+                    style={{width:'72px' , border:'1px solid #000' , height:'50px'}} >
+                            <div className="del" onClick={() => { deleteHandler2(index)}}></div>
                         <div
                         style={{
                         width: "100%",
@@ -116,7 +140,7 @@ return (
                         
                             <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
                             style={{width:'72px' , border:'1px solid #000' , height:'50px'}}>
-                                <div className="del"></div>
+                                <div className="del"  onClick={() => { deleteHandler3(index)}}></div>
                             
                                 <div
                                         style={{
@@ -135,8 +159,8 @@ return (
                 {images.map((image, index) => {
                 return (
                     <div key={index} className={`${click ? "rounded-2 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 my-1 d-flex justify-content-center align-items-center hide"} `}
-                    style={{width:'72px' , border:'1px solid #000' , height:'50px' }}>
-                    <div className="del2" ></div>
+                    style={{width:'72px' , border:'1px solid #000' , height:'50px' }} >
+                    <div className="del2" onClick={() => { deleteHandler4(index)}}></div>
                     
                     <div className='d-flex justify-content-center align-items-center' style={{overflow:'hidden' , width:'100%' , height:'100%'}}>
                     <img
