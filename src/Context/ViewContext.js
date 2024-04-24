@@ -33,7 +33,7 @@ export default function ViewContextProvider(props) {
       value={{
         mutation1,
         setMutation1,
-
+        
         setTextContent,
         setIconContent,
         setShapeContent,
