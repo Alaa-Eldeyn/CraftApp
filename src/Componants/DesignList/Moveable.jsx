@@ -35,46 +35,28 @@ const Moveablee = () => {
           transform: "scale(0.7, 0.7)",
         }}
       >
-        {textContent.map((item, index) => {
+
+        {images.map((image, index) => {
           return (
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} ${
-                  item.textAlign
-                } ${item.font}
-        ${
-          item.font === "Vibes"
-            ? style.vibes
-            : item.font === "Rakkas"
-            ? style.rakkas
-            : item.font === "Caveat"
-            ? style.Caveat
-            : item.font === "Ojuju"
-            ? style.ojuju
-            : item.font === "Shadows Into Light"
-            ? style.shadows
-            : item.font === "Dancing Script"
-            ? style.dancing
-            : item.font === "Noto Nastaliq Urdu"
-            ? style.amiri
-            : item.font === "Amiri"
-            ? style.amiri
-            : item.font === "Cairo"
-            ? style.Cairo
-            : style.roboto
-        }`}
+                className={`m-0 position-absolute target target${index+1} `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
-                  color: `${item.color}`,
-                  width: `${item.width}px`,
-                  height: `${item.height}px`,
+                  color: `${image.color}`,
+                  width:'150px',
+                  height:'150px',
                   fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",
                 }}
               >
-                {item.textAreaCont}
+              <img
+                  src={image.url}
+                  alt={image.name}
+                  className={`w-100 h-100 d-block`}
+                  />
               </div>
 
               <Moveable
@@ -106,7 +88,7 @@ const Moveablee = () => {
                 startDragRotate={0}
                 throttleDragRotate={0}
                 scalable={true}
-                keepRatio={false}
+                keepRatio={true}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
                 rotatable={true}
@@ -324,27 +306,46 @@ const Moveablee = () => {
           );
         })}
 
-        {images.map((image, index) => {
+        {textContent.map((item, index) => {
           return (
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} `}
+                className={`m-0 position-absolute target target${index+1} ${
+                  item.textAlign
+                } ${item.font}
+        ${
+          item.font === "Vibes"
+            ? style.vibes
+            : item.font === "Rakkas"
+            ? style.rakkas
+            : item.font === "Caveat"
+            ? style.Caveat
+            : item.font === "Ojuju"
+            ? style.ojuju
+            : item.font === "Shadows Into Light"
+            ? style.shadows
+            : item.font === "Dancing Script"
+            ? style.dancing
+            : item.font === "Noto Nastaliq Urdu"
+            ? style.amiri
+            : item.font === "Amiri"
+            ? style.amiri
+            : item.font === "Cairo"
+            ? style.Cairo
+            : style.roboto
+        }`}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
-                  color: `${image.color}`,
-                  width:'150px',
-                  height:'150px',
+                  color: `${item.color}`,
+                  width: `${item.width}px`,
+                  height: `${item.height}px`,
                   fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",
                 }}
               >
-              <img
-                  src={image.url}
-                  alt={image.name}
-                  className={`w-100 h-100 d-block`}
-                  />
+                {item.textAreaCont}
               </div>
 
               <Moveable
@@ -376,7 +377,7 @@ const Moveablee = () => {
                 startDragRotate={0}
                 throttleDragRotate={0}
                 scalable={true}
-                keepRatio={true}
+                keepRatio={false}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
                 rotatable={true}
