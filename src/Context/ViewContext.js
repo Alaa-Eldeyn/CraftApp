@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import html2canvas from "html2canvas";
+import { createContext, useRef, useState } from "react";
 
 export let ViewContext = createContext();
 
@@ -11,9 +12,11 @@ export default function ViewContextProvider(props) {
   const [iconContent, setIconContent] = useState([]);
   const [shapeContent, setShapeContent] = useState([]);
 
-  const [ click , setClick] = useState(true)
+  const [click, setClick] = useState(true)
+    const [image, setImage] = useState(null);
+    const [junk, setJunk] = useState(false);
   const [ mutation1 , setMutation1] = useState (true)
-
+const saveRef = useRef(null);
 
   const [colorBtn, setColorBtn] = useState("#5B8F9A");
   const [id, setId] = useState(1);
@@ -26,14 +29,28 @@ export default function ViewContextProvider(props) {
   const [svgShapes, setSVGShapes] = useState(`<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="40" cy="40" r="40" fill="#D9D9D9"/>
   </svg>`);
+const getImage = () => {
+  setJunk(true);
 
+  setTimeout(() => {
+    html2canvas(saveRef.current).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      setImage(imgData);
+    });
+    setJunk(false);
+  }, 1);
+};
   const [images, setImages] = useState([]);
   return (
     <ViewContext.Provider
       value={{
         mutation1,
         setMutation1,
-        
+        saveRef,
+        image,
+        setImage,
+        junk, setJunk,
+        getImage,
         setTextContent,
         setIconContent,
         setShapeContent,

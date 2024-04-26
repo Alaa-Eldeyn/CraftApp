@@ -9,7 +9,7 @@ import { ViewContext } from '../../Context/ViewContext';
 const Layers = () => {
     let { textContent, iconContent,images ,shapeContent ,click, setClick , 
         mutation1,
-        setMutation1,
+        setMutation1, getImage
     } = useContext(ViewContext);
 
     function clicked(){
@@ -52,7 +52,7 @@ return (
         <div
         className={`${style.layers} py-4 `}>
             <div style={{overflow:'auto' , height:'95%'}}  className="d-flex flex-lg-column flex-sm-row flex-md-row align-items-center overflow-auto text-center">
-            <div className=' cursor text-center rounded-2 my-1 py-2' style={{width:'72px' , border:'1px solid #5B8F9A' , backgroundColor:'#5B8F9A' , color:'#FCFCFC'}}>
+            <div onClick={getImage} className=' cursor text-center rounded-2 my-1 py-2' style={{width:'72px' , border:'1px solid #5B8F9A' , backgroundColor:'#5B8F9A' , color:'#FCFCFC'}}>
                     <img src={img2} alt="layers" className='w-25 pt-1'/>
                     <p className='p-0 m-0 ' style={{fontSize:'16px'}}>Save</p>
                 </div>

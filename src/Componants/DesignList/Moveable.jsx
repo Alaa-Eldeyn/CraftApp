@@ -1,19 +1,17 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useRef, useState } from "react";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
+import html2canvas from "html2canvas";
 
 const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
-  let { textContent , iconContent , shapeContent ,images} = useContext(ViewContext);
 
-  
+
+  let { textContent, iconContent, shapeContent, images, saveRef ,junk,image} =
+    useContext(ViewContext);
+
   const styles = {
     SvgColor: {
       svg: {
@@ -23,9 +21,11 @@ const Moveablee = () => {
       },
     },
   };
+  
   return (
     <>
       <div
+        ref={saveRef}
         className="snapContainer"
         style={{
           position: "relative",
@@ -35,28 +35,28 @@ const Moveablee = () => {
           transform: "scale(0.7, 0.7)",
         }}
       >
-
         {images.map((image, index) => {
           return (
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} `}
+                key={index}
+                className={`m-0 position-absolute target  `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
                   color: `${image.color}`,
-                  width:'150px',
-                  height:'150px',
+                  width: "150px",
+                  height: "150px",
                   fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",
                 }}
               >
-              <img
+                <img
                   src={image.url}
                   alt={image.name}
                   className={`w-100 h-100 d-block`}
-                  />
+                />
               </div>
 
               <Moveable
@@ -80,18 +80,20 @@ const Moveablee = () => {
                   bottom: 0,
                   position: "css",
                 }}
+                hideDefaultLines={true}
                 target={".target"}
+                origin={false}
                 individualGroupable={true}
                 draggable={true}
                 throttleDrag={1}
                 edgeDraggable={false}
                 startDragRotate={0}
                 throttleDragRotate={0}
-                scalable={true}
+                scalable={junk ? false : true}
                 keepRatio={true}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={true}
+                rotatable={junk ? false : true}
                 throttleRotate={0}
                 rotationPosition={"top"}
                 originDraggable={true}
@@ -129,7 +131,7 @@ const Moveablee = () => {
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} `}
+                className={`m-0 position-absolute target target${index + 1} `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
                   color: `${shape.color}`,
@@ -141,15 +143,15 @@ const Moveablee = () => {
                 }}
               >
                 <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  cursor: "pointer",
-                  ...styles,
-                }}
-                dangerouslySetInnerHTML={{ __html: newSvgg || "" }}
-                // اريد تلونها
-              ></div>
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    cursor: "pointer",
+                    ...styles,
+                  }}
+                  dangerouslySetInnerHTML={{ __html: newSvgg || "" }}
+                  // اريد تلونها
+                ></div>
               </div>
 
               <Moveable
@@ -173,18 +175,20 @@ const Moveablee = () => {
                   bottom: 0,
                   position: "css",
                 }}
+                hideDefaultLines={true}
                 target={".target"}
+                origin={false}
                 individualGroupable={true}
                 draggable={true}
                 throttleDrag={1}
                 edgeDraggable={false}
                 startDragRotate={0}
                 throttleDragRotate={0}
-                scalable={true}
+                scalable={junk ? false : true}
                 keepRatio={true}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={true}
+                rotatable={junk ? false : true}
                 throttleRotate={0}
                 rotationPosition={"top"}
                 originDraggable={true}
@@ -222,7 +226,7 @@ const Moveablee = () => {
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} `}
+                className={`m-0 position-absolute target target${index + 1} `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
                   color: `${icon.color}`,
@@ -234,15 +238,15 @@ const Moveablee = () => {
                 }}
               >
                 <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  cursor: "pointer",
-                  ...styles,
-                }}
-                dangerouslySetInnerHTML={{ __html: newSvg || "" }}
-                // اريد تلونها
-              ></div>
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    cursor: "pointer",
+                    ...styles,
+                  }}
+                  dangerouslySetInnerHTML={{ __html: newSvg || "" }}
+                  // اريد تلونها
+                ></div>
               </div>
 
               <Moveable
@@ -267,17 +271,19 @@ const Moveablee = () => {
                   position: "css",
                 }}
                 target={".target"}
+                hideDefaultLines={true}
+                origin={false}
                 individualGroupable={true}
                 draggable={true}
                 throttleDrag={1}
                 edgeDraggable={false}
                 startDragRotate={0}
                 throttleDragRotate={0}
-                scalable={true}
+                scalable={junk ? false : true}
                 keepRatio={true}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={true}
+                rotatable={junk ? false : true}
                 throttleRotate={0}
                 rotationPosition={"top"}
                 originDraggable={true}
@@ -311,7 +317,7 @@ const Moveablee = () => {
             <>
               <div
                 ref={targetRef}
-                className={`m-0 position-absolute target target${index+1} ${
+                className={`m-0 position-absolute target target${index + 1} ${
                   item.textAlign
                 } ${item.font}
         ${
@@ -370,17 +376,19 @@ const Moveablee = () => {
                   position: "css",
                 }}
                 target={".target"}
+                hideDefaultLines={true}
+                origin={false}
                 individualGroupable={true}
                 draggable={true}
                 throttleDrag={1}
                 edgeDraggable={false}
                 startDragRotate={0}
                 throttleDragRotate={0}
-                scalable={true}
+                scalable={junk ? false : true}
                 keepRatio={false}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={true}
+                rotatable={junk ? false : true}
                 throttleRotate={0}
                 rotationPosition={"top"}
                 originDraggable={true}
@@ -408,8 +416,6 @@ const Moveablee = () => {
             </>
           );
         })}
-
-
       </div>
     </>
   );
