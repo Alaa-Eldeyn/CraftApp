@@ -10,43 +10,27 @@ import img8 from "../../../Assets/images/green2.png";
 export const slides = [
     {
       src: img1,
-      title: 'Slide Title One',
-      description: 'Slide Description One\n\nthis is new line',
     },
     {
       src: img2 ,
-      title: 'Slide Title Two',
-      description: 'Slide Description Two',
     },
     {
       src:img3 ,
-      title: 'Slide Title Three',
-      description: 'Slide Description Three',
     },
     {
       src: img4,
-      title: 'Slide Title Four',
-      description: 'Slide Description Four',
     },
     {
       src: img5,
-      title: 'Slide Title Five',
-      description: 'Slide Description Five',
     },
     {
       src: img6,
-      title: 'Slide Title Six',
-      description: 'Slide Description Six',
     },
     {
       src:img7 ,
-      title: 'Slide Title Seven',
-      description: 'Slide Description Seven',
     },
     {
       src: img8 ,
-      title: 'Slide Title Eight',
-      description: 'Slide Description Eight',
     },
 
   ]

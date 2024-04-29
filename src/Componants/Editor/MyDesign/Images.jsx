@@ -15,7 +15,7 @@ const Images = (props) => {
             key={index}
             className={`${style.image}`}
           >
-            <img src={slide.src} alt={slide.description} />
+            <img src={slide.src} alt="Designs" />
           </div>
         ))}
       </div>
