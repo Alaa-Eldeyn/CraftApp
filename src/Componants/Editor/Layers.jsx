@@ -51,8 +51,9 @@ return (
     <>
         <div
         className={`${style.layers} py-4 `}>
-            <div style={{overflow:'auto' , height:'95%'}}  className="d-flex flex-lg-column flex-sm-row flex-md-row align-items-center overflow-auto text-center">
-            <div onClick={getImage} className=' cursor text-center rounded-2 my-1 py-2' style={{width:'72px' , border:'1px solid #5B8F9A' , backgroundColor:'#5B8F9A' , color:'#FCFCFC'}}>
+            <div  className={`${style.height}  d-flex flex-md-column flex-sm-row  align-items-center overflow-auto text-center`}>
+                <div onClick={getImage} className={`  cursor text-center rounded-2 my-1 py-2 ${style.padding}`} 
+                style={{width:'72px' , border:'1px solid #5B8F9A' , backgroundColor:'#5B8F9A' , color:'#FCFCFC'}}>
                     <img src={img2} alt="layers" className='w-25 pt-1'/>
                     <p className='p-0 m-0 ' style={{fontSize:'16px'}}>Save</p>
                 </div>
@@ -64,7 +65,7 @@ return (
                 {textContent.map((item, index) => {
                     return (
                         <>
-                        <div key={index} className={`${click ? "rounded-2 my-1 py-2 show" : "rounded-2 my-1 py-2 hide"} `}
+                        <div key={index} className={`${click ? "rounded-2 my-1 mx-sm-1 py-2 show" : "rounded-2 mx-sm-1 my-1 py-2 hide"} `}
                             style={{ width: '72px', border: '1px solid #000', height: '50px' }} >
                             <div className="del" onClick={() => { deleteHandler1(index)}}></div>
                         <pre
@@ -109,7 +110,7 @@ return (
                         );
                         return (
                         
-                            <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
+                            <div key={index} className={`${click ? "rounded-2 my-1 py-2 mx-sm-1 show": "rounded-2 my-1 mx-sm-1 py-2 hide"} `} 
                             style={{width:'72px' , border:'1px solid #000' , height:'50px'}}>
                                 <div className="del"  onClick={() => { deleteHandler3(index)}}></div>
                             
@@ -133,7 +134,7 @@ return (
                     
                 );
                 return (
-                    <div key={index} className={`${click ? "rounded-2 my-1 py-2 show": "rounded-2 my-1 py-2 hide"} `} 
+                    <div key={index} className={`${click ? "rounded-2 my-1 py-2 mx-sm-1 show": "rounded-2 my-1 py-2 mx-sm-1 hide"} `} 
                     style={{width:'72px' , border:'1px solid #000' , height:'50px'}} >
                             <div className="del" onClick={() => { deleteHandler2(index)}}></div>
                         <div
@@ -150,7 +151,7 @@ return (
                 })}
                 {images.map((image, index) => {
                 return (
-                    <div key={index} className={`${click ? "rounded-2 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 my-1 d-flex justify-content-center align-items-center hide"} `}
+                    <div key={index} className={`${click ? "rounded-2  mx-sm-1 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 mx-sm-1 my-1 d-flex justify-content-center align-items-center hide"} `}
                     style={{width:'72px' , border:'1px solid #000' , height:'50px' }} >
                     <div className="del2" onClick={() => { deleteHandler4(index)}}></div>
                     

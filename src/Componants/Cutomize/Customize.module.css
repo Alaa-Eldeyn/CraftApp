@@ -2,7 +2,9 @@
   background-color: #ededed;
 }
 
-
+.photo {
+  width: 70%;
+}
 /* ------------------animation-------------------- */
 
 .item {

@@ -13,10 +13,11 @@ export default function ViewContextProvider(props) {
   const [shapeContent, setShapeContent] = useState([]);
 
   const [click, setClick] = useState(true)
-    const [image, setImage] = useState(null);
-    const [junk, setJunk] = useState(false);
+  const [image, setImage] = useState(null);
+  const [junk, setJunk] = useState(false);
   const [ mutation1 , setMutation1] = useState (true)
-const saveRef = useRef(null);
+  const saveRef = useRef(null);
+  const [usedindex, setUsedindex] = useState(-1);
 
   const [colorBtn, setColorBtn] = useState("#5B8F9A");
   const [id, setId] = useState(1);
@@ -44,6 +45,8 @@ const getImage = () => {
   return (
     <ViewContext.Provider
       value={{
+        usedindex,
+        setUsedindex,
         mutation1,
         setMutation1,
         saveRef,

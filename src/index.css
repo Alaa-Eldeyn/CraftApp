@@ -1,5 +1,5 @@
 html {
-  transition: all 0.2s;
+  transition: all 0.5s;
   user-select: none;
 }
 .target {
@@ -8,7 +8,16 @@ html {
 .app {
   text-align: center;
 }
-
+.dropdown-menu {
+  border: 3px solid #FCFCFC;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(30px);
+}
+.dropdown-menu:hover {
+  background-color: #EDEDED;
+}
 .design-list {
   display: flex;
   justify-content: space-around;
@@ -26,7 +35,7 @@ html {
   border: #2e2e2e dashed 1px;
 }
 body {
-  background-image: url(../src/Assets/images/background.jpg);
+  background-image: url(../src/Assets/images/background.png);
   background-size: cover;
   padding: 0;
   margin: 0;
@@ -118,6 +127,10 @@ body {
   transition: visibility 0.5s linear 0s, opacity 0.5s linear;
   /* position: relative; */
 }
+@media screen and (max-width : 767px) {
+  .show{
+    margin: 0px 2px;
+  }}
 .del::after{
   content: "x";
   color: #d33535;

@@ -8,8 +8,7 @@ const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
 
-
-  let { textContent, iconContent, shapeContent, images, saveRef ,junk,image} =
+  let { textContent, iconContent, shapeContent, name, images, saveRef ,junk} =
     useContext(ViewContext);
 
   const styles = {
@@ -26,10 +25,10 @@ const Moveablee = () => {
     <>
       <div
         ref={saveRef}
-        className="snapContainer"
+        className='snapContainer'
         style={{
           position: "relative",
-          border: "1px solid #ccc",
+          // border: "1px solid #ccc",
           width: "100%",
           height: "100%",
           transform: "scale(0.7, 0.7)",

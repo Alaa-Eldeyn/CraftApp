@@ -21,7 +21,7 @@ const Editor = ({hoodiback ,hoodibg}) => {
   return (
     <div style={{paddingTop:"40px" , marginTop:"42px"}}>
       <div  className="d-sm-flex flex-md-row flex-sm-column " 
-        style={{ height: "90vh" }}>
+        style={{ minHeight: "90vh" }}>
 
           <SideTaps
             currentTap={currentTap}

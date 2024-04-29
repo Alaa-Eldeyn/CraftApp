@@ -6,7 +6,7 @@ import Register from "./Componants/Register/Register";
 import NotFound from "./Componants/NotFound/NotFound";
 import Home from "./Componants/Home/Home";
 import Cutomize from "./Componants/Cutomize/Cutomize";
-// import Design from "./Componants/DesignList/";
+import MyDesign from "./Componants/Editor/MyDesign/MyDesign";
 import Layout from "./Componants/Layout/Layout";
 import Forget from "./Componants/Forget/Forget";
 import Verify from "./Componants/Verify/Verify";
@@ -53,6 +53,10 @@ function App() {
         {
           path: "customize",
           element:<ProtectRouting> <Cutomize /></ProtectRouting> ,
+        },
+        {
+          path: "myDesign",
+          element:<ProtectRouting> <MyDesign /></ProtectRouting> ,
         },
         { path: "editor/Hoodie", element:<ProtectRouting><Editor hoodibg={hoodi} hoodiback={hoodiback}/></ProtectRouting>  },
         { path: "editor/Sweater", element: <ProtectRouting><Editor hoodibg={sweaterFront} hoodiback={sweaterBack}/></ProtectRouting> },

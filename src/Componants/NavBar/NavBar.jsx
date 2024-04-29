@@ -2,6 +2,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import img1 from '../../Assets/images/first-logo.png';
 import img2 from '../../Assets/images/f7_cart.png';
 import img3 from '../../Assets/images/Group.png';
+import img4 from '../../Assets/images/logout.png';
+import img5 from '../../Assets/icons/brush.svg';
+import img6 from '../../Assets/images/carbon_password.png';
+
+
 
 import style from './NavBar.module.css';
 import { useContext } from "react";
@@ -17,7 +22,9 @@ export default function NavBar(){
         setToken(null)
         nav('/login')
     }
-    
+    function Design(){
+        nav('/myDesign')
+    }
 
     return <>
     <nav className={`navbar navbar-expand-lg fixed-top ${style.navbg}`}>
@@ -51,8 +58,15 @@ export default function NavBar(){
                     <NavLink className="nav-link dropdown-toggle" to='/Account' role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src={img3} className={style.image} alt="Account logo"/> My account
                     </NavLink>
-                    <ul className={`${style.input} dropdown-menu`}>
-                        <li><span className="dropdown-item cursor" onClick={LogOut}>Sign Out</span></li>
+
+                    <ul className={`${style.input} dropdown-menu `}>
+                        <li><span className="dropdown-item cursor" onClick={Design}>
+                        <img src={img5} className={`me-3 ${style.image}`} alt="design"/>My Design</span></li>
+                        <li><span className="dropdown-item cursor" >
+                        <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Change Password</span></li>
+                        <li><span className="dropdown-item cursor" onClick={LogOut}>
+                        <img src={img4} className={`me-3 ${style.image}`} alt="logout"/>Sign Out</span></li>
+
                     </ul>
                 </li>
                 

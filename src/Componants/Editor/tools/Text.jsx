@@ -69,12 +69,12 @@ const Text = () => {
       >
         <pre></pre>
       </textarea>
-      <p className={` ${style.text} my-2`}>Text Style</p>
+      <p className={` ${style.text} mt-2`}>Text Style</p>
 
       <select
         onChange={handleChange2}
         name="choose"
-        className="w-100 btnnn text-start rounded-3 mt-2  "
+        className="w-100 btnnn text-start rounded-3  "
       >
         <optgroup label="English Font">
           <option value="Roboto" defaultChecked>
@@ -94,7 +94,7 @@ const Text = () => {
         </optgroup>
       </select>
 
-      <p className={` ${style.text} mt-2 mb-3`}>Horizontal Alignment</p>
+      <p className={` ${style.text} mt-2 `}>Horizontal Alignment</p>
 
       <div className="bg-secondary-subtle d-flex justify-content-between align-items-center py-2  rounded-3 mb-2">
         <div

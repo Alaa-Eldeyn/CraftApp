@@ -6,7 +6,7 @@ const Designs = () => {
   return (
     <>  
       <div>
-        <img src={image} alt="Design" style={{ width: '100%', height: '100%' }} />
+        <img src={image} alt="Your Design" style={{ width: '100%', height: '100%' }} />
       </div>
   
   </>

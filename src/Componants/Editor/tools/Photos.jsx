@@ -23,7 +23,7 @@ const Photos = () => {
     <div className={style.bgImg}>
         
         <p className={style.content}>Upload photos from your device</p>
-      <div {...getRootProps()} style={dropzoneStyle} className='mt-5  '>
+      <div {...getRootProps()} style={dropzoneStyle} className='mt-xl-4  '>
         <input {...getInputProps()} />
         <span>Upload Photo</span>
       </div>

@@ -1,10 +1,15 @@
 
 import React, { useState } from 'react';
 import style from './Ai.module.css';
+import { useContext } from 'react';
+import { ViewContext } from '../../../Context/ViewContext';
 
 const Color = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(-1);
   const [usedColors, setUsedColors] = useState([]);
+  
+  const {  setUsedindex}= useContext(ViewContext)
+
   const customColors = [
     '#F8F9F8', '#8D8F8C', '#1F201F', '#4EE0C6', '#F2A530', '#516284', 
     '#F3DBDE', '#95A6DB', '#EBED93', '#F8C18F', '#E44453', '#B7A798',
@@ -14,6 +19,7 @@ const Color = () => {
 
   const handleColorClick = (index) => {
     setSelectedColorIndex(index);
+    setUsedindex(index)
     const color = customColors[index];
     if (!usedColors.includes(color)) {
       setUsedColors([...usedColors, color]);
@@ -23,7 +29,7 @@ const Color = () => {
   return (
     <>
       <p className={style.text}>Select a color</p>
-      <div className='w-100 h-auto py-1 px-4 d-flex flex-wrap justify-content-between'>
+      <div className='w-100 h-auto py-1 px-4 d-flex flex-wrap justify-content-start'>
         {customColors.map((color, index) => (
           <div
             key={index}
@@ -41,12 +47,14 @@ const Color = () => {
             className={style.hover}
           ></div>
         ))}
+
         <div style={{ width: '100%', height: '.125rem', marginTop: '.625rem', backgroundColor: '#8E8E8E' }}></div>
+        
         <div>
           <p className={`${style.text} mt-3`}>Used Colors</p>
           {usedColors.length > 0 && (
             <div className='mt-3'>
-              <div className='w-100 h-auto d-flex flex-wrap justify-content-between'>
+              <div className='w-100 h-auto d-flex flex-wrap  justify-content-start'>
                 {usedColors.map((color, index) => (
                   <div
                     key={index}

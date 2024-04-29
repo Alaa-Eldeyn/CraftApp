@@ -148,13 +148,13 @@ const SideTaps = ({
     >
       <ul
         style={{ height: "100%" }}
-        className="nav  nav-fill flex-column  align-items-center "
+        className="nav nav-pills  nav-fill flex-column  align-items-center "
       >
         {data.map((item) => (
           
           <li
             key={item.id}
-            style={{ width: "140px", userSelect: "none" }}
+            style={{ width: "140px", userSelect: "none" , transition: "all 0.5s",}}
             onClick={() => {
               setCurrentTap(item.name);
               if( 'Ai' === currentTap){
@@ -241,7 +241,8 @@ const SideTaps = ({
 
             className={`nav-item cursor flex-column d-flex align-items-center justify-content-center p-2 z-1  ${
               item.name === currentTap ? `${style.tapActive}` : ""
-            }`}
+            }`
+          }
           >
             <img src={item.icon} alt="icon" style={{ width: " 30px" }} />
             <p className="mb-0">{item.name}</p>
@@ -265,7 +266,7 @@ const SideTaps = ({
           transform: "translateY(-50%)",
           right: isTapOpenArrow ? "15px" : "0px",
         }}
-        className="position-absolute cursor z-2"
+        className={` position-absolute cursor z-2  ${style.none}`}
         onClick={() => setIsTapOpenArrow(!isTapOpenArrow)}
       >
         <img
