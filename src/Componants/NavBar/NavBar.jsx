@@ -6,25 +6,48 @@ import img4 from '../../Assets/images/logout.png';
 import img5 from '../../Assets/icons/brush.svg';
 import img6 from '../../Assets/images/carbon_password.png';
 
-
-
 import style from './NavBar.module.css';
 import { useContext } from "react";
 import { userToken } from "../../Context/TokenContext";
+import Swal from "sweetalert2";
 
 
 export default function NavBar(){
     let {token , setToken}= useContext(userToken) 
     let nav = useNavigate()
-// console.log(navbar);
     function LogOut(){
         localStorage.removeItem('UserToken' )
         setToken(null)
         nav('/login')
+
+        Swal.fire({
+            title: "Deleted!",
+            text: "You are logged out !",
+            icon: "success"
+        });
     }
     function Design(){
         nav('/myDesign')
     }
+
+// alert -----------------------------
+    function ShowAlert(){
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#5B8F9A",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Log out !"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                LogOut()
+            }
+            });
+    
+    }
+// alert -----------------------------
 
     return <>
     <nav className={`navbar navbar-expand-lg fixed-top ${style.navbg}`}>
@@ -64,7 +87,7 @@ export default function NavBar(){
                         <img src={img5} className={`me-3 ${style.image}`} alt="design"/>My Design</span></li>
                         <li><span className="dropdown-item cursor" >
                         <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Change Password</span></li>
-                        <li><span className="dropdown-item cursor" onClick={LogOut}>
+                        <li><span className="dropdown-item cursor" onClick={ShowAlert}>
                         <img src={img4} className={`me-3 ${style.image}`} alt="logout"/>Sign Out</span></li>
 
                     </ul>
