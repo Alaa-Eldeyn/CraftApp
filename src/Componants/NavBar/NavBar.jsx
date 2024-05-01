@@ -26,6 +26,7 @@ export default function NavBar(){
             icon: "success"
         });
     }
+    
     function Design(){
         nav('/myDesign')
     }

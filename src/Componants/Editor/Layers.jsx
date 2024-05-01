@@ -5,12 +5,63 @@ import style2 from './tools/Ai.module.css'
 import img from '../../Assets/images/layer.png'
 import img2 from '../../Assets/images/save.png'
 
+import {toPng} from 'html-to-image';
 import { ViewContext } from '../../Context/ViewContext';
 const Layers = () => {
-    let { textContent, iconContent,images ,shapeContent ,click, setClick , 
+    let {setImageUrl, setJunk ,contentRef, textContent, iconContent,images ,shapeContent ,click, setClick , 
         mutation1,
         setMutation1, getImage
     } = useContext(ViewContext);
+
+    // --------------------------
+    
+//     const handleCapture = ()=> {
+//         const node = contentRef.current;
+        
+//         toPng(contentRef.current, { cacheBust: true, height: 500})
+        
+//         .then(dataUrl => {
+        
+//         console.log("Captured image:", dataUrl);
+//         setImageUrl(dataUrl);
+//         const link = document.createElement("a");
+//         link.download = "MyDesign.png";
+//         link.href=dataUrl;
+//         link.click(); 
+//         })
+
+//         .catch(error => {
+//         console.error("Error capturing screenshot:", error);
+//         }
+
+        
+// );
+
+// };
+// ----------------------
+
+const handleCapture = () => {
+    setJunk(true);
+        setTimeout(() => {
+        const node = contentRef.current;
+        
+        toPng(contentRef.current, { cacheBust: true, height: 500})
+        
+        .then(dataUrl => {
+        
+        console.log("Captured image:", dataUrl);
+        setImageUrl(dataUrl);
+        const link = document.createElement("a");
+        link.download = "MyDesign.png";
+        link.href=dataUrl;
+        link.click(); 
+        })
+
+        .catch(error => {
+        console.error("Error capturing screenshot:", error);
+        });
+        setJunk(false);
+    }, 1);}
 
     function clicked(){
         setClick(!click)
@@ -52,7 +103,7 @@ return (
         <div
         className={`${style.layers} py-4 `}>
             <div  className={`${style.height}  d-flex flex-md-column flex-sm-row  align-items-center overflow-auto text-center`}>
-                <div onClick={getImage} className={`  cursor text-center rounded-2 my-1 py-2 ${style.padding}`} 
+                <div onClick={handleCapture} className={`  cursor text-center rounded-2 my-1 py-2 ${style.padding}`} 
                 style={{width:'72px' , border:'1px solid #5B8F9A' , backgroundColor:'#5B8F9A' , color:'#FCFCFC'}}>
                     <img src={img2} alt="layers" className='w-25 pt-1'/>
                     <p className='p-0 m-0 ' style={{fontSize:'16px'}}>Save</p>

@@ -39,6 +39,8 @@ import tankBack from "./Assets/images/tank top back 1.png";
 import sweaterFront from "./Assets/images/photo2.png";
 import sweaterBack from "./Assets/images/sweaterBack.png";
 import ViewContextProvider from "./Context/ViewContext";
+import Account from "./Componants/Account/Account";
+import CanvasComponent from "./Componants/Account/Account";
 // ---------------
 
 
@@ -71,7 +73,8 @@ function App() {
     { path: "login", element:<Login /> },
     { path: "register", element: <Register /> },
     { path: "forget", element: <Forget /> },
-    { path: "verify", element: <Verify /> },
+    { path: "CanvasComponent", element: <CanvasComponent /> },
+
     { path: "*", element: <NotFound /> },
   ]);
   return (

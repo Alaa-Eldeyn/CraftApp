@@ -30,21 +30,30 @@ export default function ViewContextProvider(props) {
   const [svgShapes, setSVGShapes] = useState(`<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="40" cy="40" r="40" fill="#D9D9D9"/>
   </svg>`);
-const getImage = () => {
-  setJunk(true);
 
-  setTimeout(() => {
-    html2canvas(saveRef.current).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      setImage(imgData);
-    });
-    setJunk(false);
-  }, 1);
-};
+// const getImage = () => {
+//   setJunk(true);
+
+//   setTimeout(() => {
+//     html2canvas(saveRef.current).then((canvas) => {
+//       const imgData = canvas.toDataURL("image/png");
+//       setImage(imgData);
+//     });
+//     setJunk(false);
+//   }, 1);
+// };
+
+
+const contentRef = useRef(null);
+
+const [imageUrl, setImageUrl] = useState('');
   const [images, setImages] = useState([]);
   return (
     <ViewContext.Provider
       value={{
+        imageUrl,
+        setImageUrl,
+        contentRef,
         usedindex,
         setUsedindex,
         mutation1,
@@ -53,7 +62,7 @@ const getImage = () => {
         image,
         setImage,
         junk, setJunk,
-        getImage,
+        // getImage,
         setTextContent,
         setIconContent,
         setShapeContent,

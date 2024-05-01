@@ -8,7 +8,7 @@ const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
 
-  let { textContent, iconContent, shapeContent, name, images, saveRef ,junk} =
+  let { textContent, iconContent, shapeContent,  images, saveRef ,junk} =
     useContext(ViewContext);
 
   const styles = {

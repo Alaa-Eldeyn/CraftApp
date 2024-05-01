@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { ViewContext } from '../../../Context/ViewContext';
 
 const Designs = () => {
-  const {image} = useContext(ViewContext);
+  const {image ,imageUrl} = useContext(ViewContext);
   return (
     <>  
-      <div>
-        <img src={image} alt="Your Design" style={{ width: '100%', height: '100%' }} />
+      <div className='d-flex justify-content-center align-items-center'>
+      {imageUrl && <img src={imageUrl} alt="Captured Screenshot" className='w-50'/>}
       </div>
   
   </>

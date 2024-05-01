@@ -4,11 +4,11 @@ import '../DesignList/Resize'
 import { ViewContext } from '../../Context/ViewContext';
 const View = ({ mainImg ,hoodibg ,hoodiback, hoodiB,hoodiF,setMainImg}) => {
   
-  const {usedindex }= useContext(ViewContext)
+  const {usedindex ,contentRef }= useContext(ViewContext)
   return (
       <div className="w-100 d-flex justify-content-center align-items-center mt-2" style={{backgroundColor :"#F0F0F0" }}>
       <div className="d-flex flex-column  gap-5 justify-content-center align-items-center">
-        <div style={{ maxWidth: "400px", maxHeight: "450px" , position:'relative' }}>
+        <div ref={contentRef} style={{ maxWidth: "400px", maxHeight: "450px" , position:'relative' }}>
           <img className="w-100 "  src={ mainImg}  alt="Main img" />
           {/* src={usedindex === 17 ? GreenImg : mainImg} */}
           <Container/>
