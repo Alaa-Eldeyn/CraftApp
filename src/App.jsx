@@ -9,7 +9,6 @@ import Cutomize from "./Componants/Cutomize/Cutomize";
 import MyDesign from "./Componants/Editor/MyDesign/MyDesign";
 import Layout from "./Componants/Layout/Layout";
 import Forget from "./Componants/Forget/Forget";
-import Verify from "./Componants/Verify/Verify";
 import Editor from "./Componants/Editor/Editor";
 import UserTokenProvider from "./Context/TokenContext";
 import ProtectRouting from "./Componants/ProtectRouting/ProtectRouting";
@@ -39,7 +38,6 @@ import tankBack from "./Assets/images/tank top back 1.png";
 import sweaterFront from "./Assets/images/photo2.png";
 import sweaterBack from "./Assets/images/sweaterBack.png";
 import ViewContextProvider from "./Context/ViewContext";
-import Account from "./Componants/Account/Account";
 // ---------------
 
 
@@ -59,10 +57,7 @@ function App() {
           path: "myDesign",
           element:<ProtectRouting> <MyDesign /></ProtectRouting> ,
         },
-        {
-          path: "account",
-          element:<ProtectRouting> <Account /></ProtectRouting> ,
-        },
+        
         { path: "editor/Hoodie", element:<ProtectRouting><Editor hoodibg={hoodi} hoodiback={hoodiback}/></ProtectRouting>  },
         { path: "editor/Sweater", element: <ProtectRouting><Editor hoodibg={sweaterFront} hoodiback={sweaterBack}/></ProtectRouting> },
         { path: "editor/Long_Sleeve_T-shirt", element: <ProtectRouting><Editor hoodibg={longSleeveFront} hoodiback={longSleeveBack}/></ProtectRouting> },
