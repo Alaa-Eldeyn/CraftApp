@@ -1,34 +1,39 @@
 
 import React, { useState } from "react";
 import style from './Ai.module.css'
+import axios from "axios";
 
 const Ai = () => {
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   let [Loading , setLoading]= useState(false);
-  // const [resize, setResize] = useState(<></>);
 
-  const Api = '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';
+  const API_KEY = 'Bearer sk-xAuVIf8VNa7MC8U5i3zl9vmqrRxTqFdpvsWueDK2V2lsTeB2';
+  const BASE_URL = 'https://api.stability.ai';
 
   const handleChange = (e) => {
     setText(e.target.value);
   };
   const getImg = async () => {
     setLoading(true);
-
     try {
-      const response = await fetch('https://api.openai.com/v1/images/generations', {
-        method: "post",
+      const response = await axios.post(`${BASE_URL}/v1alpha/generation/stable-diffusion-512-v2-1/text-to-image`, {
+        cfg_scale: 15,
+        clip_guidance_preset: 'FAST_BLUE',
+        height: 512,
+        width: 512,
+        samples: 1,
+        steps: 150,
+        seed: 0,
+        style_preset: '3d-model',
+        text_prompts: [{ text: prompt, weight: 1 }],
+      }, {
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${Api}`
+          'Content-Type': 'application/json',
+          'Authorization': API_KEY,
+          'Accept': 'image/png',
         },
-        body: JSON.stringify({
-          "prompt": text,
-          "n": 1,
-          "size": "256x256"
-        })
       });
 
       if (!response.ok) {
@@ -93,3 +98,12 @@ const Ai = () => {
 };
 
 export default Ai;
+
+
+
+
+
+
+
+
+

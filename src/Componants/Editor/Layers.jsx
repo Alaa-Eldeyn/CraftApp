@@ -7,60 +7,40 @@ import img2 from '../../Assets/images/save.png'
 
 import {toPng} from 'html-to-image';
 import { ViewContext } from '../../Context/ViewContext';
+import html2canvas from 'html2canvas'
 const Layers = () => {
-    let {setImageUrl, setJunk ,contentRef, textContent, iconContent,images ,shapeContent ,click, setClick , 
+    let {imageUrl, setImageUrl, setJunk ,contentRef, textContent, iconContent,images ,shapeContent ,click, setClick , 
         mutation1,
         setMutation1, getImage
     } = useContext(ViewContext);
 
-    // --------------------------
-    
-//     const handleCapture = ()=> {
-//         const node = contentRef.current;
-        
-//         toPng(contentRef.current, { cacheBust: true, height: 500})
-        
-//         .then(dataUrl => {
-        
-//         console.log("Captured image:", dataUrl);
-//         setImageUrl(dataUrl);
-//         const link = document.createElement("a");
-//         link.download = "MyDesign.png";
-//         link.href=dataUrl;
-//         link.click(); 
-//         })
-
-//         .catch(error => {
-//         console.error("Error capturing screenshot:", error);
-//         }
-
-        
-// );
-
-// };
-// ----------------------
 
 const handleCapture = () => {
     setJunk(true);
-        setTimeout(() => {
-        const node = contentRef.current;
-        
-        toPng(contentRef.current, { cacheBust: true, height: 500})
-        
-        .then(dataUrl => {
-        
-        console.log("Captured image:", dataUrl);
-        setImageUrl(dataUrl);
-        const link = document.createElement("a");
-        link.download = "MyDesign.png";
-        link.href=dataUrl;
-        link.click(); 
-        })
 
-        .catch(error => {
-        console.error("Error capturing screenshot:", error);
-        });
-        setJunk(false);
+        setTimeout(() => {
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                document.body.appendChild(canvas)
+            });
+            // const node = contentRef.current;
+            
+            // toPng(contentRef.current, { cacheBust: true, height: 500})
+            
+            // .then(dataUrl => {
+            
+            // console.log("Captured image:", dataUrl);
+            // setImageUrl(dataUrl);
+            // const link = document.createElement("a");
+            // // link.download = "MyDesign.png";
+            // link.href=dataUrl;
+            // link.click(); 
+            // })
+
+            // .catch(error => {
+            // console.error("Error capturing screenshot:", error);
+            // });
+
+            setJunk(false);
     }, 1);}
 
     function clicked(){

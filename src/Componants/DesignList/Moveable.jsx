@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
-import html2canvas from "html2canvas";
+import img from "../../Assets/images/Group 2.png"
 
 const Moveablee = () => {
   const targetRef = useRef(null);
@@ -30,7 +30,7 @@ const Moveablee = () => {
           position: "relative",
           // border: "1px solid #ccc",
           width: "100%",
-          height: "100%",
+          height: "120%",
           transform: "scale(0.7, 0.7)",
         }}
       >
@@ -54,7 +54,7 @@ const Moveablee = () => {
                 <img
                   src={image.url}
                   alt={image.name}
-                  className={`w-100 h-100 d-block`}
+                  className={`w-100 h-100 `}
                 />
               </div>
 

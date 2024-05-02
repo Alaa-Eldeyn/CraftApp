@@ -46,7 +46,7 @@ export default function ViewContextProvider(props) {
 
 const contentRef = useRef(null);
 
-const [imageUrl, setImageUrl] = useState('');
+const [imageUrl, setImageUrl] = useState();
   const [images, setImages] = useState([]);
   return (
     <ViewContext.Provider

@@ -34,9 +34,11 @@ const Photos = () => {
         <div className='my-3 '>
           <ul className='d-flex flex-wrap gap-2  ' style={{overflow:'auto',height:'380px',width:'98%' , margin:'0px' , padding :'0px'}}>
             {images.map((image, index) => (
-              <li key={index} style={{ width: 'auto', height: '200px' , listStyle:'none'}}>
-                <img src={image.url} alt={image.name} style={{ width: '100%', height: '200px' }} />
-              </li>
+              <>
+                <li key={index} style={{ width: 'auto', height: '200px' , listStyle:'none'}}>
+                  <img src={image.url} alt={image.name} style={{ width: '100%', height: '200px' }} />
+                </li>
+              </>
             ))}
           </ul>
         </div>

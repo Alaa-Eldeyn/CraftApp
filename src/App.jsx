@@ -40,7 +40,6 @@ import sweaterFront from "./Assets/images/photo2.png";
 import sweaterBack from "./Assets/images/sweaterBack.png";
 import ViewContextProvider from "./Context/ViewContext";
 import Account from "./Componants/Account/Account";
-import CanvasComponent from "./Componants/Account/Account";
 // ---------------
 
 
@@ -60,6 +59,10 @@ function App() {
           path: "myDesign",
           element:<ProtectRouting> <MyDesign /></ProtectRouting> ,
         },
+        {
+          path: "account",
+          element:<ProtectRouting> <Account /></ProtectRouting> ,
+        },
         { path: "editor/Hoodie", element:<ProtectRouting><Editor hoodibg={hoodi} hoodiback={hoodiback}/></ProtectRouting>  },
         { path: "editor/Sweater", element: <ProtectRouting><Editor hoodibg={sweaterFront} hoodiback={sweaterBack}/></ProtectRouting> },
         { path: "editor/Long_Sleeve_T-shirt", element: <ProtectRouting><Editor hoodibg={longSleeveFront} hoodiback={longSleeveBack}/></ProtectRouting> },
@@ -73,7 +76,7 @@ function App() {
     { path: "login", element:<Login /> },
     { path: "register", element: <Register /> },
     { path: "forget", element: <Forget /> },
-    { path: "CanvasComponent", element: <CanvasComponent /> },
+
 
     { path: "*", element: <NotFound /> },
   ]);
