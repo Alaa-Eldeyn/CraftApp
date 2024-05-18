@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, createRef, useRef, useState } from "react";
 
 export let ViewContext = createContext();
 
@@ -39,14 +39,12 @@ const [imageUrl, setImageUrl] = useState();
 
   const [indColor, setIndColor] = useState(-1)
   const [urlColor, setUrlColor] = useState()
-  const [mainImg,setMainImg]= useState(`http://customcraftt.somee.com/images/items/HoodieFront.png`)
+  // const [mainImg,setMainImg]= useState()
 
 
   return (
     <ViewContext.Provider
       value={{
-        mainImg,
-        setMainImg,
         indColor,
         setIndColor,
         urlColor,

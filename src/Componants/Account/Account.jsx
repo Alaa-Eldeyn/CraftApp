@@ -31,10 +31,10 @@ const Account = () => {
     setLoading(true)
     emailjs
       .sendForm(
-        // "service_r7m9e5t",
-        // "template_i8x0q7k",
+        "service_r7m9e5t",
+        "template_i8x0q7k",
         form.current,
-        // "S9DhpSU6EAXGEc3Rn"
+        "S9DhpSU6EAXGEc3Rn"
       )
       .then(
         (result) => {

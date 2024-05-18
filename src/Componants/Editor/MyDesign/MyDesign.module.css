@@ -1,22 +1,22 @@
-.imagesContainer {
-    max-width: 1200px;
-    margin: 2rem auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1rem;
-  }
-  
-  .image {
-    width: 100%;
-    height: 20rem;
-    cursor: pointer;
-    overflow: hidden;
-    /* transition: all .5s; */
-  }
-  
-  .image img {
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-    border-radius: 8px;
-  }
+.parent {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00000077;
+}
+.box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+}
+.box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+transform-origin: center;
+}

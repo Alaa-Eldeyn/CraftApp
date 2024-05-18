@@ -1,9 +1,12 @@
 import SideTaps from "./SideTaps";
 import View from "./View";
 import Layers from "./Layers";
+import { useState } from "react";
 
 const Editor = ({hoodiback ,hoodifront}) => {
+  const [mainImg,setMainImg]= useState(hoodifront)
 
+  console.log(mainImg);
   return (
     <div style={{paddingTop:"40px" , marginTop:"42px"}}>
       <div  className="d-sm-flex flex-md-row flex-sm-column " 
@@ -14,6 +17,8 @@ const Editor = ({hoodiback ,hoodifront}) => {
           <View 
           hoodiback={hoodiback}
           hoodifront={hoodifront}
+          mainImg={mainImg}
+          setMainImg={setMainImg}
           />
 
           <Layers/>

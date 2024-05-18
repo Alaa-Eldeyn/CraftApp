@@ -11,7 +11,7 @@ export default function Cutomize() {
 
   let {data , isLoading } = useQuery('Items', getItems , {
     refetchOnMount:false,
-    // refetchInterval: 30000
+    refetchInterval: 30000
   })
 
   return (

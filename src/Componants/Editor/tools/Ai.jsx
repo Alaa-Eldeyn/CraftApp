@@ -14,8 +14,7 @@ const Ai = () => {
   };
 
   const handleGenerateImage = async () => {
-    const API_KEY = '';
-    // sk-xAuVIf8VNa7MC8U5i3zl9vmqrRxTqFdpvsWueDK2V2lsTeB2
+    const API_KEY = 'sk-xAuVIf8VNa7MC8U5i3zl9vmqrRxTqFdpvsWueDK2V2lsTeB2';
     const url = 'https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image';
 
     const body = {

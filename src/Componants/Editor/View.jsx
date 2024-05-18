@@ -1,14 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Container from './Container';
-import { ViewContext } from '../../Context/ViewContext';
 
-const View = ({hoodiback, hoodifront}) => {
-  const {mainImg , setMainImg}= useContext(ViewContext)
+const View = ({hoodiback, hoodifront ,mainImg , setMainImg}) => {
 
   return (
       <div className="w-100 d-flex justify-content-center align-items-center mt-2" style={{backgroundColor :"#F0F0F0" }}>
       <div className="d-flex flex-column  gap-5 justify-content-center align-items-center">
-        <div id='testdiv' style={{ maxWidth: "400px", maxHeight: "450px" , position:'relative' }}>
+        <div id='testdiv'  style={{ maxWidth: "400px", maxHeight: "450px" , position:'relative' }}>
           <img className="w-100 " alt="Main imgg" src={ mainImg} />
           
           <Container/>
