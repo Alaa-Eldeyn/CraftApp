@@ -71,3 +71,7 @@
   .link {
     color: #5b8f9a;
   }
+  
+  .invalid {
+    border: 1px solid #D33535 !important;
+  }

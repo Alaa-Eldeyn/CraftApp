@@ -13,11 +13,12 @@ export default function NotFound(){
                         <img src={image} className={style.image}  alt=" Not Found logo" />
                     </div>
                     <p className={style.page}> <Animation/></p>
-                    <button className={` mb-5 colorBtn mainBg ${style.button}`}>
-                        <i className="fa-solid fa-arrow-left "></i>
-                        <Link to='/' className={`colorBtn ${style.link}`}>Back to Home</Link>
-                    
-                    </button>
+                    <Link to='/' className={`colorBtn ${style.link}`}>
+                        <button className={` mb-5 colorBtn mainBg ${style.button}`}>
+                            <i className="fa-solid fa-arrow-left "></i>
+                        Back to Home
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

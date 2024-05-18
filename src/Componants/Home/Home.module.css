@@ -46,6 +46,8 @@
 
 .footer {
   border: 6px solid #fcfcfc;
+  height: 200px;
+
 }
 .contFooter {
   margin-top: 25px;
@@ -53,7 +55,13 @@
   font-weight: 400;
   color: #8e8e8e;
 }
-
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* d-flex justify-content-center align-items-center m-0 */
+}
 @media (max-width: 1200px) {
   .head ,.head2{
     font-size: 50px;

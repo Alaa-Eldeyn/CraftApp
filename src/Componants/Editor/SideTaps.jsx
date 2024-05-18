@@ -5,31 +5,25 @@ import Shapes from "../../Assets/icons/ph_shapes.svg";
 import Photos from "../../Assets/icons/pepicons-pencil_photo.svg";
 import Icons from "../../Assets/icons/pet.svg";
 import Designs from "../../Assets/icons/brush.svg";
+import Similarity from "../../Assets/images/similarty.png"
 import arrowLeft from "../../Assets/icons/arrow-left.svg";
 import style from "./Editor.module.css";
 import Tools from "./Tools";
+import { useState } from "react";
 
-const SideTaps = ({
-  currentTap,
-  setCurrentTap,
-  isTapOpenAi,
-  setIsTapOpen,
-  isTapOpenText,
-  setIsTapOpenText,
-  isTapOpenColor,
-  setIsTapOpenColor,
-  isTapOpenArrow,
-  setIsTapOpenArrow,
-  isTapOpenShapes,
-  setIsTapOpenShapes,
-  isTapOpenPhotos,
-  setIsTapOpenPhotos,
-  isTapOpenIcons,
-  setIsTapOpenIcons,
-  isTapOpenDesigns,
-  setIsTapOpenDesigns,
-  content,
-}) => {
+const SideTaps = () => {
+  const [currentTap, setCurrentTap] = useState("Ai");
+  const [isTapOpenArrow, setIsTapOpenArrow] = useState(true);
+
+  const [isTapOpenAi, setIsTapOpen] = useState(true);
+  const [isTapOpenText, setIsTapOpenText] = useState(false);
+  const [isTapOpenColor, setIsTapOpenColor] = useState(false);
+  const [isTapOpenShapes, setIsTapOpenShapes] = useState(false);
+  const [isTapOpenPhotos, setIsTapOpenPhotos] = useState(false);
+  const [isTapOpenIcons, setIsTapOpenIcons] = useState(false);
+  const [isTapOpenDesigns, setIsTapOpenDesigns] = useState(false);
+  const [isTapOpenSimilar, setIsTapOpenSimilar] = useState(false);
+
   const data = [
     {
       id: 1,
@@ -71,6 +65,11 @@ const SideTaps = ({
       name: "My Designs",
       icon: Designs,
     },
+    {
+      id : 8,
+      name : "Search for similar",
+      icon : Similarity
+    }
   ];
 
   return (
@@ -82,12 +81,14 @@ const SideTaps = ({
         isTapOpenText ===false  &&
         isTapOpenDesigns===false && 
         isTapOpenIcons ===false &&
+      isTapOpenSimilar === false &&
         isTapOpenPhotos===false && 
         isTapOpenShapes ===false 
         
         ? `${style.responsive} position-relative d-flex  overflow-hidden px-1 pt-2 w-100 flex-grow-1 `  :
 
       isTapOpenAi===false &&
+      isTapOpenSimilar === false &&
        isTapOpenColor && 
        isTapOpenArrow && 
        isTapOpenText ===false &&
@@ -98,6 +99,7 @@ const SideTaps = ({
        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
       isTapOpenAi===false && 
       isTapOpenColor===false && 
+      isTapOpenSimilar === false &&
       isTapOpenText && 
       isTapOpenArrow &&
       isTapOpenDesigns===false && 
@@ -105,7 +107,7 @@ const SideTaps = ({
       isTapOpenPhotos===false && 
       isTapOpenShapes ===false
          ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-
+         isTapOpenSimilar === false &&
          isTapOpenAi===false && 
          isTapOpenColor===false && 
          isTapOpenText ===false && 
@@ -119,6 +121,7 @@ const SideTaps = ({
       isTapOpenColor===false && 
       isTapOpenText  ===false&& 
       isTapOpenDesigns===false && 
+      isTapOpenSimilar === false &&
       isTapOpenIcons  &&
       isTapOpenArrow &&
       isTapOpenPhotos===false && 
@@ -129,6 +132,7 @@ const SideTaps = ({
       isTapOpenText ===false&& 
       isTapOpenDesigns===false && 
       isTapOpenIcons ===false &&
+      isTapOpenSimilar === false &&
       isTapOpenPhotos && 
       isTapOpenArrow &&
       isTapOpenShapes ===false
@@ -139,8 +143,20 @@ const SideTaps = ({
       isTapOpenDesigns===false && 
       isTapOpenIcons ===false &&
       isTapOpenPhotos===false && 
+      isTapOpenSimilar === false &&
       isTapOpenArrow &&
       isTapOpenShapes 
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `: 
+      
+         isTapOpenAi===false && 
+      isTapOpenColor===false && 
+      isTapOpenText ===false&& 
+      isTapOpenDesigns===false && 
+      isTapOpenIcons ===false &&
+      isTapOpenPhotos===false && 
+      isTapOpenArrow &&
+      isTapOpenShapes === false &&
+      isTapOpenSimilar
         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `: 
       
         `${style.responsive2} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `}
@@ -167,7 +183,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(false)
-
+                setIsTapOpenSimilar(false)
                 
               }else if( 'Text' === currentTap){
                 setIsTapOpenArrow(true)
@@ -178,6 +194,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(false)
                 
               }
               else if( 'Color' === currentTap){
@@ -189,6 +206,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(false)
                 
               }
               else if( 'My Designs' === currentTap){
@@ -200,6 +218,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(false)
                 
               }
               else if( 'Icons' === currentTap){
@@ -211,6 +230,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(true)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(false)
                 
               }
               else if( 'Photos' === currentTap){
@@ -222,6 +242,7 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(true)
                 setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(false)
                 
               }
               
@@ -234,9 +255,21 @@ const SideTaps = ({
                 setIsTapOpenIcons(false)
                 setIsTapOpenPhotos(false)
                 setIsTapOpenShapes(true)
+                setIsTapOpenSimilar(false)
                 
               }
-              
+              else if( 'Search for similar' === currentTap){
+                setIsTapOpenArrow(true)
+                setIsTapOpen(false);
+                setIsTapOpenText(false)
+                setIsTapOpenColor(false)
+                setIsTapOpenDesigns(false);
+                setIsTapOpenIcons(false)
+                setIsTapOpenPhotos(false)
+                setIsTapOpenShapes(false)
+                setIsTapOpenSimilar(true)
+                
+              }
             }}
 
             className={`nav-item cursor flex-column d-flex align-items-center justify-content-center p-2 z-1  ${
@@ -256,7 +289,7 @@ const SideTaps = ({
       >
 
         {/* الشكل لكل تصميم */}
-        <Tools content={content} />
+        <Tools content={currentTap} />
       </div>
 
       {/* Arrow */}
@@ -275,6 +308,7 @@ const SideTaps = ({
           style={{ transform: isTapOpenArrow ? "rotate(180deg)" : "" }}
         />
       </div> 
+      
     </div>
   );
 };

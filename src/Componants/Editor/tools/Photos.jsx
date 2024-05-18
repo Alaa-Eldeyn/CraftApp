@@ -8,13 +8,16 @@ const Photos = () => {
   const {images , setImages}= useContext(ViewContext)
 
   const onDrop = useCallback((acceptedFiles) => {
+    // console.log(acceptedFiles);
     const selectedPhotos = acceptedFiles.map(file => ({
       url: URL.createObjectURL(file),
       name: file.name,
       type: file.type,
     }));
+    console.log(selectedPhotos);
     setImages(prevImages => [...prevImages, ...selectedPhotos]);
   }, []);
+
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: 'image/*', multiple: true });
 
@@ -23,14 +26,14 @@ const Photos = () => {
     <div className={style.bgImg}>
         
         <p className={style.content}>Upload photos from your device</p>
-      <div {...getRootProps()} style={dropzoneStyle} className='mt-xl-4  '>
-        <input {...getInputProps()} />
-        <span>Upload Photo</span>
-      </div>
+        
+        <div {...getRootProps()} style={dropzoneStyle} className='mt-xl-4  '>
+          <input {...getInputProps()} />
+          <span>Upload Photo</span>
+        </div>
       
     </div>
     <div>
-        {images.length > 0 && (
         <div className='my-3 '>
           <ul className='d-flex flex-wrap gap-2  ' style={{overflow:'auto',height:'380px',width:'98%' , margin:'0px' , padding :'0px'}}>
             {images.map((image, index) => (
@@ -42,14 +45,13 @@ const Photos = () => {
             ))}
           </ul>
         </div>
-      )}
     </div>
     </>
   );
 };
 
 const dropzoneStyle = {
-    backgroundColor:'#5B8F9A',
+  backgroundColor:'#5B8F9A',
   border: '1px solid #5B8F9A',
   borderRadius: '15px',
   padding: '7px',
@@ -58,7 +60,6 @@ const dropzoneStyle = {
   width :'80%',
   margin:'auto',
   color:'#FCFCFC'
-  
 };
 
 export default Photos;

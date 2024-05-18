@@ -2,25 +2,14 @@ import React, { useContext, useRef } from "react";
 import { ViewContext } from "../../Context/ViewContext";
 import style from "../Editor/tools/Ai.module.css";
 import Moveable from "react-moveable";
-import img from "../../Assets/images/Group 2.png"
 
 const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
 
-  let { textContent, iconContent, shapeContent,  images, saveRef ,junk} =
+  let { textContent, iconContent, shapeContent,  images, saveRef ,junk , imageData} =
     useContext(ViewContext);
 
-  const styles = {
-    SvgColor: {
-      svg: {
-        path: {
-          fill: "#fff",
-        },
-      },
-    },
-  };
-  
   return (
     <>
       <div
@@ -28,99 +17,11 @@ const Moveablee = () => {
         className='snapContainer'
         style={{
           position: "relative",
-          // border: "1px solid #ccc",
           width: "100%",
           height: "120%",
           transform: "scale(0.7, 0.7)",
         }}
       >
-        {images.map((image, index) => {
-          return (
-            <>
-              <div
-                ref={targetRef}
-                key={index}
-                className={`m-0 position-absolute target  `}
-                style={{
-                  transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
-                  color: `${image.color}`,
-                  width: "150px",
-                  height: "150px",
-                  fontWeight: "900",
-                  cursor: "move",
-                  userSelect: "none",
-                }}
-              >
-                <img
-                  src={image.url}
-                  alt={image.name}
-                  className={`w-100 h-100 `}
-                />
-              </div>
-
-              <Moveable
-                ref={moveableRef}
-                snappable={true}
-                snapDirections={{
-                  top: true,
-                  left: true,
-                  bottom: true,
-                  right: true,
-                }}
-                elementSnapDirections={true}
-                snapThreshold={true}
-                verticalGuidelines={[50, 150, 250, 450, 550]}
-                horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
-                bounds={{
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  position: "css",
-                }}
-                hideDefaultLines={true}
-                target={".target"}
-                origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                scalable={junk ? false : true}
-                keepRatio={true}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
-                }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
-            </>
-          );
-        })}
-
         {shapeContent.map((shape, index) => {
           const newSvgg = shape.svgShapes.replace(
             /fill=".*?"/g,
@@ -145,8 +46,6 @@ const Moveablee = () => {
                   style={{
                     width: "80px",
                     height: "80px",
-                    cursor: "pointer",
-                    ...styles,
                   }}
                   dangerouslySetInnerHTML={{ __html: newSvgg || "" }}
                   // اريد تلونها
@@ -240,8 +139,6 @@ const Moveablee = () => {
                   style={{
                     width: "80px",
                     height: "80px",
-                    cursor: "pointer",
-                    ...styles,
                   }}
                   dangerouslySetInnerHTML={{ __html: newSvg || "" }}
                   // اريد تلونها
@@ -310,11 +207,177 @@ const Moveablee = () => {
             </>
           );
         })}
+        {imageData !=null ?    <>
+                <div
+                  ref={targetRef}
+                  className={`m-0 position-absolute target  `}
+                  style={{
+                    transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
+                    width: "150px",
+                    height: "150px",
+                    fontWeight: "900",
+                    cursor: "move",
+                    userSelect: "none",
+                  }}
+                >
+                  
+  {imageData && <img className='w-100 h-100' src={imageData} alt="Generated" />}
+                </div>
+
+                <Moveable
+                  ref={moveableRef}
+                  snappable={true}
+                  snapDirections={{
+                    top: true,
+                    left: true,
+                    bottom: true,
+                    right: true,
+                  }}
+                  elementSnapDirections={true}
+                  snapThreshold={true}
+                  verticalGuidelines={[50, 150, 250, 450, 550]}
+                  horizontalGuidelines={[0, 100, 200, 400, 500]}
+                  snapContainer={".snapContainer"}
+                  bounds={{
+                    left: 0,
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    position: "css",
+                  }}
+                  hideDefaultLines={true}
+                  target={".target"}
+                  origin={false}
+                  individualGroupable={true}
+                  draggable={true}
+                  throttleDrag={1}
+                  edgeDraggable={false}
+                  startDragRotate={0}
+                  throttleDragRotate={0}
+                  scalable={junk ? false : true}
+                  keepRatio={true}
+                  throttleScale={0}
+                  renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
+                  rotatable={junk ? false : true}
+                  throttleRotate={0}
+                  rotationPosition={"top"}
+                  originDraggable={true}
+                  originRelative={true}
+                  onScaleStart={(e) => {
+                    e.setMinScaleSize([10, 10]);
+                    e.setMaxScaleSize([240, 240]);
+                  }}
+                  onDragOrigin={(e) => {
+                    e.target.style.transformOrigin = e.transformOrigin;
+                  }}
+                  onRender={(e) => {
+                    e.target.style.transform = e.transform;
+                  }}
+                  onDrag={(e) => {
+                    e.target.style.transform = e.transform;
+                  }}
+                  onScale={(e) => {
+                    e.target.style.transform = e.drag.transform;
+                  }}
+                  onRotate={(e) => {
+                    e.target.style.transform = e.drag.transform;
+                  }}
+                />
+          </> : <></>}
+
+
+        {images.map((image, index) => {
+          return (
+            <>
+              <div
+                ref={targetRef}
+                key={index}
+                className={`m-0 position-absolute target  `}
+                style={{
+                  transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
+                  color: `${image.color}`,
+                  width: "150px",
+                  height: "150px",
+                  fontWeight: "900",
+                  cursor: "move",
+                  userSelect: "none",
+                }}
+              >
+                <img
+                  src={image.url}
+                  alt={image.name}
+                  className={`w-100 h-100 `}
+                />
+              </div>
+
+              <Moveable
+                ref={moveableRef}
+                snappable={true}
+                snapDirections={{
+                  top: true,
+                  left: true,
+                  bottom: true,
+                  right: true,
+                }}
+                elementSnapDirections={true}
+                snapThreshold={true}
+                verticalGuidelines={[50, 150, 250, 450, 550]}
+                horizontalGuidelines={[0, 100, 200, 400, 500]}
+                snapContainer={".snapContainer"}
+                bounds={{
+                  left: 0,
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  position: "css",
+                }}
+                hideDefaultLines={true}
+                target={".target"}
+                origin={false}
+                individualGroupable={true}
+                draggable={true}
+                throttleDrag={1}
+                edgeDraggable={false}
+                startDragRotate={0}
+                throttleDragRotate={0}
+                scalable={junk ? false : true}
+                keepRatio={true}
+                throttleScale={0}
+                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
+                rotatable={junk ? false : true}
+                throttleRotate={0}
+                rotationPosition={"top"}
+                originDraggable={true}
+                originRelative={true}
+                onScaleStart={(e) => {
+                  e.setMinScaleSize([10, 10]);
+                  e.setMaxScaleSize([240, 240]);
+                }}
+                onDragOrigin={(e) => {
+                  e.target.style.transformOrigin = e.transformOrigin;
+                }}
+                onRender={(e) => {
+                  e.target.style.transform = e.transform;
+                }}
+                onDrag={(e) => {
+                  e.target.style.transform = e.transform;
+                }}
+                onScale={(e) => {
+                  e.target.style.transform = e.drag.transform;
+                }}
+                onRotate={(e) => {
+                  e.target.style.transform = e.drag.transform;
+                }}
+              />
+            </>
+          );
+        })}
+
 
         {textContent.map((item, index) => {
           return (
             <>
-              <div
+              <pre
                 ref={targetRef}
                 className={`m-0 position-absolute target target${index + 1} ${
                   item.textAlign
@@ -351,7 +414,7 @@ const Moveablee = () => {
                 }}
               >
                 {item.textAreaCont}
-              </div>
+              </pre>
 
               <Moveable
                 ref={moveableRef}
@@ -383,11 +446,11 @@ const Moveablee = () => {
                 edgeDraggable={false}
                 startDragRotate={0}
                 throttleDragRotate={0}
-                scalable={junk ? false : true}
                 keepRatio={false}
                 throttleScale={0}
                 renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
                 rotatable={junk ? false : true}
+                scalable={junk ? false : true}
                 throttleRotate={0}
                 rotationPosition={"top"}
                 originDraggable={true}
@@ -415,6 +478,7 @@ const Moveablee = () => {
             </>
           );
         })}
+        
       </div>
     </>
   );

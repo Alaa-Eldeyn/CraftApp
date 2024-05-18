@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import img1 from '../../Assets/images/Group 15.png'
 import img2 from '../../Assets/images/Group 2.png'
 import img3 from '../../Assets/images/ai.png'
 import img4 from '../../Assets/images/first-logo.png';
+
+import img5 from '../../Assets/images/Facebook - Negative.png';
+import img6 from '../../Assets/images/twitter.png';
+import img7 from '../../Assets/images/instagram.png';
+
 import style from '../Home/Home.module.css'
 import { Fade } from "react-awesome-reveal";
 
@@ -97,24 +102,55 @@ export default function Home(){
             </div>
             </section>
 
-            <section className={`pt-5 ${style.footer} ${style.section}`}>
+            <section className={` ${style.footer} ${style.section} d-md-flex justify-content-between align-items-center`}>
                 <div className="container">
-                <div className="row d-flex justify-content-center align-items-center">
+                <div className="row d-md-flex justify-content-center align-items-center">
                     <div className="col-md-4 ">
                         <div className="img">
                             <img src={img4}  alt="back ground"  />
-                            <p className={style.contFooter}>Revolutionize your style with 
-                                "Custom Craft" , using AI tools
-                                to personalize ordinary outfits.
-                            </p>
                         </div>
                     </div>
-                    <div className="col-md-8 ">
+
+                    <div className="col-md-4 ">
                         <div className="text">
-                            
+                        <ul className={style.list} style={{listStyle:"none"}}>
+                            <li className="nav-item ">
+                            <NavLink className="nav-link " aria-current="page" to="">Home</NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink className="nav-link " to="/customize" >Customize</NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink className="nav-link " to="/login" >Login</NavLink>
+                            </li>
+                            <li className="nav-item">
+                            <NavLink className="nav-link " to="contact" >Contact Us</NavLink>
+                            </li>
+                        </ul>
                         </div>
                     </div>
-                    
+
+                    <div className="col-md-4 ">
+                        <div className="text">
+                        <ul className=" d-flex justify-content-end align-items-center m-0" style={{listStyle:"none"}}>
+                            <li className="nav-item ">
+                            <Link className="nav-link mx-3" aria-current="page" to="">
+                                <img src={img5} alt="icon" />
+                            </Link>
+                            </li>
+                            <li className="nav-item mx-3">
+                            <Link className="nav-link" to="" >
+                                <img src={img6} alt="icon" />
+                            </Link>
+                            </li>
+                            <li className="nav-item mx-3">
+                            <Link className="nav-link" to="" >
+                                <img src={img7} alt="icon" />
+                            </Link>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             </section>

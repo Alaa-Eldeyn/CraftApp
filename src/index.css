@@ -31,9 +31,6 @@ html {
 .tshirt-preview img {
   max-width: 100%;
 }
-.react-draggable {
-  border: #2e2e2e dashed 1px;
-}
 body {
   background-image: url(../src/Assets/images/background.png);
   background-size: cover;
@@ -46,8 +43,6 @@ body {
   color: var(--colorText);
 }
 :root {
-  /* --font-size: 1.5vw; */
-
   --mainColor: #5b8f9a;
   --colorBtn: #fafafa;
   --colorText: #2e2e2e;
@@ -77,6 +72,17 @@ body {
   border-radius: 32px;
   border: 6px solid #fcfcfc;
   text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.form2 {
+  border-top-left-radius:  32px;
+  border-bottom-left-radius: 32px;
+  border: 6px solid #fcfcfc;
+  text-align: left;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -131,6 +137,8 @@ body {
   .show{
     margin: 0px 2px;
   }}
+
+
 .del::after{
   content: "x";
   color: #d33535;
@@ -155,3 +163,35 @@ body {
 .del2{
   position: relative;
 }
+
+.loader {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: #fff;
+  animation: wave 1s ease-in infinite;
+}
+
+@keyframes wave {
+ 0% {  box-shadow:
+  0 0 0 0px rgba(255, 255,255, 1),
+  0 0 0 20px rgba(255, 255,255, 0.2),
+  0 0 0 40px rgba(255, 255,255, 0.6),
+  0 0 0 60px rgba(255, 255,255, 0.4),
+  0 0 0 80px rgba(255, 255,255, 0.2)
+  }
+  100% {  box-shadow:
+    0 0 0 80px rgba(255, 255,255, 0),
+    0 0 0 60px rgba(255, 255,255, 0.2),
+    0 0 0 40px rgba(255, 255,255, 0.4),
+    0 0 0 20px rgba(255, 255,255, 0.6),
+    0 0 0 0px rgba(255, 255,255, 1)
+  }
+}
+
+
+  

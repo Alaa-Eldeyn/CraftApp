@@ -6,7 +6,6 @@ const Text = () => {
   let {
     textAlign,
     setTextAlign,
-    resize,
     font,
     setFont,
     color,
@@ -30,12 +29,12 @@ const Text = () => {
       textAlign: textAlign,
       font: font,
       color: color,
-      resize: resize,
       textAreaCont: textAreaCont,
     };
     const newTextContent = textContent.concat(note);
     setTextContent(newTextContent);
   };
+
   return (
     <>
       <p className={style.text}>Add New Text</p>
@@ -67,7 +66,6 @@ const Text = () => {
         value={textAreaCont}
         onChange={(e) => setTextAreaCont(e.target.value)}
       >
-        <pre></pre>
       </textarea>
       <p className={` ${style.text} mt-2`}>Text Style</p>
 

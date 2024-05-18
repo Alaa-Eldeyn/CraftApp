@@ -4,7 +4,7 @@ import { ViewContext } from "../../../Context/ViewContext";
 
 const Shapes = () => {
   let { colorShapes , setColorShapes ,shapeContent ,svgShapes
-    ,setIdShapes , setSVGShapes  ,setShapeContent} = useContext(ViewContext)
+    , setSVGShapes  ,setShapeContent} = useContext(ViewContext)
 
     const addNote = () => {
       let note = {
@@ -15,8 +15,7 @@ const Shapes = () => {
       setShapeContent(newshapeContent);
     };
     
-  const handleIconClick = (itemId, itemSvg) => {
-    setIdShapes(itemId);
+  const handleIconClick = ( itemSvg) => {
     setSVGShapes(itemSvg);
   };
     const SVG = [
@@ -234,7 +233,7 @@ const Shapes = () => {
         style={{ width: "80px", height: "80px" , cursor:'pointer'}}
         dangerouslySetInnerHTML={{ __html: item.svg }}
          // استخدام dangerouslySetInnerHTML لعرض الـ SVG
-        onClick={() => handleIconClick(item.id, item.svg)}
+        onClick={() => handleIconClick( item.svg)}
         
       ></div>
 ))}

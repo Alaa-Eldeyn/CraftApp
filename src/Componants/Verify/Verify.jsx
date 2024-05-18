@@ -28,7 +28,7 @@ export default function Verify() {
 
             <button className={`${style.inputs} ${style.button} my-4`} type="submit">Send</button>
             
-            <p className={style.paragraph2}>Didn’t receive a code? <a href="" className={style.link}>Resend</a></p>
+            <p className={style.paragraph2}>Didn’t receive a code? <Link to='' className={style.link}>Resend</Link></p>
             <p className={style.paragraph3}>Go Back to <Link to=''className={style.link}>Log In Page</Link> </p>
         </div>
       </div>

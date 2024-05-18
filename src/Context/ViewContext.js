@@ -1,4 +1,3 @@
-import html2canvas from "html2canvas";
 import { createContext, useRef, useState } from "react";
 
 export let ViewContext = createContext();
@@ -31,26 +30,31 @@ export default function ViewContextProvider(props) {
   <circle cx="40" cy="40" r="40" fill="#D9D9D9"/>
   </svg>`);
 
-// const getImage = () => {
-//   setJunk(true);
-
-//   setTimeout(() => {
-//     html2canvas(saveRef.current).then((canvas) => {
-//       const imgData = canvas.toDataURL("image/png");
-//       setImage(imgData);
-//     });
-//     setJunk(false);
-//   }, 1);
-// };
-
-
 const contentRef = useRef(null);
-
+const [imageData, setImageData] = useState(null);
 const [imageUrl, setImageUrl] = useState();
   const [images, setImages] = useState([]);
+
+  const [slide, setSlide] = useState()
+
+  const [indColor, setIndColor] = useState(-1)
+  const [urlColor, setUrlColor] = useState()
+  const [mainImg,setMainImg]= useState(`http://customcraftt.somee.com/images/items/HoodieFront.png`)
+
+
   return (
     <ViewContext.Provider
       value={{
+        mainImg,
+        setMainImg,
+        indColor,
+        setIndColor,
+        urlColor,
+        setUrlColor,
+        slide,
+        setSlide,
+        imageData,
+        setImageData,
         imageUrl,
         setImageUrl,
         contentRef,

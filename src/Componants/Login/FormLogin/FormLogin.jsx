@@ -24,7 +24,7 @@ export default function FormLogin() {
 
     async function login(values) {
         setLoading(true);
-          let { data } = await axios.post(`http://customcraft.somee.com/api/Account/login`, values)
+          let { data } = await axios.post(`http://customcrafttt.somee.com/api/Account/login`, values)
           .catch((error)=>{
                 setMsg("Your email or password is invalid")
                 setLoading(false)})
@@ -33,6 +33,7 @@ export default function FormLogin() {
                 setLoading(false)
                 localStorage.setItem('UserToken', data.token)
                 setToken(data.token)
+        console.log(data);
       }
 
 }
