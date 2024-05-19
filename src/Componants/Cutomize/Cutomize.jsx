@@ -11,7 +11,7 @@ export default function Cutomize() {
 
   let {data , isLoading } = useQuery('Items', getItems , {
     refetchOnMount:false,
-    refetchInterval: 30000
+    // refetchInterval: 30000
   })
 
   return (
@@ -29,7 +29,7 @@ export default function Cutomize() {
                 <Link 
                   key={index}
                   className="col-xl-3 col-lg-4 col-md-6 cursor colorText"
-                  to={`/editor/${data.name}`
+                  to={`/customize/${data.name}`
                 }
                 >
                   

@@ -41,8 +41,8 @@ export default function NavBar(){
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#5B8F9A",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: " #d33",
+            cancelButtonColor: "#5B8F9A",
             confirmButtonText: "Log out !"
             }).then((result) => {
             if (result.isConfirmed) {

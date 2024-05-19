@@ -53,11 +53,11 @@ const Layers = () => {
             setTimeout(() => {
                 
                 html2canvas(document.getElementById('testdiv')).then((canvas) => {
-                    const imgData = canvas.toDataURL('image/jpeg', 0.9);
+                    const imgData = canvas.toDataURL('image/png', 0.9);
                     const link = document.createElement('a');
                     link.href = imgData;
-                    // link.download = 'myImage.png';
-                    // link.click();
+                    link.download = 'myImage.png';
+                    link.click();
                     console.log(imgData);
                     setImageUrl(imgData)
                     alertSave()

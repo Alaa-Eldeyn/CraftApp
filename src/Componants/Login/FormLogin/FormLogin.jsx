@@ -90,16 +90,7 @@ export default function FormLogin() {
                             
                 </form>
 
-                <div className="d-flex justify-content-around align-items-center mb-4">
-                    <div className='line'></div>
-                    <div className='or'>OR</div>
-                    <div className='line'></div>
-                </div>
-
-                <div className="anotherLogin">
-                    <button className={`${style.buttons}  mb-2`} type="button"> <img className={style.img} src={image3} alt="google icon"  /> Continue With Google</button>
-                    <button className={`${style.buttons}  mb-3`} type="button"> <img className={style.img} src={image4} alt="facebook icon"  /> Continue With Facebook</button>
-                </div>
+                
                 <div className="hint">
                     <p className='mb-0'>Don’t have an account? <Link className={style.link} to='/register'>Sign up</Link></p>
                 </div>

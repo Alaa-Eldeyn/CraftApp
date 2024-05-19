@@ -4,9 +4,9 @@ import Layers from "./Layers";
 import { useState } from "react";
 
 const Editor = ({hoodiback ,hoodifront}) => {
+
   const [mainImg,setMainImg]= useState(hoodifront)
 
-  console.log(mainImg);
   return (
     <div style={{paddingTop:"40px" , marginTop:"42px"}}>
       <div  className="d-sm-flex flex-md-row flex-sm-column " 

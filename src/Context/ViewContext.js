@@ -39,7 +39,6 @@ const [imageUrl, setImageUrl] = useState();
 
   const [indColor, setIndColor] = useState(-1)
   const [urlColor, setUrlColor] = useState()
-  // const [mainImg,setMainImg]= useState()
 
 
   return (
