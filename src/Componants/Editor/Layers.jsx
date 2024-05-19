@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import style from './Editor.module.css'
 import style2 from './tools/Ai.module.css'
 import img from '../../Assets/images/layer.png'
@@ -17,6 +17,8 @@ const Layers = () => {
     } = useContext(ViewContext);
     let {token}= useContext(userToken)
 
+    const [clickName , setClickName] = useState("Hide")
+
     const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -28,6 +30,7 @@ const Layers = () => {
             http://customcrafttt.somee.com/api/SavedDesign/SavedDesigns`, values , {headers}
             );
         } 
+
     function alertSave() {
         Swal.fire({
             title: "Do you want to save the design in your gallery ?",
@@ -68,6 +71,7 @@ const Layers = () => {
 
     function clicked(){
         setClick(!click)
+        {click ? setClickName("Show") : setClickName("Hide")}
     }
 
     const deleteHandler1 = (index) => {
@@ -120,7 +124,7 @@ return (
 
                 <div onClick={clicked} className=' cursor text-center rounded-2 my-1' style={{width:'72px' , border:'1px solid #000'}}>
                     <img src={img} alt="layers" className='w-50 pt-1'/>
-                    <p className='p-0 m-0 ' style={{fontSize:'14px'}}>Click</p>
+                    <p className='p-0 m-0 ' style={{fontSize:'14px'}}>{clickName}</p>
                 </div>
 
                 {textContent.map((item, index) => {
@@ -230,7 +234,7 @@ return (
                 );
                 })}
 
-                    <div id='imageData' className={`${click ? "rounded-2  mx-sm-1 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 mx-sm-1 my-1 d-flex justify-content-center align-items-center hide"} `}
+                {/* <div id='imageData' className={`${click ? "rounded-2  mx-sm-1 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 mx-sm-1 my-1 d-flex justify-content-center align-items-center hide"} `}
                     style={{width:'72px' , border:'1px solid #000' , height:'50px' }} >
                     <div className="del2" onClick={() => { deleteHandler5()}}></div>
                     
@@ -241,7 +245,7 @@ return (
                         className='w-50 '
                     />
                     </div>
-                    </div>
+                </div> */}
 
 
                 </div>
