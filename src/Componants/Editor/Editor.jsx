@@ -1,33 +1,37 @@
 import SideTaps from "./SideTaps";
 import View from "./View";
 import Layers from "./Layers";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ViewContext } from "../../Context/ViewContext";
 
-const Editor = ({hoodiback ,hoodifront}) => {
+const Editor = ({ hoodiback, hoodifront }) => {
+  const [mainImg, setMainImg] = useState(hoodifront);
+  let { indColor } = useContext(ViewContext);
 
-  const [mainImg,setMainImg]= useState(hoodifront)
+  useEffect(() => {
+    setMainImg(hoodifront);
+  }, [indColor]);
 
-  console.log(mainImg , hoodifront , hoodiback);
+  console.log(mainImg, hoodifront, hoodiback);
   return (
-    <div style={{paddingTop:"40px" , marginTop:"42px"}}>
-      <div  className="d-sm-flex flex-md-row flex-sm-column " 
-        style={{ minHeight: "90vh" }}>
+    <div style={{ paddingTop: "40px", marginTop: "42px" }}>
+      <div
+        className="d-sm-flex flex-md-row flex-sm-column "
+        style={{ minHeight: "90vh" }}
+      >
+        <SideTaps />
 
-          <SideTaps/>
-
-          <View 
+        <View
           hoodiback={hoodiback}
           hoodifront={hoodifront}
           mainImg={mainImg}
           setMainImg={setMainImg}
-          />
+        />
 
-          <Layers/>
-        </div>
-
+        <Layers />
+      </div>
     </div>
   );
 };
 
 export default Editor;
-
