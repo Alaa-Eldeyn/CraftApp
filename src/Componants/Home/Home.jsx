@@ -33,7 +33,7 @@ export default function Home(){
                         </div>
                         <div className="col-xl-6 col-lg-5 col-md-6 px-md-1 px-lg-5">
                             <Fade direction="up" >
-                            <div className="img">
+                            <div >
                                 <img src={img1} className='w-100' alt="back ground"  />
                             </div>
                             </Fade>
@@ -104,33 +104,33 @@ export default function Home(){
 
             <section className={` ${style.footer} ${style.section} d-md-flex justify-content-between align-items-center`}>
                 <div className="container">
-                <div className="row d-md-flex justify-content-center align-items-center">
+                <div className="row ">
                     <div className="col-md-4 ">
-                        <div className="img">
-                            <img src={img4}  alt="back ground"  />
+                        <div >
+                            <img src={img4} className="w-50"  alt="back ground"  />
                         </div>
                     </div>
 
-                    <div className="col-md-4 ">
+                    <div className="col-md-4 bg-danger">
                         <div className="text">
-                        <ul className={style.list} style={{listStyle:"none"}}>
+                        <ul className={style.list2} >
                             <li className="nav-item ">
-                            <NavLink className="nav-link " aria-current="page" to="">Home</NavLink>
+                            <NavLink className="nav-link mx-2" aria-current="page" to="">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link " to="/customize" >Customize</NavLink>
+                            <NavLink className="nav-link mx-2" to="/customize" >Customize</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link " to="/login" >Login</NavLink>
+                            <NavLink className="nav-link mx-2" to="/login" >Login</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className="nav-link " to="contact" >Contact Us</NavLink>
+                            <NavLink className="nav-link mx-2" to="contact" >Contact Us</NavLink>
                             </li>
                         </ul>
                         </div>
                     </div>
 
-                    <div className="col-md-4 ">
+                    <div className="col-md-4 bg-info">
                         <div className="text">
                         <ul className=" d-flex justify-content-end align-items-center m-0" style={{listStyle:"none"}}>
                             <li className="nav-item ">

@@ -7,6 +7,7 @@ const Editor = ({hoodiback ,hoodifront}) => {
 
   const [mainImg,setMainImg]= useState(hoodifront)
 
+  console.log(mainImg , hoodifront , hoodiback);
   return (
     <div style={{paddingTop:"40px" , marginTop:"42px"}}>
       <div  className="d-sm-flex flex-md-row flex-sm-column " 

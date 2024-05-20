@@ -16,7 +16,7 @@ import ChangePass from "./Componants/ChangePass/ChangePass";
 import { useContext } from "react";
 import { ViewContext } from "./Context/ViewContext";
 
-// BA2I 3 ITEMS 
+// BA2I 2 ITEMS 
 // -------------hoodi-----------
 import hfw from "./Assets/items/hfw.png"
 import hbw from "./Assets/items/hbw.png"
@@ -32,6 +32,22 @@ import hbw from "./Assets/items/hbw.png"
 // import hb from "./Assets/items/hb.png"
 // import hb from "./Assets/items/hb.png"
 // import hb from "./Assets/items/hb.png"
+// -----------MEN ----------------
+
+import TWF from "./Assets/items/TWF.png"
+import TWB from "./Assets/items/TWB.png"
+import TGF from "./Assets/items/TGF.png"
+import TGB from "./Assets/items/TGB.png"
+import TBF from "./Assets/items/TBF.png"
+import TBB from "./Assets/items/TBB.png"
+import TRF from "./Assets/items/TRF.png"
+import TRB from "./Assets/items/TRB.png"
+import TLF from "./Assets/items/TLF.png"
+import TLB from "./Assets/items/TLB.png"
+import TF from "./Assets/items/TF.png"
+import TB from "./Assets/items/TB.png"
+import TGRF from "./Assets/items/TGRF.png"
+import TGRB from "./Assets/items/TGRB.png"
 
 // -----------woman --------------
 import LSWF_White from "./Assets/items/LSWF_White.png"
@@ -150,28 +166,29 @@ function App() {
           )
         },
         { path: "customize/T-shirt Men", element:   <ProtectRouting><Editor 
-         hoodifront={
-          indColor === 0 ? LSWF_White : 
-          indColor === 1 ? LSWF_Grey :
-          indColor === 2 ? LSWF_Black :
-          indColor === 3 ? LSWF_Rose :
-          indColor === 4 ? LSWF_Blue :
-          indColor === 5 ? LSWF_LightBlue :
-          indColor === 6 ? LSWF_Green :
-          LSWF_Grey
+        hoodifront={
+          indColor === 0 ? TWF : 
+          indColor === 1 ? TGF :
+          indColor === 2 ? TBF :
+          indColor === 3 ? TRF :
+          indColor === 4 ? TLF :
+          indColor === 5 ? TF :
+          indColor === 6 ? TGRF :
+          TGF
         }
         hoodiback={
-          indColor === 0 ? LSWB_White : 
-          indColor === 1 ? LSWB_Grey :
-          indColor === 2 ? LSWB_Black :
-          indColor === 3 ? LSWB_Rose:
-          indColor === 4 ? LSWB_Blue :
-          indColor === 5 ? LSWB_LightBlue :
-          indColor === 6 ? LSWB_Green :
-          LSWB_Grey
+          indColor === 0 ? TWB : 
+          indColor === 1 ? TGB :
+          indColor === 2 ? TBB :
+          indColor === 3 ? TRB:
+          indColor === 4 ? TLB :
+          indColor === 5 ? TB :
+          indColor === 6 ? TGRB :
+          TGB
         }
 
         /> </ProtectRouting>},
+
         { path: "customize/Long Sleeve Woman", element:   <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? LSWF_White : 
@@ -193,8 +210,9 @@ function App() {
           indColor === 6 ? LSWB_Green :
           LSWB_Grey
         }/> </ProtectRouting>},
+
         { path: "customize/T-shirt Woman", element: <ProtectRouting><Editor 
-         hoodifront={
+        hoodifront={
           indColor === 0 ? LSWF_White : 
           indColor === 1 ? LSWF_Grey :
           indColor === 2 ? LSWF_Black :
@@ -216,6 +234,7 @@ function App() {
         }
 
         />   </ProtectRouting>},
+
         { path: "customize/Baby t-shirt", element:  <ProtectRouting> <Editor 
         hoodifront={
           indColor === 0 ? CWF : 
