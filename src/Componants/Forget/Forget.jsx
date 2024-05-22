@@ -3,11 +3,13 @@ import image1 from '../../Assets/images/forget.png'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
+import { userToken } from '../../Context/TokenContext';
 
 export default function Forget() {
   let [Loading , setLoading]= useState(false)
+  let {setToken}= useContext(userToken) 
 
   let validationSchema = Yup.object({
     email : Yup.string().email('Email is invalid').required('Email is required'),
@@ -15,12 +17,14 @@ export default function Forget() {
 
 
   async function SendToApi  (values) {
-    const {data} = await axios.post (`http://customcraftt.somee.com/api/Account/forgetPassword` , values).catch((error)=>{
+    setLoading(true)
+    const {data} = await axios.post (`http://customcrafttt.somee.com/api/Account/forgetPassword` , values).catch((error)=>{
       console.log(error);
+      setLoading(false)
     })
-    console.log(data);
+    // setToken(data.token)
+    setLoading(false)
     
-    // console.log(values);
   }
 
   let forget = useFormik({

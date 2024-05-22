@@ -5,6 +5,9 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import img from '../../../Assets/images/3d.png'
+import img2 from '../../../Assets/images/download.png'
+import img3 from '../../../Assets/images/delete.png'
+
 const MyDesign = () => {
     let { token } = useContext(userToken);
     const [modal, setModal] = useState(false);
@@ -36,12 +39,17 @@ const MyDesign = () => {
         linkk.download = 'Image.png';
         linkk.click(); 
     }
+    function deletee() {
+        
+    }
     return (
         <>
 
         <div className={style.threeD} onClick={toggleModal}>
-            
+            <img src={img} alt="icon" style={{width:"20px"}} />
+            <p className='p-0 m-0'>View</p>
         </div>
+
         {isLoading ? (
             <div
                 className="position-fixed w-100 h-100 top-0 bottom-0 justify-content-center align-items-center"
@@ -62,7 +70,13 @@ const MyDesign = () => {
                                 className={`col-xl-3 col-lg-4 col-md-6 cursor position-relative ${style.hover}`}
                             >
                                 
-                                <div className={style.download} onClick={()=>download(index)}>Download</div>
+                                <div className={style.download} onClick={()=>download(index)}>
+                                <img src={img2} alt="icon" style={{width:"30px"}} />
+                                </div>
+                                <div className={style.delete} onClick={()=>deletee(index)}>
+                                    <img src={img3} alt="icon" style={{width:"30px"}} />
+                                </div>
+                                {/* <div></div> */}
                                 <img src={dataItem.pictureUrl} className="w-100" alt="Your Design" />
                             </div>
                         ))}

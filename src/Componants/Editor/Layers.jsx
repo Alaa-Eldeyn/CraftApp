@@ -14,7 +14,7 @@ const Layers = () => {
     const [clickName , setClickName] = useState("Hide")
     
     let {imageData, imageUrl, setImageUrl, setJunk ,junk , textContent, 
-        iconContent,images ,shapeContent ,click, setClick , 
+        iconContent,images ,shapeContent ,click, setClick , ai,
         mutation1,
         setMutation1, getImage
     } = useContext(ViewContext);
@@ -66,10 +66,10 @@ const Layers = () => {
         setMutation1(!mutation1); 
         return (images);
     };
-    const deleteHandler5 = () => {
-        // imageData = imageData.splice(index,1);
-        // setMutation1(!mutation1); 
-        // return (imageData);
+    const deleteHandler5 = (index) => {
+        ai = ai.splice(index,1);
+        setMutation1(!mutation1); 
+        return (ai);
     };
     
     const styles = {
@@ -93,20 +93,22 @@ const Layers = () => {
     function alertSave(imgData) {
         Swal.fire({
             title: "Do you want to save the design in your gallery ?",
-            showDenyButton: true,
             showCancelButton: true,
-            confirmButtonText: "Save",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Save it "
             }).then((result) => {
             if (result.isConfirmed) {
                 SavedDesigns({
                     "pictureUrl": `${imgData}`
-                })
-                console.log(imgData);
-                Swal.fire("Saved!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("Design is not saved", "", "info");
-            }
+                    })
+            Swal.fire({
+                title: "Saved!",
+                text: "Your design in your gallery now !",
+                icon: "success"
             });
+            }
+        });
     }
 
     async function SavedDesigns(values) {
@@ -241,18 +243,23 @@ return (
                 );
                 })}
 
-                {/* <div id='imageData' className={`${click ? "rounded-2  mx-sm-1 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 mx-sm-1 my-1 d-flex justify-content-center align-items-center hide"} `}
-                    style={{width:'72px' , border:'1px solid #000' , height:'50px' }} >
-                    <div className="del2" onClick={() => { deleteHandler5()}}></div>
+                {ai.map((imageAi, index) => {
+                return (
+                    <div key={index} className={`${click ? "rounded-2  mx-sm-1 my-1 d-flex justify-content-center align-items-center show ": "rounded-2 mx-sm-1 my-1 d-flex justify-content-center align-items-center hide"} `}
+                    style={{width:'70px' , border:'1px solid #000' , height:'50px' }} >
+                    <div className="del2" onClick={() => { deleteHandler5(index)}}></div>
                     
                     <div className='d-flex justify-content-center align-items-center' style={{overflow:'hidden' , width:'100%' , height:'100%'}}>
                     <img
-                        src={imageData}
-                        alt={"Ai"}
+                        src={`data:image/png;base64,${imageAi.imageData}`}
+                        alt="ai"
                         className='w-50 '
                     />
                     </div>
-                </div> */}
+                    </div>
+            
+                );
+                })}
 
 
                 </div>

@@ -5,12 +5,20 @@ import { useContext } from 'react';
 import {ViewContext} from '../../../Context/ViewContext';
 
 const Ai = () => {
-  const { imageData, setImageData} = useContext(ViewContext);
+  const {ai,setAi, imageData, setImageData} = useContext(ViewContext);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setText(e.target.value);
+  };
+
+  const addNote = (data) => {
+    let note = {
+      imageData:data
+    };
+    const newAi = ai.concat(note);
+    setAi(newAi);
   };
 
   const handleGenerateImage = async () => {
@@ -42,20 +50,25 @@ const Ai = () => {
       Authorization: `Bearer ${API_KEY}`,
     };
 
+    setLoading(true)
     try {
       const response = await axios.post(url, body, { headers });
-
+      // addNote()
       if (response.status === 200) {
         const { artifacts } = response.data;
         const image = artifacts[0]; // Assuming there is only one image in the response
-
         setImageData(image.base64);
+        addNote(image.base64)
       } else {
+        setLoading(false)
         throw new Error('Failed to generate image');
       }
     } catch (error) {
       console.error('Error generating image:', error);
+      setLoading(false)
     }
+    setLoading(false)
+
   };
 
 

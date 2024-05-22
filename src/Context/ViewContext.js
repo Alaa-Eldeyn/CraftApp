@@ -1,4 +1,4 @@
-import { createContext, createRef, useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 export let ViewContext = createContext();
 
@@ -36,6 +36,8 @@ const [imageUrl, setImageUrl] = useState();
   const [images, setImages] = useState([]);
 
   const [slide, setSlide] = useState()
+  const [ai, setAi] = useState([])
+
 
   const [indColor, setIndColor] = useState(-1)
   const [urlColor, setUrlColor] = useState()
@@ -44,6 +46,8 @@ const [imageUrl, setImageUrl] = useState();
   return (
     <ViewContext.Provider
       value={{
+        ai,
+        setAi,
         indColor,
         setIndColor,
         urlColor,

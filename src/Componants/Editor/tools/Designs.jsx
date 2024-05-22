@@ -9,7 +9,7 @@ const Designs = () => {
     <> 
     <p className={style.text}>My Designs</p>
       <div id='targetDiv' className='d-flex justify-content-center align-items-center'>
-        <img src={imageUrl} alt='design'/>
+        {imageUrl && <img src={imageUrl} className='w-100' alt='design'/>}
         </div>
       </>
   )}

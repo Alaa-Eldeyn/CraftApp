@@ -16,22 +16,21 @@ import ChangePass from "./Componants/ChangePass/ChangePass";
 import { useContext } from "react";
 import { ViewContext } from "./Context/ViewContext";
 
-// BA2I 2 ITEMS 
 // -------------hoodi-----------
 import hfw from "./Assets/items/hfw.png"
 import hbw from "./Assets/items/hbw.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
-// import hb from "./Assets/items/hb.png"
+import HFLB from "./Assets/items/HFLB.png"
+import HBLB from "./Assets/items/HBLB.png"
+import HFR from "./Assets/items/HFR.png"
+import HBR from "./Assets/items/HBR.png"
+import HBG from "./Assets/items/hbg.png"
+import HFG from "./Assets/items/HFG.png"
+import HFB from "./Assets/items/HFB.png"
+import HBB from "./Assets/items/HBB.png"
+import HFGR from "./Assets/items/HFGR.png"
+import HBGR from "./Assets/items/HBGR.png"
+import HFLG from "./Assets/items/HFLG.png"
+import HBLG from "./Assets/items/HBLG.png"
 // -----------MEN ----------------
 
 import TWF from "./Assets/items/TWF.png"
@@ -159,24 +158,24 @@ function App() {
             <ProtectRouting>
               <Editor
                 hoodifront={
-                  indColor === 0 ? hfw : ''
-                  // indColor === 1 ? urlColor?.data[2]?.url :
-                  // indColor === 2 ? urlColor?.data[4]?.url :
-                  // indColor === 3 ? urlColor?.data[6]?.url :
-                  // indColor === 4 ? urlColor?.data[8]?.url :
-                  // indColor === 5 ? urlColor?.data[10]?.url :
-                  // indColor === 6 ? urlColor?.data[12]?.url :
-                  // urlColor?.data[2]?.url 
+                  indColor === 0 ? hfw :
+                  indColor === 1 ? HFG:
+                  indColor === 2 ? HFB :
+                  indColor === 3 ? HFR :
+                  indColor === 4 ? HFLB :
+                  indColor === 5 ? HFLG :
+                  indColor === 6 ? HFGR :
+                  HFG
                 }
                 hoodiback={
-                  indColor === 0 ?hbw : ''
-                  // indColor === 1 ? urlColor?.data[3]?.url :
-                  // indColor === 2 ? urlColor?.data[5]?.url :
-                  // indColor === 3 ? urlColor?.data[7]?.url :
-                  // indColor === 4 ? urlColor?.data[9]?.url :
-                  // indColor === 5 ? urlColor?.data[11]?.url :
-                  // indColor === 6 ? urlColor?.data[13]?.url :
-                  // urlColor?.data[3]?.url
+                  indColor === 0 ? hbw :
+                  indColor === 1 ? HBG :
+                  indColor === 2 ? HBB :
+                  indColor === 3 ? HBR :
+                  indColor === 4 ? HBLB :
+                  indColor === 5 ? HBLG :
+                  indColor === 6 ? HBGR :
+                  HBG
                 }
               />
             </ProtectRouting>
