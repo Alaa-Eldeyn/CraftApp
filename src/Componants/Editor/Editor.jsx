@@ -12,7 +12,6 @@ const Editor = ({ hoodiback, hoodifront }) => {
     setMainImg(hoodifront);
   }, [indColor]);
 
-  console.log(mainImg, hoodifront, hoodiback);
   return (
     <div style={{ paddingTop: "40px", marginTop: "42px" }}>
       <div

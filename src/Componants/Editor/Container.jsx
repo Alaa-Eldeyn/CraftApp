@@ -7,7 +7,7 @@ export default function Container(){
         <div
           style={{
             position: "absolute",
-            inset: "55px 80px 80px 80px",
+            inset: "5px 80px 80px 80px",
           }}
         >
           <Moveablee/>

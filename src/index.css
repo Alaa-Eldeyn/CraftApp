@@ -147,6 +147,7 @@ body {
   left: -3px;
   font-weight: 700;
   cursor: pointer;
+  z-index: 99;
 }
 .del{
   position: relative;

@@ -4,6 +4,7 @@
   background-image: url(../../Assets/images/homeground.png);
   background-repeat: no-repeat;
   background-size: cover;
+  /* min-height: 100vh; */
 }
 .head {
   font-size: 59px;
@@ -62,7 +63,6 @@
   margin: 0;
 }
 .list2 {
-  /* height: 30px; */
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -70,7 +70,13 @@
   margin: 0;
   list-style: none;
 }
-  
+.list3 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
 @media (max-width: 1200px) {
   .head ,.head2{
     font-size: 50px;
@@ -105,6 +111,13 @@
     margin: 20px 0px ;
     list-style: decimal;
   }
+  .list3 {
+
+    justify-content: start;
+    margin: 20px 0px ;
+    padding: 0px;
+  }
+
 }
 /* <sm */
 @media (max-width: 576px) {

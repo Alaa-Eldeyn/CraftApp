@@ -61,11 +61,12 @@
 }
 @media screen and (max-width : 767px) {
   .height{
-    height: 100%;
+    min-height: 100%;
     flex-wrap: wrap;
     margin: 0px 4px;
   }
   .layers{
+    height: 300px;
     width: 100%;  
     background: transparent;
     backdrop-filter: blur(0px);

@@ -49,6 +49,22 @@ import TB from "./Assets/items/TB.png"
 import TGRF from "./Assets/items/TGRF.png"
 import TGRB from "./Assets/items/TGRB.png"
 
+// --------------woman shirt------
+
+import FSWW from "./Assets/items/front tshirt woman 7.png"
+import FSWG from "./Assets/items/front tshirt woman 4.png"
+import FSWB from "./Assets/items/front tshirt woman 5.png"
+import FSWR from "./Assets/items/front tshirt woman 9.png"
+import FSWLB from "./Assets/items/front tshirt woman 8.png"
+import FSWL from "./Assets/items/front tshirt woman 10.png"
+import FSWGR from "./Assets/items/front tshirt woman 6.png"
+import BSWW from "./Assets/items/back tshirt woman 4.png"
+import BSWG from "./Assets/items/back tshirt woman 1.png"
+import BSWB from "./Assets/items/back tshirt woman 2.png"
+import BSWR from "./Assets/items/back tshirt woman 6.png"
+import BSWLB from "./Assets/items/back tshirt woman 5.png"
+import BSWL from "./Assets/items/back tshirt woman 7.png"
+import BSWGR from "./Assets/items/back tshirt woman 3.png"
 // -----------woman --------------
 import LSWF_White from "./Assets/items/LSWF_White.png"
 import LSWF_Grey from "./Assets/items/LSWF_Grey.png"
@@ -136,6 +152,7 @@ function App() {
           element: <ProtectRouting><MyDesign /> </ProtectRouting>,
         },
         { path: "/contact" , element:   <ProtectRouting><Account/> </ProtectRouting>},
+        
         { 
           path: "customize/Hoodie", 
           element: (
@@ -165,6 +182,7 @@ function App() {
             </ProtectRouting>
           )
         },
+
         { path: "customize/T-shirt Men", element:   <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? TWF : 
@@ -213,24 +231,24 @@ function App() {
 
         { path: "customize/T-shirt Woman", element: <ProtectRouting><Editor 
         hoodifront={
-          indColor === 0 ? LSWF_White : 
-          indColor === 1 ? LSWF_Grey :
-          indColor === 2 ? LSWF_Black :
-          indColor === 3 ? LSWF_Rose :
-          indColor === 4 ? LSWF_Blue :
-          indColor === 5 ? LSWF_LightBlue :
-          indColor === 6 ? LSWF_Green :
-          LSWF_Grey
+          indColor === 0 ? FSWW : 
+          indColor === 1 ? FSWG :
+          indColor === 2 ? FSWB :
+          indColor === 3 ? FSWR :
+          indColor === 4 ? FSWLB :
+          indColor === 5 ? FSWL :
+          indColor === 6 ? FSWGR :
+          FSWG
         }
         hoodiback={
-          indColor === 0 ? LSWB_White : 
-          indColor === 1 ? LSWB_Grey :
-          indColor === 2 ? LSWB_Black :
-          indColor === 3 ? LSWB_Rose:
-          indColor === 4 ? LSWB_Blue :
-          indColor === 5 ? LSWB_LightBlue :
-          indColor === 6 ? LSWB_Green :
-          LSWB_Grey
+          indColor === 0 ? BSWW : 
+          indColor === 1 ? BSWG :
+          indColor === 2 ? BSWB :
+          indColor === 3 ? BSWR:
+          indColor === 4 ? BSWLB :
+          indColor === 5 ? BSWL :
+          indColor === 6 ? BSWGR :
+          BSWG
         }
 
         />   </ProtectRouting>},

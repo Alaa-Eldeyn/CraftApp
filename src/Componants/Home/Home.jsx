@@ -111,7 +111,7 @@ export default function Home(){
                         </div>
                     </div>
 
-                    <div className="col-md-4 bg-danger">
+                    <div className="col-md-4 ">
                         <div className="text">
                         <ul className={style.list2} >
                             <li className="nav-item ">
@@ -130,10 +130,10 @@ export default function Home(){
                         </div>
                     </div>
 
-                    <div className="col-md-4 bg-info">
-                        <div className="text">
-                        <ul className=" d-flex justify-content-end align-items-center m-0" style={{listStyle:"none"}}>
-                            <li className="nav-item ">
+                    <div className="col-md-4 ">
+                    <div className="text">
+                        <ul className={style.list3} >
+                        <li className="nav-item ">
                             <Link className="nav-link mx-3" aria-current="page" to="">
                                 <img src={img5} alt="icon" />
                             </Link>

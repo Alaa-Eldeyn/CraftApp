@@ -47,8 +47,6 @@ export default function ChangePass() {
     finally {
       setLoading(false);}
     } 
-    // console.log(data);
-
 
       let formik = useFormik({
         initialValues : {

@@ -377,7 +377,7 @@ const Moveablee = () => {
         {textContent.map((item, index) => {
           return (
             <>
-              <div
+              <pre
                 ref={targetRef}
                 className={`m-0 position-absolute target target${index + 1} ${
                   item.textAlign
@@ -414,7 +414,7 @@ const Moveablee = () => {
                 }}
               >
                 {item.textAreaCont}
-              </div>
+              </pre>
 
               <Moveable
                 ref={moveableRef}

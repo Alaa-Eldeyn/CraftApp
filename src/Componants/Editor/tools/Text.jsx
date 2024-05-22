@@ -41,9 +41,8 @@ const Text = () => {
       <textarea
         className={`${style.area} ${textAlign} ${font} 
         ${
-          font === "Vibes"
-            ? style.vibes
-            : font === "Rakkas"
+          
+            font === "Rakkas"
             ? style.rakkas
             : font === "Caveat"
             ? style.Caveat
@@ -78,7 +77,6 @@ const Text = () => {
           <option value="Roboto" defaultChecked>
             Normal
           </option>
-          <option value="Vibes">Vibes</option>
           <option value="Rakkas">Rakkas</option>
           <option value="Caveat">Caveat</option>
           <option value="Ojuju">Ojuju</option>

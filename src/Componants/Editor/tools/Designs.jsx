@@ -9,11 +9,8 @@ const Designs = () => {
     <> 
     <p className={style.text}>My Designs</p>
       <div id='targetDiv' className='d-flex justify-content-center align-items-center'>
-        {imageUrl&& <img src={imageUrl} alt="Converted Canvas" className='w-100' />}
-      </div>
-  
-  </>
-  )
-}
-
-export default Designs
+        <img src={imageUrl} alt='design'/>
+        </div>
+      </>
+  )}
+  export default Designs;

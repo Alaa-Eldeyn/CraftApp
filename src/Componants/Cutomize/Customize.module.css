@@ -23,7 +23,6 @@
     font-weight: 700;
     opacity: 0;
     text-align: center;
-  /* transition: all .5s .5s ease; */
 
 }
 .item:hover .text {
