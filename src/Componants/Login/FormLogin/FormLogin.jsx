@@ -1,7 +1,5 @@
 import style from '../../Register/FormRegisteration/FormRegisteration.module.css';
 import image2 from '../../../Assets/images/first-logo.png'
-import image3 from '../../../Assets/images/google.png'
-import image4 from '../../../Assets/images/facebook.png'
 import { Link , useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

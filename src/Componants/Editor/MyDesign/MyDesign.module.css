@@ -27,6 +27,7 @@
   opacity: 1;
 }
 .download{
+  width: 130px;
   position: absolute;
   right:15px;
   bottom: 7px;
@@ -36,6 +37,7 @@
   text-align: center;
   font-weight: 500;
   color: aliceblue;
+  background-color: #5B8F9A;
   opacity: 0;
   transition: all .5s ;
 }

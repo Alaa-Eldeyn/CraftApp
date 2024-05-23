@@ -13,11 +13,12 @@ const Layers = () => {
     
     const [clickName , setClickName] = useState("Hide")
     
-    let {imageData, imageUrl, setImageUrl, setJunk ,junk , textContent, 
+    let { setImageUrl, setJunk  , textContent, 
         iconContent,images ,shapeContent ,click, setClick , ai,
         mutation1,
-        setMutation1, getImage
+        setMutation1
     } = useContext(ViewContext);
+    
     let {token}= useContext(userToken)
     
     
@@ -32,7 +33,7 @@ const Layers = () => {
                     link.href = imgData;
                     // link.download = 'myImage.png';
                     // link.click();
-                    // console.log(imgData);
+                    console.log(imgData);
                     setImageUrl(imgData)
                     alertSave(imgData)
                     

@@ -31,6 +31,12 @@ import HFGR from "./Assets/items/HFGR.png"
 import HBGR from "./Assets/items/HBGR.png"
 import HFLG from "./Assets/items/HFLG.png"
 import HBLG from "./Assets/items/HBLG.png"
+import HF_BROWN from "./Assets/items/HF BROWN.png"
+import HB_BROWN from "./Assets/items/HB BROWN.png"
+import HF_MUV from "./Assets/items/HF MUV.png"
+import HB_MUV from "./Assets/items/HB MUV.png"
+import HF_teal from "./Assets/items/HF teal.png"
+import HB_teal from "./Assets/items/HB teal.png"
 // -----------MEN ----------------
 
 import TWF from "./Assets/items/TWF.png"
@@ -47,6 +53,13 @@ import TF from "./Assets/items/TF.png"
 import TB from "./Assets/items/TB.png"
 import TGRF from "./Assets/items/TGRF.png"
 import TGRB from "./Assets/items/TGRB.png"
+import TB_Teal from "./Assets/items/TB Teal.png"
+import TF_teal from "./Assets/items/TF teal.png"
+import TF_BROWN from "./Assets/items/TF BROWN.png"
+import TB_BROWN from "./Assets/items/TB BROWN.png"
+import TF_MUV from "./Assets/items/TF MUV.png"
+import TB_MUV from "./Assets/items/TB MUV.png"
+
 
 // --------------woman shirt------
 
@@ -64,6 +77,13 @@ import BSWR from "./Assets/items/back tshirt woman 6.png"
 import BSWLB from "./Assets/items/back tshirt woman 5.png"
 import BSWL from "./Assets/items/back tshirt woman 7.png"
 import BSWGR from "./Assets/items/back tshirt woman 3.png"
+import WF_BROWN from "./Assets/items/WF BROWN.png"
+import WB_BROWN from "./Assets/items/WB BROWN.png"
+import WF_MUV from "./Assets/items/WF MUV.png"
+import WB_MUV from "./Assets/items/WB MUV.png"
+import WF_teal from "./Assets/items/WF teal.png"
+import WB_teal from "./Assets/items/WB teal.png"
+
 // -----------woman --------------
 import LSWF_White from "./Assets/items/LSWF_White.png"
 import LSWF_Grey from "./Assets/items/LSWF_Grey.png"
@@ -79,6 +99,12 @@ import LSWB_Rose from "./Assets/items/LSWB_Rose.png"
 import LSWB_Blue from "./Assets/items/LSWB_Blue.png"
 import LSWB_LightBlue from "./Assets/items/LSWB_LightBlue.png"
 import LSWB_Green from "./Assets/items/LSWB_Green.png"
+import LF_BROWN from "./Assets/items/LF BROWN.png"
+import LB_BROWN from "./Assets/items/LB BROWN.png"
+import LF_MUV from "./Assets/items/LF MUV.png"
+import LB_MUV from "./Assets/items/LB MUV.png"
+import LF_teal from "./Assets/items/LF teal.png"
+import LB_teal from "./Assets/items/LB teal.png"
 // ------------Child--------------
 
 import CWF from "./Assets/items/CWF.png"
@@ -95,6 +121,13 @@ import CLGF from "./Assets/items/CLGF.png"
 import CLGB from "./Assets/items/CLGB.png"
 import CGRF from "./Assets/items/CGRF.png"
 import CGRB from "./Assets/items/CGRB.png"
+import CF_BROWN from "./Assets/items/CF BROWN.png"
+import CB_BROWN from "./Assets/items/CB BROWN.png"
+import CF_MUV from "./Assets/items/CF MUV.png"
+import CB_MUV from "./Assets/items/CB MUV.png"
+import CF_teal from "./Assets/items/CF teal.png"
+import CB_teal from "./Assets/items/CB teal.png"
+
 
 // ------------baby---------------
 import pbw from "./Assets/items/pbw.png"
@@ -131,9 +164,6 @@ import PC_LightBlue from "./Assets/items/PC_LightBlue.png"
 // ----------------------------
 
 function App() {
-
-  
-  
   let {indColor}= useContext(ViewContext)
 
   const routers = createBrowserRouter([
@@ -159,22 +189,28 @@ function App() {
               <Editor
                 hoodifront={
                   indColor === 0 ? hfw :
-                  indColor === 1 ? HFG:
-                  indColor === 2 ? HFB :
+                  indColor === 2 ? HFG:
+                  indColor === 1 ? HFB :
                   indColor === 3 ? HFR :
                   indColor === 4 ? HFLB :
-                  indColor === 5 ? HFLG :
-                  indColor === 6 ? HFGR :
+                  indColor === 6 ? HFLG :
+                  indColor === 5 ? HFGR :
+                  indColor === 7 ? HF_teal :
+                  indColor === 8 ? HF_MUV :
+                  indColor === 9 ? HF_BROWN :
                   HFG
                 }
                 hoodiback={
                   indColor === 0 ? hbw :
-                  indColor === 1 ? HBG :
-                  indColor === 2 ? HBB :
+                  indColor === 2 ? HBG :
+                  indColor === 1 ? HBB :
                   indColor === 3 ? HBR :
                   indColor === 4 ? HBLB :
-                  indColor === 5 ? HBLG :
-                  indColor === 6 ? HBGR :
+                  indColor === 6 ? HBLG :
+                  indColor === 5 ? HBGR :
+                  indColor === 7 ? HB_teal :
+                  indColor === 8 ? HB_MUV :
+                  indColor === 9 ? HB_BROWN :
                   HBG
                 }
               />
@@ -185,22 +221,29 @@ function App() {
         { path: "customize/T-shirt Men", element:   <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? TWF : 
-          indColor === 1 ? TGF :
-          indColor === 2 ? TBF :
+          indColor === 2 ? TGF :
+          indColor === 1 ? TBF :
           indColor === 3 ? TRF :
           indColor === 4 ? TLF :
-          indColor === 5 ? TF :
-          indColor === 6 ? TGRF :
+          indColor === 6 ? TF :
+          indColor === 5 ? TGRF :
+          indColor === 7 ? TF_teal :
+          indColor === 8 ? TF_MUV :
+          indColor === 9 ? TF_BROWN :
+
           TGF
         }
         hoodiback={
           indColor === 0 ? TWB : 
-          indColor === 1 ? TGB :
-          indColor === 2 ? TBB :
+          indColor === 2 ? TGB :
+          indColor === 1 ? TBB :
           indColor === 3 ? TRB:
           indColor === 4 ? TLB :
-          indColor === 5 ? TB :
-          indColor === 6 ? TGRB :
+          indColor === 6 ? TB :
+          indColor === 5 ? TGRB :
+          indColor === 7 ? TB_Teal :
+          indColor === 8 ? TB_MUV :
+          indColor === 9 ? TB_BROWN :
           TGB
         }
 
@@ -209,44 +252,56 @@ function App() {
         { path: "customize/Long Sleeve Woman", element:   <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? LSWF_White : 
-          indColor === 1 ? LSWF_Grey :
-          indColor === 2 ? LSWF_Black :
+          indColor === 2 ? LSWF_Grey :
+          indColor === 1 ? LSWF_Black :
           indColor === 3 ? LSWF_Rose :
           indColor === 4 ? LSWF_Blue :
-          indColor === 5 ? LSWF_LightBlue :
-          indColor === 6 ? LSWF_Green :
+          indColor === 6 ? LSWF_LightBlue :
+          indColor === 5 ? LSWF_Green :
+          indColor === 7 ? LF_teal :
+          indColor === 8 ? LF_MUV :
+          indColor === 9 ? LF_BROWN :
           LSWF_Grey
         }
         hoodiback={
           indColor === 0 ? LSWB_White : 
-          indColor === 1 ? LSWB_Grey :
-          indColor === 2 ? LSWB_Black :
+          indColor === 2 ? LSWB_Grey :
+          indColor === 1 ? LSWB_Black :
           indColor === 3 ? LSWB_Rose:
           indColor === 4 ? LSWB_Blue :
-          indColor === 5 ? LSWB_LightBlue :
-          indColor === 6 ? LSWB_Green :
+          indColor === 6 ? LSWB_LightBlue :
+          indColor === 5 ? LSWB_Green :
+          indColor === 7 ? LB_teal :
+          indColor === 8 ? LB_MUV :
+          indColor === 9 ? LB_BROWN :
           LSWB_Grey
         }/> </ProtectRouting>},
 
         { path: "customize/T-shirt Woman", element: <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? FSWW : 
-          indColor === 1 ? FSWG :
-          indColor === 2 ? FSWB :
+          indColor === 2 ? FSWG :
+          indColor === 1 ? FSWB :
           indColor === 3 ? FSWR :
           indColor === 4 ? FSWLB :
-          indColor === 5 ? FSWL :
-          indColor === 6 ? FSWGR :
+          indColor === 6 ? FSWL :
+          indColor === 5 ? FSWGR :
+          indColor === 7 ? WF_teal :
+          indColor === 8 ? WF_MUV :
+          indColor === 9 ? WF_BROWN :
           FSWG
         }
         hoodiback={
           indColor === 0 ? BSWW : 
-          indColor === 1 ? BSWG :
-          indColor === 2 ? BSWB :
+          indColor === 2 ? BSWG :
+          indColor === 1 ? BSWB :
           indColor === 3 ? BSWR:
           indColor === 4 ? BSWLB :
-          indColor === 5 ? BSWL :
-          indColor === 6 ? BSWGR :
+          indColor === 6 ? BSWL :
+          indColor === 5 ? BSWGR :
+          indColor === 7 ? WB_teal :
+          indColor === 8 ? WB_MUV :
+          indColor === 9 ? WB_BROWN :
           BSWG
         }
 
@@ -255,22 +310,29 @@ function App() {
         { path: "customize/Baby t-shirt", element:  <ProtectRouting> <Editor 
         hoodifront={
           indColor === 0 ? CWF : 
-          indColor === 1 ? CGF :
-          indColor === 2 ? CBF :
+          indColor === 2 ? CGF :
+          indColor === 1 ? CBF :
           indColor === 3 ? CRF :
           indColor === 4 ? CLF :
-          indColor === 5 ? CLGF:
-          indColor === 6 ? CGRF :
+          indColor === 6 ? CLGF:
+          indColor === 5 ? CGRF :
+          indColor === 7 ? CF_teal :
+          indColor === 8 ? CF_MUV :
+          indColor === 9 ? CF_BROWN :
+
           CGF
         }
         hoodiback={
           indColor === 0 ? CWB : 
-          indColor === 1 ? CGB :
-          indColor === 2 ? CBB :
+          indColor === 2 ? CGB :
+          indColor === 1 ? CBB :
           indColor === 3 ? CRB:
           indColor === 4 ? CLB :
-          indColor === 5 ? CLGB :
-          indColor === 6 ? CGRB :
+          indColor === 6 ? CLGB :
+          indColor === 5 ? CGRB :
+          indColor === 7 ? CB_teal :
+          indColor === 8 ? CB_MUV :
+          indColor === 9 ? CB_BROWN :
           CGB
         }
 
@@ -279,22 +341,22 @@ function App() {
         { path: "customize/Baby BodySuit", element:   <ProtectRouting><Editor 
         hoodifront={
           indColor === 0 ? pfw : 
-          indColor === 1 ? pfg :
-          indColor === 2 ? pfb :
+          indColor === 2 ? pfg :
+          indColor === 1 ? pfb :
           indColor === 3 ? bfp :
           indColor === 4 ? pfb2 :
-          indColor === 5 ? graybabyf :
-          indColor === 6 ? pgf :
+          indColor === 6 ? graybabyf :
+          indColor === 5 ? pgf :
           pfg
         }
         hoodiback={
           indColor === 0 ? pbw : 
-          indColor === 1 ? pbg :
-          indColor === 2 ? pbb :
+          indColor === 2 ? pbg :
+          indColor === 1 ? pbb :
           indColor === 3 ? pbp:
           indColor === 4 ? pbb2 :
-          indColor === 5 ? graybabyb :
-          indColor === 6 ? pgb :
+          indColor === 6 ? graybabyb :
+          indColor === 5 ? pgb :
           pbg
         }
         /> </ProtectRouting>},
@@ -302,12 +364,12 @@ function App() {
         { path: "customize/Bag", element:   <ProtectRouting><Editor
         hoodifront={
           indColor === 0 ? B_White : 
-          indColor === 1 ? B_Bray :
-          indColor === 2 ? B_Black :
+          indColor === 2 ? B_Bray :
+          indColor === 1 ? B_Black :
           indColor === 3 ? B_Rose :
           indColor === 4 ? B_Blue :
-          indColor === 5 ? B_Grey :
-          indColor === 6 ? B_Green :
+          indColor === 6 ? B_Grey :
+          indColor === 5 ? B_Green :
           B_Bray
         }
         /> </ProtectRouting>},
@@ -315,12 +377,12 @@ function App() {
         { path: "customize/Cover", element: <ProtectRouting><Editor
         hoodifront={
           indColor === 0 ? PC_White : 
-          indColor === 1 ? PC_Grey :
-          indColor === 2 ? PC_Black :
+          indColor === 2 ? PC_Grey :
+          indColor === 1 ? PC_Black :
           indColor === 3 ? PC_Rose :
           indColor === 4 ? PC_Blue :
-          indColor === 6 ? PC_Green :
-          indColor === 5 ? PC_LightBlue :
+          indColor === 5 ? PC_Green :
+          indColor === 6 ? PC_LightBlue :
           PC_Grey
         }
         />   </ProtectRouting>},

@@ -1,7 +1,5 @@
 import style from '../FormRegisteration/FormRegisteration.module.css';
 import image2 from '../../../Assets/images/first-logo.png'
-import image3 from '../../../Assets/images/google.png'
-import image4 from '../../../Assets/images/facebook.png'
 import img from "../../../Assets/images/confirm.png"
 import styled from"../../Confirm/Confirm.module.css"
 import { Link } from 'react-router-dom';

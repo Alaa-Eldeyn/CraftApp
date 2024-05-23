@@ -12,11 +12,9 @@ const Color = () => {
 
 
   const customColors = [
-    '#F8F9F8', '#8D8F8C', '#1F201F','#F3DBDE',  '#95A6DB','#CBD3D2', '#004F4C',
-    // '#4EE0C6', '#F2A530', '#516284', 
-    // '#EBED93', '#F8C18F', '#E44453', '#B7A798',
-    // '#D0D4B7', '#98C6C1', '#7482B5', '#C7E572', 
-    // '#698360', '#BAA1AD', '#D9A884', '#B87193', '#8CB49E', '#CC91D6', 
+    '#F8F9F8',  '#1F201F' ,'#8D8F8C','#F3DBDE',  '#95A6DB',
+    '#004F4C','#CBD3D2', '#4D7A87' ,'#9985A4','#9D7F72'
+
   ];
 
   const handleColorClick = (index) => {

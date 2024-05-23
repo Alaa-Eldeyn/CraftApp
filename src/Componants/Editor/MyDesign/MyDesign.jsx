@@ -1,7 +1,7 @@
-
+import styled from"../../Confirm/Confirm.module.css"
 import style from './MyDesign.module.css'
 import { userToken } from "../../../Context/TokenContext";
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import img from '../../../Assets/images/3d.png'
@@ -11,6 +11,20 @@ import img3 from '../../../Assets/images/delete.png'
 const MyDesign = () => {
     let { token } = useContext(userToken);
     const [modal, setModal] = useState(false);
+    const [modal2, setModal2] = useState(false);
+    const [click, setClick] = useState(false);
+
+
+
+    const toggleModal2 = (index ) => {
+        console.log(index);
+        console.log(click);
+        if (click) {
+            deletee(index);
+        }
+        setModal2(!modal2);
+        
+    };
 
 
     
@@ -39,8 +53,11 @@ const MyDesign = () => {
         linkk.download = 'Image.png';
         linkk.click(); 
     }
-    function deletee() {
-        
+    async function deletee(index) {
+            const { data } = await axios.delete(
+                `http://customcrafttt.somee.com/api/SavedDesign/DeleteDesigns/${index+1}`,
+                {headers}
+            );
     }
     return (
         <>
@@ -71,10 +88,11 @@ const MyDesign = () => {
                             >
                                 
                                 <div className={style.download} onClick={()=>download(index)}>
-                                <img src={img2} alt="icon" style={{width:"30px"}} />
+                                <img src={img2} alt="icon" style={{width:"20px" , marginTop:'-6px'}} />
+                                Download
                                 </div>
-                                <div className={style.delete} onClick={()=>deletee(index)}>
-                                    <img src={img3} alt="icon" style={{width:"30px"}} />
+                                <div className={style.delete}>
+                                    <img src={img3} alt="icon" style={{width:"30px"}} onClick={()=> toggleModal2(index)}/>
                                 </div>
                                 {/* <div></div> */}
                                 <img src={dataItem.pictureUrl} className="w-100" alt="Your Design" />
@@ -86,6 +104,28 @@ const MyDesign = () => {
         )}
     </>
 )}
+
+        {modal2 && (
+        <div className={styled.modal}>
+            <div onClick={toggleModal2} className={styled.overlay}></div>
+            
+            <div className={styled.modalContent}>
+                
+                <p style={{color:"#8E8E8E" , fontSize:"18px"}}>
+                You’re about to delete a design you’ve made
+                </p>
+                <button style={{color:'#E44453'}}  onClick={toggleModal2}>
+                    Cancel
+                </button>
+                <button style={{color:'#E44453'}}  onClick={ ()=> setClick(!click)}>
+                    Delete
+                </button>
+                <div className={styled.closeModal} onClick={toggleModal2}>
+                X
+                </div>
+            </div>
+        </div>
+        )}
 
         {modal && (
         (

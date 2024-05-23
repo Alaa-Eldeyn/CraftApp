@@ -22,7 +22,6 @@ export default function Forget() {
       console.log(error);
       setLoading(false)
     })
-    // setToken(data.token)
     setLoading(false)
     
   }
