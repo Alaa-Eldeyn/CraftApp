@@ -54,6 +54,30 @@
   opacity: 0;
   transition: all .5s ;
 }
+.delete img{
+  position: absolute;
+  left:5px;
+  top: 3px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 7px;
+  text-align: center;
+  font-weight: 500;
+  color: aliceblue;
+}
+.delete:hover .alert {
+  opacity: 1;
+
+}
+.alert {
+  background-color: bisque;
+  opacity: 0;
+  transition: all .5s ;
+  position: relative;
+  left: 7%;
+  width: 80%;
+
+}
 .threeD{
   color: aliceblue;
   position: fixed;

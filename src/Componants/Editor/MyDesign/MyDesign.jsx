@@ -11,20 +11,20 @@ import img3 from '../../../Assets/images/delete.png'
 const MyDesign = () => {
     let { token } = useContext(userToken);
     const [modal, setModal] = useState(false);
-    const [modal2, setModal2] = useState(false);
-    const [click, setClick] = useState(false);
+
+    // const [modal2, setModal2] = useState(false);
 
 
 
-    const toggleModal2 = (index ) => {
-        console.log(index);
-        console.log(click);
-        if (click) {
-            deletee(index);
-        }
-        setModal2(!modal2);
+    // const toggleModal2 = (index ) => {
+    //     console.log(index);
+    //     console.log(X);
+    //     if (X) {
+    //         deletee(index);
+    //     }
+    //     setModal2(!modal2);
         
-    };
+    // };
 
 
     
@@ -43,7 +43,7 @@ const MyDesign = () => {
 
     let { data, isLoading } = useQuery('YourDesign', getDesigns, {
         refetchOnMount: false,
-        refetchInterval: 3000
+        // refetchInterval: 3000
     });
 
 
@@ -53,11 +53,14 @@ const MyDesign = () => {
         linkk.download = 'Image.png';
         linkk.click(); 
     }
+    
     async function deletee(index) {
-            const { data } = await axios.delete(
-                `http://customcrafttt.somee.com/api/SavedDesign/DeleteDesigns/${index+1}`,
+            const { response } = await axios.delete(
+                `http://customcrafttt.somee.com/api/SavedDesign/DeleteDesigns?id=${data?.data[index]?.id}`,
                 {headers}
             );
+
+            console.log(response);
     }
     return (
         <>
@@ -92,9 +95,9 @@ const MyDesign = () => {
                                 Download
                                 </div>
                                 <div className={style.delete}>
-                                    <img src={img3} alt="icon" style={{width:"30px"}} onClick={()=> toggleModal2(index)}/>
+                                    <img src={img3} alt="icon" style={{width:"30px"}} onClick={()=> deletee(index)}/>
+                                    <div className={style.alert}> You’re about to delete a design you’ve made</div>
                                 </div>
-                                {/* <div></div> */}
                                 <img src={dataItem.pictureUrl} className="w-100" alt="Your Design" />
                             </div>
                         ))}
@@ -105,7 +108,7 @@ const MyDesign = () => {
     </>
 )}
 
-        {modal2 && (
+        {/* {modal2 && (
         <div className={styled.modal}>
             <div onClick={toggleModal2} className={styled.overlay}></div>
             
@@ -117,7 +120,7 @@ const MyDesign = () => {
                 <button style={{color:'#E44453'}}  onClick={toggleModal2}>
                     Cancel
                 </button>
-                <button style={{color:'#E44453'}}  onClick={ ()=> setClick(!click)}>
+                <button style={{color:'#E44453'}}  onClick={ ()=> {  }}>
                     Delete
                 </button>
                 <div className={styled.closeModal} onClick={toggleModal2}>
@@ -125,7 +128,7 @@ const MyDesign = () => {
                 </div>
             </div>
         </div>
-        )}
+        )} */}
 
         {modal && (
         (

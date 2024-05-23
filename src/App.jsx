@@ -144,6 +144,14 @@ import graybabyf from "./Assets/items/graybabyf.png"
 import graybabyb from "./Assets/items/graybabyb.png"
 import pgf from "./Assets/items/pgf.png"
 import pgb from "./Assets/items/pgb.png"
+import BABYF_TEAL from "./Assets/items/BABYF_TEAL.png"
+import BABYB_TEAL from "./Assets/items/BABYB_TEAL.png"
+import BABYF_MUV from "./Assets/items/BABYF_MUV.png"
+import BABYB_MUV from "./Assets/items/BABYB_MUV.png"
+import BABYF_BROWN from "./Assets/items/BABYF_BROWN.png"
+import BABYB_BROWN from "./Assets/items/BABYB_BROWN.png"
+
+
 // --------------bag-----------------
 import B_White from "./Assets/items/B_White.png"
 import B_Bray from "./Assets/items/B-Bray.png"
@@ -152,7 +160,9 @@ import B_Rose from "./Assets/items/B_Rose.png"
 import B_Blue from "./Assets/items/B_Blue.png"
 import B_Green from "./Assets/items/B_Green.png"
 import B_Grey from "./Assets/items/B_Grey.png"
-
+import BAG_TEAL from "./Assets/items/BAG_TEAL.png"
+import BAG_MUV from "./Assets/items/BAG_MUV.png"
+import BAG_BROWN from "./Assets/items/BAG_BROWN.png"
 // -------------COVER------------
 import PC_White from "./Assets/items/PC_White.png"
 import PC_Grey from "./Assets/items/PC_Grey.png"
@@ -161,6 +171,11 @@ import PC_Rose from "./Assets/items/PC_Rose.png"
 import PC_Blue from "./Assets/items/PC_Blue.png"
 import PC_Green from "./Assets/items/PC_Green.png"
 import PC_LightBlue from "./Assets/items/PC_LightBlue.png"
+import PC_TEAL from "./Assets/items/PC_TEAL.png"
+import PC_MUV from "./Assets/items/PC_MUV.png"
+import PC_BROWN from "./Assets/items/PC_BROWN.png"
+
+
 // ----------------------------
 
 function App() {
@@ -347,6 +362,9 @@ function App() {
           indColor === 4 ? pfb2 :
           indColor === 6 ? graybabyf :
           indColor === 5 ? pgf :
+          indColor === 7 ? BABYF_TEAL :
+          indColor === 8 ? BABYF_MUV :
+          indColor === 9 ? BABYF_BROWN :
           pfg
         }
         hoodiback={
@@ -357,6 +375,9 @@ function App() {
           indColor === 4 ? pbb2 :
           indColor === 6 ? graybabyb :
           indColor === 5 ? pgb :
+          indColor === 7 ? BABYB_TEAL :
+          indColor === 8 ? BABYB_MUV :
+          indColor === 9 ? BABYB_BROWN :
           pbg
         }
         /> </ProtectRouting>},
@@ -370,6 +391,9 @@ function App() {
           indColor === 4 ? B_Blue :
           indColor === 6 ? B_Grey :
           indColor === 5 ? B_Green :
+          indColor === 7 ? BAG_TEAL :
+          indColor === 8 ? BAG_MUV :
+          indColor === 9 ? BAG_BROWN :
           B_Bray
         }
         /> </ProtectRouting>},
@@ -383,6 +407,10 @@ function App() {
           indColor === 4 ? PC_Blue :
           indColor === 5 ? PC_Green :
           indColor === 6 ? PC_LightBlue :
+          indColor === 7 ? PC_TEAL :
+          indColor === 8 ? PC_MUV :
+          indColor === 9 ? PC_BROWN :
+
           PC_Grey
         }
         />   </ProtectRouting>},
