@@ -232,7 +232,6 @@ const Shapes = () => {
         key={item.id}
         style={{ width: "80px", height: "80px" , cursor:'pointer'}}
         dangerouslySetInnerHTML={{ __html: item.svg }}
-         // استخدام dangerouslySetInnerHTML لعرض الـ SVG
         onClick={() => handleIconClick( item.svg)}
         
       ></div>

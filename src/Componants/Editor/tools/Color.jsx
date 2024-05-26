@@ -14,7 +14,6 @@ const Color = () => {
   const customColors = [
     '#F8F9F8',  '#1F201F' ,'#8D8F8C','#F3DBDE',  '#95A6DB',
     '#004F4C','#CBD3D2', '#4D7A87' ,'#9985A4','#9D7F72'
-
   ];
 
   const handleColorClick = (index) => {
@@ -23,6 +22,7 @@ const Color = () => {
     setSelectedColorIndex(index);
     setUsedindex(index)
     const color = customColors[index];
+
     if (!usedColors.includes(color)) {
       setUsedColors([...usedColors, color]);
     }

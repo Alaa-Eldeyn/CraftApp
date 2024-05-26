@@ -5,10 +5,11 @@ import { userToken } from "../../Context/TokenContext";
 
 export default function Layout() {
   
-  let {setToken}= useContext(userToken) 
+  let {setToken }= useContext(userToken) 
   useEffect(()=>{
     if(localStorage.getItem('UserToken') !== null){
       setToken(localStorage.getItem('UserToken'))
+
     }
   },[])
 

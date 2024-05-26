@@ -31,7 +31,7 @@ export default function FormLogin() {
                 setLoading(false)
                 localStorage.setItem('UserToken', data.token)
                 setToken(data.token)
-        console.log(data);
+        // console.log(data);
       }
 
 }

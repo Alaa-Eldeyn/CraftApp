@@ -22,7 +22,7 @@ const Account = () => {
   let validation = Yup.object({
     name : Yup.string().min(3, 'UserName minLength is 3').max(25 ,'UserName maxLength is 25').required('UserName is required'),
     email : Yup.string().email('Email is invalid').required('Email is required'),
-    message : Yup.string().min(15, 'Message minLength is 15').max(1000 ,'Message maxLength is 1000').required('Message is required'),
+    message : Yup.string().min(10, 'Message minLength is 10').max(1000 ,'Message maxLength is 1000').required('Message is required'),
 
   })
 
@@ -103,11 +103,11 @@ const Account = () => {
                       />
                   {formik.errors.message && formik.touched.message ? <p className='redColor text-start'> {formik.errors.message}</p> :'' }
 
-                {loading ? <button type="button" className={`${style.inputs} ${style.button} my-4`}  >
-                  <i className="fa-solid fa-spinner fa-spin "></i>
-                </button> : <button className={`${style.inputs} ${style.button} cursor my-4`} 
-                type="submit" disabled={!(formik.isValid && formik.dirty)}> Send</button>
-                }
+                  {loading ? <button type="button" className={`${style.inputs} ${style.button} my-4`}  >
+                    <i className="fa-solid fa-spinner fa-spin "></i>
+                  </button> : <button className={`${style.inputs} ${style.button} cursor my-4`} 
+                  type="submit" disabled={!(formik.isValid && formik.dirty)}> Send</button>
+                  }
                     </form>
           </div>
         </div>

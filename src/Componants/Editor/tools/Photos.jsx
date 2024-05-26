@@ -8,7 +8,7 @@ const Photos = () => {
   const {images , setImages}= useContext(ViewContext)
 
   const onDrop = useCallback((acceptedFiles) => {
-    // console.log(acceptedFiles);
+    
     const selectedPhotos = acceptedFiles.map(file => ({
       url: URL.createObjectURL(file),
       name: file.name,
@@ -16,9 +16,10 @@ const Photos = () => {
     }));
     console.log(selectedPhotos);
     setImages(prevImages => [...prevImages, ...selectedPhotos]);
+    
   }, []);
 
-
+// console.log(onDrop);
   const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: 'image/*', multiple: true });
 
   return (<>

@@ -1,7 +1,7 @@
-import styled from"../../Confirm/Confirm.module.css"
+
 import style from './MyDesign.module.css'
 import { userToken } from "../../../Context/TokenContext";
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import img from '../../../Assets/images/3d.png'
@@ -11,22 +11,6 @@ import img3 from '../../../Assets/images/delete.png'
 const MyDesign = () => {
     let { token } = useContext(userToken);
     const [modal, setModal] = useState(false);
-
-    // const [modal2, setModal2] = useState(false);
-
-
-
-    // const toggleModal2 = (index ) => {
-    //     console.log(index);
-    //     console.log(X);
-    //     if (X) {
-    //         deletee(index);
-    //     }
-    //     setModal2(!modal2);
-        
-    // };
-
-
     
     const toggleModal = () => {
         setModal(!modal);
@@ -97,6 +81,7 @@ const MyDesign = () => {
                                 <div className={style.delete}>
                                     <img src={img3} alt="icon" style={{width:"30px"}} onClick={()=> deletee(index)}/>
                                     <div className={style.alert}> You’re about to delete a design you’ve made</div>
+                                    <div className={style.alert2}></div>
                                 </div>
                                 <img src={dataItem.pictureUrl} className="w-100" alt="Your Design" />
                             </div>
@@ -107,28 +92,6 @@ const MyDesign = () => {
         )}
     </>
 )}
-
-        {/* {modal2 && (
-        <div className={styled.modal}>
-            <div onClick={toggleModal2} className={styled.overlay}></div>
-            
-            <div className={styled.modalContent}>
-                
-                <p style={{color:"#8E8E8E" , fontSize:"18px"}}>
-                You’re about to delete a design you’ve made
-                </p>
-                <button style={{color:'#E44453'}}  onClick={toggleModal2}>
-                    Cancel
-                </button>
-                <button style={{color:'#E44453'}}  onClick={ ()=> {  }}>
-                    Delete
-                </button>
-                <div className={styled.closeModal} onClick={toggleModal2}>
-                X
-                </div>
-            </div>
-        </div>
-        )} */}
 
         {modal && (
         (

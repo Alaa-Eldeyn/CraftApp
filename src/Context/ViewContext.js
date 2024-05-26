@@ -15,7 +15,7 @@ export default function ViewContextProvider(props) {
   const [image, setImage] = useState(null);
   const [junk, setJunk] = useState(false);
   const [ mutation1 , setMutation1] = useState (true)
-  const saveRef = useRef(null);
+  
   const [usedindex, setUsedindex] = useState(-1);
 
   const [colorBtn, setColorBtn] = useState("#5B8F9A");
@@ -40,7 +40,7 @@ const [imageUrl, setImageUrl] = useState();
 
 
   const [indColor, setIndColor] = useState(-1)
-  const [urlColor, setUrlColor] = useState()
+  // const [urlColor, setUrlColor] = useState()
 
 
   return (
@@ -50,8 +50,8 @@ const [imageUrl, setImageUrl] = useState();
         setAi,
         indColor,
         setIndColor,
-        urlColor,
-        setUrlColor,
+        // urlColor,
+        // setUrlColor,
         slide,
         setSlide,
         imageData,
@@ -63,7 +63,6 @@ const [imageUrl, setImageUrl] = useState();
         setUsedindex,
         mutation1,
         setMutation1,
-        saveRef,
         image,
         setImage,
         junk, setJunk,

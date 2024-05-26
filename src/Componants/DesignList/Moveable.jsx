@@ -6,8 +6,8 @@ import Moveable from "react-moveable";
 const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
-
-  let {ai, textContent, iconContent, shapeContent,  images, saveRef ,junk } =
+  const saveRef = useRef(null);
+  let {ai, textContent, iconContent, shapeContent,  images ,junk } =
     useContext(ViewContext);
 
   return (
@@ -30,30 +30,25 @@ const Moveablee = () => {
           return (
             <>
               <div
+              
                 ref={targetRef}
                 className={`m-0 position-absolute target target${index + 1} `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
                   color: `${shape.color}`,
-                  width: `${shape.width}px`,
-                  height: `${shape.height}px`,
-                  fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",
                 }}
               >
                 <div
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                  }}
                   dangerouslySetInnerHTML={{ __html: newSvgg || "" }}
-                  // اريد تلونها
-                ></div>
+                >
+                </div>
               </div>
 
               <Moveable
                 ref={moveableRef}
+                snapContainer={".snapContainer"}
                 snappable={true}
                 snapDirections={{
                   top: true,
@@ -65,7 +60,6 @@ const Moveablee = () => {
                 snapThreshold={true}
                 verticalGuidelines={[50, 150, 250, 450, 550]}
                 horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
                 bounds={{
                   left: 0,
                   top: 0,
@@ -74,43 +68,32 @@ const Moveablee = () => {
                   position: "css",
                 }}
                 hideDefaultLines={true}
-                target={".target"}
                 origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                scalable={junk ? false : true}
-                keepRatio={true}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
+
+                    target={".target"}
+                    individualGroupable={true}
+                    draggable={true}
+                    throttleDrag={1}
+                    edgeDraggable={false}
+                    startDragRotate={0}
+                    throttleDragRotate={0}
+                    rotatable={junk ? false : true}
+                    scalable={junk ? false : true}
+                    keepRatio={false}
+                    throttleScale={0}
+                    renderDirections={["nw","n","ne","w","e","sw","s","se"]}
+                    throttleRotate={0}
+                    rotationPosition={"top"}
+                    onDrag={e => {
+                        e.target.style.transform = e.transform;
+                    }}
+                    onScale={e => {
+                        e.target.style.transform = e.drag.transform;
+                    }}
+                    onRotate={e => {
+                        e.target.style.transform = e.drag.transform;
                 }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
+                />
             </>
           );
         })}
@@ -147,6 +130,7 @@ const Moveablee = () => {
 
               <Moveable
                 ref={moveableRef}
+                snapContainer={".snapContainer"}
                 snappable={true}
                 snapDirections={{
                   top: true,
@@ -158,7 +142,6 @@ const Moveablee = () => {
                 snapThreshold={true}
                 verticalGuidelines={[50, 150, 250, 450, 550]}
                 horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
                 bounds={{
                   left: 0,
                   top: 0,
@@ -166,47 +149,37 @@ const Moveablee = () => {
                   bottom: 0,
                   position: "css",
                 }}
-                target={".target"}
                 hideDefaultLines={true}
                 origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                scalable={junk ? false : true}
-                keepRatio={true}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
+
+                    target={".target"}
+                    individualGroupable={true}
+                    draggable={true}
+                    throttleDrag={1}
+                    edgeDraggable={false}
+                    startDragRotate={0}
+                    throttleDragRotate={0}
+                    rotatable={junk ? false : true}
+                    scalable={junk ? false : true}
+                    keepRatio={false}
+                    throttleScale={0}
+                    renderDirections={["nw","n","ne","w","e","sw","s","se"]}
+                    throttleRotate={0}
+                    rotationPosition={"top"}
+                    onDrag={e => {
+                        e.target.style.transform = e.transform;
+                    }}
+                    onScale={e => {
+                        e.target.style.transform = e.drag.transform;
+                    }}
+                    onRotate={e => {
+                        e.target.style.transform = e.drag.transform;
                 }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
+                />
             </>
           );
         })}
+
         {ai.map((imageAi, index) => {
           return (
             <>
@@ -232,6 +205,7 @@ const Moveablee = () => {
 
               <Moveable
                 ref={moveableRef}
+                snapContainer={".snapContainer"}
                 snappable={true}
                 snapDirections={{
                   top: true,
@@ -243,7 +217,6 @@ const Moveablee = () => {
                 snapThreshold={true}
                 verticalGuidelines={[50, 150, 250, 450, 550]}
                 horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
                 bounds={{
                   left: 0,
                   top: 0,
@@ -252,47 +225,35 @@ const Moveablee = () => {
                   position: "css",
                 }}
                 hideDefaultLines={true}
-                target={".target"}
                 origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                scalable={junk ? false : true}
-                keepRatio={true}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
+
+                    target={".target"}
+                    individualGroupable={true}
+                    draggable={true}
+                    throttleDrag={1}
+                    edgeDraggable={false}
+                    startDragRotate={0}
+                    throttleDragRotate={0}
+                    rotatable={junk ? false : true}
+                    scalable={junk ? false : true}
+                    keepRatio={false}
+                    throttleScale={0}
+                    renderDirections={["nw","n","ne","w","e","sw","s","se"]}
+                    throttleRotate={0}
+                    rotationPosition={"top"}
+                    onDrag={e => {
+                        e.target.style.transform = e.transform;
+                    }}
+                    onScale={e => {
+                        e.target.style.transform = e.drag.transform;
+                    }}
+                    onRotate={e => {
+                        e.target.style.transform = e.drag.transform;
                 }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
+                />
             </>
           );
         })}
-
 
         {images.map((image, index) => {
           return (
@@ -320,6 +281,7 @@ const Moveablee = () => {
 
               <Moveable
                 ref={moveableRef}
+                snapContainer={".snapContainer"}
                 snappable={true}
                 snapDirections={{
                   top: true,
@@ -331,7 +293,6 @@ const Moveablee = () => {
                 snapThreshold={true}
                 verticalGuidelines={[50, 150, 250, 450, 550]}
                 horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
                 bounds={{
                   left: 0,
                   top: 0,
@@ -340,47 +301,35 @@ const Moveablee = () => {
                   position: "css",
                 }}
                 hideDefaultLines={true}
-                target={".target"}
                 origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                scalable={junk ? false : true}
-                keepRatio={true}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
+
+                    target={".target"}
+                    individualGroupable={true}
+                    draggable={true}
+                    throttleDrag={1}
+                    edgeDraggable={false}
+                    startDragRotate={0}
+                    throttleDragRotate={0}
+                    rotatable={junk ? false : true}
+                    scalable={junk ? false : true}
+                    keepRatio={false}
+                    throttleScale={0}
+                    renderDirections={["nw","n","ne","w","e","sw","s","se"]}
+                    throttleRotate={0}
+                    rotationPosition={"top"}
+                    onDrag={e => {
+                        e.target.style.transform = e.transform;
+                    }}
+                    onScale={e => {
+                        e.target.style.transform = e.drag.transform;
+                    }}
+                    onRotate={e => {
+                        e.target.style.transform = e.drag.transform;
                 }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
+                />
             </>
           );
         })}
-
 
         {textContent.map((item, index) => {
           return (
@@ -426,6 +375,7 @@ const Moveablee = () => {
 
               <Moveable
                 ref={moveableRef}
+                snapContainer={".snapContainer"}
                 snappable={true}
                 snapDirections={{
                   top: true,
@@ -437,7 +387,6 @@ const Moveablee = () => {
                 snapThreshold={true}
                 verticalGuidelines={[50, 150, 250, 450, 550]}
                 horizontalGuidelines={[0, 100, 200, 400, 500]}
-                snapContainer={".snapContainer"}
                 bounds={{
                   left: 0,
                   top: 0,
@@ -445,44 +394,33 @@ const Moveablee = () => {
                   bottom: 0,
                   position: "css",
                 }}
-                target={".target"}
                 hideDefaultLines={true}
                 origin={false}
-                individualGroupable={true}
-                draggable={true}
-                throttleDrag={1}
-                edgeDraggable={false}
-                startDragRotate={0}
-                throttleDragRotate={0}
-                keepRatio={false}
-                throttleScale={0}
-                renderDirections={["nw", "n", "ne", "w", "e", "sw", "s", "se"]}
-                rotatable={junk ? false : true}
-                scalable={junk ? false : true}
-                throttleRotate={0}
-                rotationPosition={"top"}
-                originDraggable={true}
-                originRelative={true}
-                onScaleStart={(e) => {
-                  e.setMinScaleSize([10, 10]);
-                  e.setMaxScaleSize([240, 240]);
+
+                    target={".target"}
+                    individualGroupable={true}
+                    draggable={true}
+                    throttleDrag={1}
+                    edgeDraggable={false}
+                    startDragRotate={0}
+                    throttleDragRotate={0}
+                    rotatable={junk ? false : true}
+                    scalable={junk ? false : true}
+                    keepRatio={false}
+                    throttleScale={0}
+                    renderDirections={["nw","n","ne","w","e","sw","s","se"]}
+                    throttleRotate={0}
+                    rotationPosition={"top"}
+                    onDrag={e => {
+                        e.target.style.transform = e.transform;
+                    }}
+                    onScale={e => {
+                        e.target.style.transform = e.drag.transform;
+                    }}
+                    onRotate={e => {
+                        e.target.style.transform = e.drag.transform;
                 }}
-                onDragOrigin={(e) => {
-                  e.target.style.transformOrigin = e.transformOrigin;
-                }}
-                onRender={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onDrag={(e) => {
-                  e.target.style.transform = e.transform;
-                }}
-                onScale={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-                onRotate={(e) => {
-                  e.target.style.transform = e.drag.transform;
-                }}
-              />
+                />
             </>
           );
         })}

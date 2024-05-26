@@ -3,14 +3,19 @@ import image1 from '../../Assets/images/forget.png'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useContext, useState } from 'react';
+import {  useContext, useState } from 'react';
 import axios from 'axios';
+import styled from"../Confirm/Confirm.module.css"
+import img from '../../Assets/images/reset.png'
 import { userToken } from '../../Context/TokenContext';
-
 export default function Forget() {
   let [Loading , setLoading]= useState(false)
-  let {setToken}= useContext(userToken) 
 
+  let {setToken2 ,setEmail }=useContext(userToken)
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
   let validationSchema = Yup.object({
     email : Yup.string().email('Email is invalid').required('Email is required'),
   })
@@ -22,6 +27,10 @@ export default function Forget() {
       console.log(error);
       setLoading(false)
     })
+    toggleModal()
+    setToken2(data.token)
+    setEmail(data.email)
+    // console.log(token2 , email )
     setLoading(false)
     
   }
@@ -33,6 +42,7 @@ export default function Forget() {
     validationSchema,
     onSubmit: SendToApi
   })
+
 
 
   return <>
@@ -66,6 +76,27 @@ export default function Forget() {
         
         </div>
       </div>
+
+      {modal && (
+        <div className={styled.modal} >
+          <div onClick={toggleModal} className={styled.overlay}></div>
+          
+          <div className={styled.modalContent} style={{width:'600px'}}>
+            <img src={img} alt="confirm" />
+            <h2>Check your email </h2>
+            <p style={{color:"#8E8E8E" , fontSize:"18px"}}>
+            We've sent you a link to update your password.
+            </p>
+            <Link to={"/reset"}>
+            <button className='btnn px-5' type="button">Continue</button>
+            </Link>
+            
+            <div className={styled.closeModal} onClick={toggleModal}>
+              X
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   </div>
   </>

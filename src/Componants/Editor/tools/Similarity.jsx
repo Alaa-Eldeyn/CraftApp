@@ -1,6 +1,6 @@
 import style from './Ai.module.css'
 import img1 from '../../../Assets/images/shein.png'
-import img2 from '../../../Assets/images/amazon.png'
+import img2 from '../../../Assets/images/bing.png'
 import img3 from '../../../Assets/images/googleLens.png'
 import { Link } from 'react-router-dom'
 
@@ -15,8 +15,8 @@ export default function Similarity(){
                 <img className='w-100' src={img1} alt="logo"  />
             </div>
             </Link>
-            <Link to="https://www.google.com" target="_blank" rel="noopener noreferrer">
-            <div style={{width:'40px' , height:'40px' , margin:'0px 10px'}}>
+            <Link to="https://www.bing.com/visualsearch" target="_blank" rel="noopener noreferrer">
+            <div className='d-flex align-items-center' style={{width:'40px'  , height:'40px' , margin:'0px 10px', backgroundColor:"#EDEDED" , borderRadius:"8px"}}>
                 <img className='w-100' src={img2} alt="logo"  />
             </div>
             </Link>

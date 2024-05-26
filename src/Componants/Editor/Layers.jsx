@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import style from './Editor.module.css'
 import style2 from './tools/Ai.module.css'
 import img from '../../Assets/images/layer.png'
@@ -10,15 +10,12 @@ import { userToken } from '../../Context/TokenContext'
 import Swal from 'sweetalert2'
 
 const Layers = () => {
-    
     const [clickName , setClickName] = useState("Hide")
-    
     let { setImageUrl, setJunk  , textContent, 
         iconContent,images ,shapeContent ,click, setClick , ai,
         mutation1,
         setMutation1
     } = useContext(ViewContext);
-    
     let {token}= useContext(userToken)
     
     
@@ -26,20 +23,18 @@ const Layers = () => {
         setJunk(true);
 
             setTimeout(() => {
-                
                 html2canvas(document.getElementById('testdiv')).then((canvas) => {
                     const imgData = canvas.toDataURL('image/png', 0.9);
                     const link = document.createElement('a');
                     link.href = imgData;
-                    // link.download = 'myImage.png';
-                    // link.click();
-                    console.log(imgData);
+                    link.download = 'myImage.png';
+                    link.click();
                     setImageUrl(imgData)
                     alertSave(imgData)
-                    
                 });
                 setJunk(false);
-    }, 1);}
+            }, 1);
+    }
 
     function clicked(){
         setClick(!click)
@@ -51,7 +46,6 @@ const Layers = () => {
         setMutation1(!mutation1); 
         return (textContent);
     };
-
     const deleteHandler2 = (index) => {
         iconContent = iconContent.splice(index,1);
         setMutation1(!mutation1); 
@@ -72,24 +66,12 @@ const Layers = () => {
         setMutation1(!mutation1); 
         return (ai);
     };
-    
-    const styles = {
-        SvgColor: {
-            svg: {
-                path: {
-                fill: "#fff",
-            },
-        },
-        },
-    };
 
-            
     const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
-        };
-
+    };
 
     function alertSave(imgData) {
         Swal.fire({
@@ -102,7 +84,7 @@ const Layers = () => {
             if (result.isConfirmed) {
                 SavedDesigns({
                     "pictureUrl": `${imgData}`
-                    })
+                })
             Swal.fire({
                 title: "Saved!",
                 text: "Your design in your gallery now !",
@@ -116,7 +98,7 @@ const Layers = () => {
             await axios.post(`
             http://customcrafttt.somee.com/api/SavedDesign/SavedDesigns`, values , {headers}
             );
-        } 
+    } 
 
 return (
     <>
@@ -193,7 +175,6 @@ return (
                                         style={{
                                         width: "100%",
                                         height: "100%",
-                                        ...styles,
                                         }}
                                         
                                         dangerouslySetInnerHTML={{ __html: newSvgg.replace(/<svg/g, `<svg width="30" height="30"` ) || "" }}
@@ -217,7 +198,7 @@ return (
                         style={{
                         width: "100%",
                         height: "100%",
-                        ...styles,
+                        
                         }}
                         
                         dangerouslySetInnerHTML={{ __html: newSvg.replace(/<svg/g, `<svg width="30" height="30"` ) || "" }}
@@ -262,9 +243,8 @@ return (
                 );
                 })}
 
-
-                </div>
-                </div>
+            </div>
+        </div>
         
     </>
 

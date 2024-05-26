@@ -13,8 +13,8 @@ import { useState } from "react";
 
 const SideTaps = () => {
   const [currentTap, setCurrentTap] = useState("Ai");
-  const [isTapOpenArrow, setIsTapOpenArrow] = useState(true);
 
+  const [isTapOpenArrow, setIsTapOpenArrow] = useState(true);
   const [isTapOpenAi, setIsTapOpen] = useState(true);
   const [isTapOpenText, setIsTapOpenText] = useState(false);
   const [isTapOpenColor, setIsTapOpenColor] = useState(false);
@@ -73,7 +73,7 @@ const SideTaps = () => {
   ];
 
   return (
-    <div
+    <div 
       className={ 
         isTapOpenAi && 
         isTapOpenArrow && 
@@ -81,82 +81,86 @@ const SideTaps = () => {
         isTapOpenText ===false  &&
         isTapOpenDesigns===false && 
         isTapOpenIcons ===false &&
-      isTapOpenSimilar === false &&
+        isTapOpenSimilar === false &&
         isTapOpenPhotos===false && 
         isTapOpenShapes ===false 
-        
         ? `${style.responsive} position-relative d-flex  overflow-hidden px-1 pt-2 w-100 flex-grow-1 `  :
 
-      isTapOpenAi===false &&
-      isTapOpenSimilar === false &&
-       isTapOpenColor && 
-       isTapOpenArrow && 
-       isTapOpenText ===false &&
-       isTapOpenDesigns===false && 
+        isTapOpenAi===false &&
+        isTapOpenSimilar === false &&
+        isTapOpenColor && 
+        isTapOpenArrow && 
+        isTapOpenText ===false &&
+        isTapOpenDesigns===false && 
         isTapOpenIcons ===false &&
         isTapOpenPhotos===false && 
         isTapOpenShapes ===false
-       ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-      isTapOpenAi===false && 
-      isTapOpenColor===false && 
-      isTapOpenSimilar === false &&
-      isTapOpenText && 
-      isTapOpenArrow &&
-      isTapOpenDesigns===false && 
-      isTapOpenIcons ===false &&
-      isTapOpenPhotos===false && 
-      isTapOpenShapes ===false
-         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-         isTapOpenSimilar === false &&
-         isTapOpenAi===false && 
-         isTapOpenColor===false && 
-         isTapOpenText ===false && 
-         isTapOpenArrow &&
-         isTapOpenDesigns && 
-         isTapOpenIcons ===false &&
-         isTapOpenPhotos===false && 
-         isTapOpenShapes ===false
-            ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-            isTapOpenAi===false && 
-      isTapOpenColor===false && 
-      isTapOpenText  ===false&& 
-      isTapOpenDesigns===false && 
-      isTapOpenSimilar === false &&
-      isTapOpenIcons  &&
-      isTapOpenArrow &&
-      isTapOpenPhotos===false && 
-      isTapOpenShapes ===false
-         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-         isTapOpenAi===false && 
-      isTapOpenColor===false && 
-      isTapOpenText ===false&& 
-      isTapOpenDesigns===false && 
-      isTapOpenIcons ===false &&
-      isTapOpenSimilar === false &&
-      isTapOpenPhotos && 
-      isTapOpenArrow &&
-      isTapOpenShapes ===false
-         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
-         isTapOpenAi===false && 
-      isTapOpenColor===false && 
-      isTapOpenText ===false&& 
-      isTapOpenDesigns===false && 
-      isTapOpenIcons ===false &&
-      isTapOpenPhotos===false && 
-      isTapOpenSimilar === false &&
-      isTapOpenArrow &&
-      isTapOpenShapes 
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenSimilar === false &&
+        isTapOpenText && 
+        isTapOpenArrow &&
+        isTapOpenDesigns===false && 
+        isTapOpenIcons ===false &&
+        isTapOpenPhotos===false && 
+        isTapOpenShapes ===false
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+
+        isTapOpenSimilar === false &&
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenText ===false && 
+        isTapOpenArrow &&
+        isTapOpenDesigns && 
+        isTapOpenIcons ===false &&
+        isTapOpenPhotos===false && 
+        isTapOpenShapes ===false
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenText  ===false&& 
+        isTapOpenDesigns===false && 
+        isTapOpenSimilar === false &&
+        isTapOpenIcons  &&
+        isTapOpenArrow &&
+        isTapOpenPhotos===false && 
+        isTapOpenShapes ===false
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenText ===false&& 
+        isTapOpenDesigns===false && 
+        isTapOpenIcons ===false &&
+        isTapOpenSimilar === false &&
+        isTapOpenPhotos && 
+        isTapOpenArrow &&
+        isTapOpenShapes ===false
+        ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `:
+
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenText ===false&& 
+        isTapOpenDesigns===false && 
+        isTapOpenIcons ===false &&
+        isTapOpenPhotos===false && 
+        isTapOpenSimilar === false &&
+        isTapOpenArrow &&
+        isTapOpenShapes 
         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `: 
       
-         isTapOpenAi===false && 
-      isTapOpenColor===false && 
-      isTapOpenText ===false&& 
-      isTapOpenDesigns===false && 
-      isTapOpenIcons ===false &&
-      isTapOpenPhotos===false && 
-      isTapOpenArrow &&
-      isTapOpenShapes === false &&
-      isTapOpenSimilar
+        isTapOpenAi===false && 
+        isTapOpenColor===false && 
+        isTapOpenText ===false&& 
+        isTapOpenDesigns===false && 
+        isTapOpenIcons ===false &&
+        isTapOpenPhotos===false && 
+        isTapOpenArrow &&
+        isTapOpenShapes === false &&
+        isTapOpenSimilar
         ? `${style.responsive} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `: 
       
         `${style.responsive2} position-relative d-flex overflow-hidden px-1 pt-2 w-100 flex-grow-1 `}
@@ -174,7 +178,6 @@ const SideTaps = () => {
             onClick={() => {
               setCurrentTap(item.name);
               if( 'Ai' === currentTap){
-
                 setIsTapOpenArrow(true)
                 setIsTapOpen(true);
                 setIsTapOpenText(false)

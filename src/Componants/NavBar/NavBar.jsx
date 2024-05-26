@@ -6,17 +6,19 @@ import img5 from '../../Assets/icons/brush.svg';
 import img6 from '../../Assets/images/carbon_password.png';
 
 import style from './NavBar.module.css';
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { userToken } from "../../Context/TokenContext";
 import Swal from "sweetalert2";
+import { useDropzone } from "react-dropzone";
 
 
 export default function NavBar(){
-    let {token , setToken}= useContext(userToken) 
+    let {token , setToken ,setPic ,pic}= useContext(userToken) 
     let nav = useNavigate()
 
     function LogOut(){
         localStorage.removeItem('UserToken' )
+        localStorage.removeItem('pic' )
         setToken(null)
         nav('/login')
 
@@ -34,22 +36,38 @@ export default function NavBar(){
         nav("/changePass")
     }
 
+        const onDrop = useCallback((acceptedFiles) => {
+    
+            const selectedPhotos = acceptedFiles.map(file => ({
+                url: URL.createObjectURL(file),
+            
+            }));
+            localStorage.setItem('pic' , selectedPhotos[0].url ) 
+            console.log(selectedPhotos[0].url);
+            
+
+        }, []);
+        
+            setPic(localStorage.getItem('pic'))
+
+        const { getRootProps } = useDropzone({ onDrop, accept: 'image/*', multiple: true });
+
 // alert -----------------------------
-    function ShowAlert(){
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: " #d33",
-            cancelButtonColor: "#5B8F9A",
-            confirmButtonText: "Log out !"
-            }).then((result) => {
-            if (result.isConfirmed) {
-                LogOut()
-            }
-            });
-    }
+        function ShowAlert(){
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: " #d33",
+                cancelButtonColor: "#5B8F9A",
+                confirmButtonText: "Log out !"
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    LogOut()
+                }
+                });
+        }
 // alert -----------------------------
 
     return <>
@@ -84,7 +102,8 @@ export default function NavBar(){
                 
                 <li className="nav-item dropdown">
                     <NavLink className="nav-link dropdown-toggle" to='/Account' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src={img3} className={style.image} alt="Account logo"/> My account
+                    {img3 && <img src={localStorage.getItem('pic')!= null ? pic : img3} className={style.image} 
+                    alt="pic"/>} My account
                     </NavLink>
 
                     <ul className={`${style.input} dropdown-menu `}>
@@ -92,13 +111,14 @@ export default function NavBar(){
                         <img src={img5} className={`me-3 ${style.image}`} alt="design"/>My Design</span></li>
                         <li><span className="dropdown-item cursor" onClick={Change}>
                         <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Change Password</span></li>
+                        <li {...getRootProps()}><span className="dropdown-item cursor" >
+                        <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Edit Pic Profile</span></li>
+                        
                         <li><span className="dropdown-item cursor" onClick={ShowAlert}>
                         <img src={img4} className={`me-3 ${style.image}`} alt="logout"/>Sign Out</span></li>
 
                     </ul>
                 </li>
-                
-                
             </ul>}
             
             </div>

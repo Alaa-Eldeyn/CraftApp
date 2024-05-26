@@ -174,7 +174,7 @@ import PC_LightBlue from "./Assets/items/PC_LightBlue.png"
 import PC_TEAL from "./Assets/items/PC_TEAL.png"
 import PC_MUV from "./Assets/items/PC_MUV.png"
 import PC_BROWN from "./Assets/items/PC_BROWN.png"
-
+import Reset from "./Componants/Reset/Reset";
 
 // ----------------------------
 
@@ -196,12 +196,16 @@ function App() {
           element: <ProtectRouting><MyDesign /> </ProtectRouting>,
         },
         { path: "/contact" , element:   <ProtectRouting><Account/> </ProtectRouting>},
-        
+        { path: "/login", element:<Login /> },
+        { path: "/register", element: <Register /> },
+        { path: "/forget", element: <Forget /> },
+        { path: "/reset", element: <Reset /> },
+        { path: "/changePass", element: <ProtectRouting><ChangePass /></ProtectRouting>  },
+        { path: "*", element: <NotFound /> },
         { 
           path: "customize/Hoodie", 
           element: (
-            <ProtectRouting>
-              <Editor
+            <ProtectRouting> <Editor
                 hoodifront={
                   indColor === 0 ? hfw :
                   indColor === 2 ? HFG:
@@ -261,7 +265,6 @@ function App() {
           indColor === 9 ? TB_BROWN :
           TGB
         }
-
         /> </ProtectRouting>},
 
         { path: "customize/Long Sleeve Woman", element:   <ProtectRouting><Editor 
@@ -319,7 +322,6 @@ function App() {
           indColor === 9 ? WB_BROWN :
           BSWG
         }
-
         />   </ProtectRouting>},
 
         { path: "customize/Baby t-shirt", element:  <ProtectRouting> <Editor 
@@ -334,7 +336,6 @@ function App() {
           indColor === 7 ? CF_teal :
           indColor === 8 ? CF_MUV :
           indColor === 9 ? CF_BROWN :
-
           CGF
         }
         hoodiback={
@@ -350,7 +351,6 @@ function App() {
           indColor === 9 ? CB_BROWN :
           CGB
         }
-
         /> </ProtectRouting> },
 
         { path: "customize/Baby BodySuit", element:   <ProtectRouting><Editor 
@@ -416,12 +416,7 @@ function App() {
         />   </ProtectRouting>},
       ],
     },
-    { path: "/login", element:<Login /> },
-    { path: "/register", element: <Register /> },
-    { path: "/forget", element: <Forget /> },
-    { path: "/changePass", element: <ProtectRouting><ChangePass /></ProtectRouting>  },
-
-    { path: "*", element: <NotFound /> },
+    
   ]);
 
   return (
