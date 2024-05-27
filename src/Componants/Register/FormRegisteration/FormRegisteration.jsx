@@ -30,7 +30,7 @@ export default function FormRegisteration() {
     setLoading(true);
     try {
       let { data } = await axios.post(`
-      http://customcrafttt.somee.com/api/Account/register`, values
+      http://customcraftttt.somee.com/api/Account/register`, values
       );
       
       console.log(data);

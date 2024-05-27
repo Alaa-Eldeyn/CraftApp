@@ -7,11 +7,16 @@ import { useQuery } from 'react-query';
 import img from '../../../Assets/images/3d.png'
 import img2 from '../../../Assets/images/download.png'
 import img3 from '../../../Assets/images/delete.png'
+import { ViewContext } from '../../../Context/ViewContext';
 
 const MyDesign = () => {
     let { token } = useContext(userToken);
     const [modal, setModal] = useState(false);
     
+    let {
+        mutation1,
+        setMutation1
+    } = useContext(ViewContext);
     const toggleModal = () => {
         setModal(!modal);
     };
@@ -22,12 +27,12 @@ const MyDesign = () => {
     };
 
     function getDesigns() {
-        return axios.get('http://customcrafttt.somee.com/api/SavedDesign/GetDesigns' , {headers});
+        return axios.get('http://customcraftttt.somee.com/api/SavedDesign/GetDesigns' , {headers});
     }
 
     let { data, isLoading } = useQuery('YourDesign', getDesigns, {
         refetchOnMount: false,
-        // refetchInterval: 3000
+        refetchInterval: 1000
     });
 
 
@@ -40,12 +45,14 @@ const MyDesign = () => {
     
     async function deletee(index) {
             const { response } = await axios.delete(
-                `http://customcrafttt.somee.com/api/SavedDesign/DeleteDesigns?id=${data?.data[index]?.id}`,
+                `http://customcraftttt.somee.com/api/SavedDesign/DeleteDesigns?id=${data?.data[index]?.id}`,
                 {headers}
             );
+            setMutation1(!mutation1); 
 
             console.log(response);
     }
+
     return (
         <>
 

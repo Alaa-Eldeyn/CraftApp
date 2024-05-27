@@ -7,8 +7,7 @@ const Moveablee = () => {
   const targetRef = useRef(null);
   const moveableRef = useRef(null);
   const saveRef = useRef(null);
-  let {ai, textContent, iconContent, shapeContent,  images ,junk } =
-    useContext(ViewContext);
+  let {ai, textContent, iconContent, shapeContent,  images ,junk } = useContext(ViewContext);
 
   return (
     <>
@@ -264,10 +263,8 @@ const Moveablee = () => {
                 className={`m-0 position-absolute target  `}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
-                  color: `${image.color}`,
                   width: "150px",
                   height: "150px",
-                  fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",
                 }}
@@ -339,32 +336,30 @@ const Moveablee = () => {
                 className={`m-0 position-absolute target target${index + 1} ${
                   item.textAlign
                 } ${item.font}
-        ${
-          item.font === "Vibes"
-            ? style.vibes
-            : item.font === "Rakkas"
-            ? style.rakkas
-            : item.font === "Caveat"
-            ? style.Caveat
-            : item.font === "Ojuju"
-            ? style.ojuju
-            : item.font === "Shadows Into Light"
-            ? style.shadows
-            : item.font === "Dancing Script"
-            ? style.dancing
-            : item.font === "Noto Nastaliq Urdu"
-            ? style.amiri
-            : item.font === "Amiri"
-            ? style.amiri
-            : item.font === "Cairo"
-            ? style.Cairo
-            : style.roboto
-        }`}
+                ${
+                  item.font === "Vibes"
+                    ? style.vibes
+                    : item.font === "Rakkas"
+                    ? style.rakkas
+                    : item.font === "Caveat"
+                    ? style.Caveat
+                    : item.font === "Ojuju"
+                    ? style.ojuju
+                    : item.font === "Shadows Into Light"
+                    ? style.shadows
+                    : item.font === "Dancing Script"
+                    ? style.dancing
+                    : item.font === "Noto Nastaliq Urdu"
+                    ? style.amiri
+                    : item.font === "Amiri"
+                    ? style.amiri
+                    : item.font === "Cairo"
+                    ? style.Cairo
+                    : style.roboto
+                }`}
                 style={{
                   transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)",
                   color: `${item.color}`,
-                  width: `${item.width}px`,
-                  height: `${item.height}px`,
                   fontWeight: "900",
                   cursor: "move",
                   userSelect: "none",

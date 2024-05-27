@@ -195,13 +195,7 @@ function App() {
           path: "/myDesign",
           element: <ProtectRouting><MyDesign /> </ProtectRouting>,
         },
-        { path: "/contact" , element:   <ProtectRouting><Account/> </ProtectRouting>},
-        { path: "/login", element:<Login /> },
-        { path: "/register", element: <Register /> },
-        { path: "/forget", element: <Forget /> },
-        { path: "/reset", element: <Reset /> },
-        { path: "/changePass", element: <ProtectRouting><ChangePass /></ProtectRouting>  },
-        { path: "*", element: <NotFound /> },
+        { path: "/contact" , element: <Account/> },
         { 
           path: "customize/Hoodie", 
           element: (
@@ -415,14 +409,21 @@ function App() {
         }
         />   </ProtectRouting>},
       ],
+      
     },
+    { path: "/changePass", element: <ProtectRouting><ChangePass /></ProtectRouting>  },
+    { path: "/login", element:<Login /> },
+    { path: "/register", element: <Register /> },
+    { path: "/forget", element: <Forget /> },
+    { path: "/reset", element: <Reset /> },
+    { path: "*", element: <NotFound /> },
     
   ]);
 
   return (
     <>
 
-            <RouterProvider router={routers}></RouterProvider>
+      <RouterProvider router={routers}></RouterProvider>
 
     </>
   );

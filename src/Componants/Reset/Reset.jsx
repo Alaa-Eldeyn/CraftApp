@@ -25,7 +25,7 @@ export default function Reset() {
 
     try {
       let { data } = await axios.post(`
-      http://customcrafttt.somee.com/api/Account/ResetPassword`, values 
+      http://customcraftttt.somee.com/api/Account/ResetPassword`, values 
       );
       console.log(data);
       if (data ==="Password Changed") {

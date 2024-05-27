@@ -23,7 +23,7 @@ export default function Forget() {
 
   async function SendToApi  (values) {
     setLoading(true)
-    const {data} = await axios.post (`http://customcrafttt.somee.com/api/Account/forgetPassword` , values).catch((error)=>{
+    const {data} = await axios.post (`http://customcraftttt.somee.com/api/Account/forgetPassword` , values).catch((error)=>{
       console.log(error);
       setLoading(false)
     })

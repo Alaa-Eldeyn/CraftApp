@@ -14,6 +14,7 @@ export default function Cutomize() {
     // refetchInterval: 30000
   })
 
+  console.log(data);
   return (
     
     <>

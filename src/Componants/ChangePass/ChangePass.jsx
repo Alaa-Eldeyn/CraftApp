@@ -29,15 +29,15 @@ export default function ChangePass() {
 
     try {
       let { data } = await axios.post(`
-      http://customcrafttt.somee.com/api/Account/ChangePassword`, values , {
+      http://customcraftttt.somee.com/api/Account/ChangePassword`, values , {
         headers
       }
       );
-      console.log(data);
+      
       if (data ==="Password Changed") {
         setMsg("Password Changed");
       } 
-
+      
       else {
         setMsg("Incorrect password");
       }
@@ -46,7 +46,7 @@ export default function ChangePass() {
     finally {
       setLoading(false);}
     } 
-
+    
       let formik = useFormik({
         initialValues : {
                 currentPassword: "",

@@ -96,7 +96,7 @@ const Layers = () => {
 
     async function SavedDesigns(values) {
             await axios.post(`
-            http://customcrafttt.somee.com/api/SavedDesign/SavedDesigns`, values , {headers}
+            http://customcraftttt.somee.com/api/SavedDesign/SavedDesigns`, values , {headers}
             );
     } 
 

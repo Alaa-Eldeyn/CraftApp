@@ -4,6 +4,8 @@ import img3 from '../../Assets/images/Group.png';
 import img4 from '../../Assets/images/logout.png';
 import img5 from '../../Assets/icons/brush.svg';
 import img6 from '../../Assets/images/carbon_password.png';
+import img7 from '../../Assets/images/pic.png';
+
 
 import style from './NavBar.module.css';
 import { useCallback, useContext } from "react";
@@ -101,9 +103,10 @@ export default function NavBar(){
             :<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 
                 <li className="nav-item dropdown">
-                    <NavLink className="nav-link dropdown-toggle" to='/Account' role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <NavLink className="nav-link dropdown-toggle" to='/Account' role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                        
                     {img3 && <img src={localStorage.getItem('pic')!= null ? pic : img3} className={style.image} 
-                    alt="pic"/>} My account
+                    alt="pic" style={{height:"35px" ,width:'35px',border:'1px solid #2E2E2E' , borderRadius:"50%"}} /> } My account
                     </NavLink>
 
                     <ul className={`${style.input} dropdown-menu `}>
@@ -111,8 +114,8 @@ export default function NavBar(){
                         <img src={img5} className={`me-3 ${style.image}`} alt="design"/>My Design</span></li>
                         <li><span className="dropdown-item cursor" onClick={Change}>
                         <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Change Password</span></li>
-                        <li {...getRootProps()}><span className="dropdown-item cursor" >
-                        <img src={img6} className={`me-3 ${style.image}`} alt="password"/>Edit Pic Profile</span></li>
+                        <li {...getRootProps()}><span className="dropdown-item cursor"  >
+                        <img src={img7} className={`me-3 ${style.image}`} alt="password"/>Edit Pic Profile</span></li>
                         
                         <li><span className="dropdown-item cursor" onClick={ShowAlert}>
                         <img src={img4} className={`me-3 ${style.image}`} alt="logout"/>Sign Out</span></li>

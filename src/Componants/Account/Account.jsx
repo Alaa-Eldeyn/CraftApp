@@ -9,7 +9,6 @@ import * as Yup from "yup"
 import { Link } from "react-router-dom";
 
 const Account = () => {
-
   const form = useRef();
   let [loading , setLoading]= useState(false)
   let [Msg , setMsg]= useState('')
@@ -32,9 +31,12 @@ const Account = () => {
     emailjs
       .sendForm(
         "service_r7m9e5t",
+        // "service_tmiccxr",
+        // "template_h5fg3lh",
         "template_i8x0q7k",
         form.current,
         "S9DhpSU6EAXGEc3Rn"
+        // "oJsOhaTUCMHU-jWZP"
       )
       .then(
         (result) => {
